@@ -1,0 +1,125 @@
+// ------------------------------------------
+// btn
+// ------------------------------------------
+
+
+@mixin import-ui-btn {
+
+//--------------------- 定义 ---------------------//
+
+//定义btn相关变量
+$btn-cls:				#{$conf-nsp-ele}btn; //通用类名
+$btn-padding-s:			0 rem(6);	//padding
+$btn-padding:			0 rem(10);	
+$btn-padding-l:			0 rem(16);	
+$btn-fz-s:				$fz-s;		//font-size
+$btn-fz:				$fz;
+$btn-fz-l:				$fz-l;
+$btn-radius-s:			$radius-s;	//border-radius
+$btn-radius:			$radius;
+$btn-radius-l:			$radius-l;
+$btn-width-s:			rem(50);   //width
+$btn-width:				rem(80);
+$btn-width-l:			rem(120);
+$btn-height-s:			rem(20);	//height
+$btn-height:			rem(30);
+$btn-height-l:			rem(36);
+$btn-lh-s:				rem(18);	//line-height
+$btn-lh:				rem(28);
+$btn-lh-l:				rem(34);
+
+$btn-main-color:		#fff;		//btn-main
+$btn-main-bg:			$main;
+$btn-main-bg-hover:		$main-l;
+$btn-main-bg-active:	$main-d;
+$btn-main-border:		transparent;
+$btn-default-color:			$color;		//btn-default
+$btn-default-color-hover:	$main;
+$btn-default-color-active:	$main-d;
+$btn-default-bg:			#fff;
+$btn-default-border:		$border;
+$btn-default-border-hover:	$main;
+$btn-default-border-active:	$main-d;
+$btn-disabled-color:		#ccc;		//disabled
+$btn-disabled-bg:			$disabled;
+$btn-disabled-border:		$border;
+
+//定义尺寸
+@mixin btn-size($padding,$fz,$radius,$w,$h,$lh) {
+	min-width: $w;
+	height: $h;
+	line-height: $lh;
+	padding: $padding;
+	font-size: $fz;
+	border-radius: $radius;
+}
+//定义颜色
+@mixin btn-color($color,$bg,$border) {
+	color: $color;
+	background-color: $bg;
+	border-color: $border;
+}
+
+
+//--------------------- 按钮通用样式（固定样式） ---------------------//
+.#{$btn-cls} {
+	display: inline-block;
+	vertical-align: middle;
+	@include btn-size($btn-padding,$btn-fz,$btn-radius,$btn-width,$btn-height,$btn-lh);
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid transparent;
+	@include transition(all);
+	&--disabled {
+		@include btn-color($btn-disabled-color,$btn-disabled-bg,$btn-disabled-border);
+		cursor: default;
+		pointer-events: none;
+	}
+	&--s {
+		@include btn-size($btn-padding-s,$btn-fz-s,$btn-radius-s,$btn-width-s,$btn-height-s,$btn-lh-s);
+	}
+	&--l {
+		@include btn-size($btn-padding-l,$btn-fz-l,$btn-radius-l,$btn-width-l,$btn-height-l,$btn-lh-l);
+	}
+
+	//--------------------- 主要确认按钮 ---------------------//
+	&__default {
+		@include btn-color($btn-default-color,$btn-default-bg,$btn-default-border);
+		@if $conf-mobile {
+			&#{$conf-press} {
+				@include btn-color($btn-default-color-active,$btn-default-bg,$btn-default-border-active);
+			}
+		}
+		@else {
+			&:hover {
+				@include btn-color($btn-default-color-hover,$btn-default-bg,$btn-default-border-hover);
+			}
+			&:active {
+				@include btn-color($btn-default-color-active,$btn-default-bg,$btn-default-border-active);
+			}
+		}
+	}
+
+	//--------------------- 主要确认按钮 ---------------------//
+	&__main {
+		@include btn-color($btn-main-color,$btn-main-bg,$btn-main-border);
+		@if $conf-mobile {
+			&#{$conf-press} {
+				@include btn-color($btn-main-color,$btn-main-bg-active,$btn-main-border);
+			}
+		}
+		@else {
+			&:hover,
+			&:focus {
+				@include btn-color($btn-main-color,$btn-main-bg-hover,$btn-main-border);
+			}
+			&:active {
+				@include btn-color($btn-main-color,$btn-main-bg-active,$btn-main-border);
+			}
+		}
+	}
+	
+}
+
+}
