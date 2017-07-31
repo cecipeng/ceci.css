@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const fileinclude = require('gulp-file-include');
+const md = require('gulp-markdown');
 
 const conf = require('./config');
 const c_paths = conf.paths;
@@ -20,4 +21,17 @@ function views(){
 		.pipe(gulp.dest(c_paths.tmp))
 }
 
-module.exports = views;
+function markdown(){
+	return gulp.src(
+			[
+				c_paths.src +'/**/*.md'
+			]
+		)
+		.pipe(md())
+		.pipe(gulp.dest(c_paths.src))
+}
+
+module.exports = {
+	views: views,
+	markdown: markdown
+};

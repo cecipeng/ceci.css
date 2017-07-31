@@ -19,14 +19,14 @@ $main:                  $blue;
 $main-d:                #4caaeb;
 $main-dr:               darken($main,10%);
 $main-l:                #55b9ff;
-$main-lr:               lighten($main,15%);
+$main-lr:               lighten($main,35%);
 
 // sub color
 $sub: 					$green;
 $sub-d: 				darken($sub,5%);
 $sub-dr: 			    darken($sub,10%);
 $sub-l: 			    lighten($sub,10%);
-$sub-lr: 			    lighten($sub,15%);
+$sub-lr: 			    lighten($sub,35%);
 
 // border
 $border-l: 	            #eee;
@@ -34,7 +34,7 @@ $border: 				#ddd;
 $border-d: 		        #ccc;
 
 // background-color
-$bg-l: 	                #ddd;
+$bg-l: 	                #f5f5f5;
 $bg: 			        #ddd;
 $bg-d: 	                #ddd;
 
@@ -59,6 +59,11 @@ $fz-xxxl:               rem(24);
 
 //line-height
 $lh:                    1.5;
+
+
+$shadow-s:              0 rem(1) rem(6) rgba(0,0,0,.2);
+$shadow:                0 rem(1) rem(6) rgba(0,0,0,.2);
+$shadow-l:              0 rem(1) rem(6) rgba(0,0,0,.2);
 
 //--------------------- radius ---------------------//
 
@@ -100,9 +105,10 @@ $padding:  				rem(0);
 
 //--------------------- media ---------------------//
 $screen-xs:             rem(480);
-$screen-sm:             rem(768);
-$screen-md:             rem(992);
-$screen-lg:             rem(1200);
+$screen-s:              rem(768);
+$screen-m:              rem(992);
+$screen-l:              rem(1200);
+$screen-xl:             rem(1600);
 // $mq-s:                  max-width $min-w;
 // $mq-n:                  1024px 1200px;
 // $mq-l:                  1000px;

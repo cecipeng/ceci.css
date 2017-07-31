@@ -1,1 +1,175 @@
 @charset "UTF-8";
+@import "../../ceci.css/_base/_conf";
+@import '../../ceci.css/_base/_mixin';
+@import '../../ceci.css/_theme/_define';
+@import '../../ceci.css/_base/_breakpoint';
+
+///////////////////////////// 布局
+.doc__content {
+    height: 100%;
+    iframe {
+        width: 100%;
+        min-height: 100%;
+        border: none;
+    }
+}
+.doc__mdbody {
+    height: auto;
+    overflow: visible;
+    margin:0px; padding:0px;
+    body {
+        height: auto;
+        overflow: visible;
+    }
+    
+}
+
+
+/////////////////////////////// markdown
+.doc__markdown {
+    //介绍文字
+    > h1 {
+        margin: rem(8) 0 rem(24);
+        line-height: rem(40);
+        font-size: rem(25);
+        color: $color-d;
+    }
+    > h2 {
+        margin: rem(24) 0 rem(14);
+        line-height: rem(40);
+        font-size: rem(22);
+        color: $color-d;
+    }
+    > h3 {
+        margin: rem(20) 0 rem(10);
+        line-height: rem(32);
+        font-size: rem(18);
+        color: $color-d;
+    }
+    > p {
+        margin: rem(14) 0;
+        line-height: rem(25);
+        font-size: rem(14);
+        color: $color;
+    }
+    
+    // 预览演示
+    .doc__mdbox {
+        margin-bottom: rem(30);
+        border: 1px solid $border;
+        margin-top: rem(10);
+        border-radius: $radius;
+        > .ui-grid__row {
+            // overflow: hidden;
+        }
+        > .ui-grid__row > div {
+            &:first-child {
+                padding: rem(20);
+            }
+            @include breakpoint($screen-s) {
+                &.ui-grid__col-s-24:last-child {
+                    border-top: 1px dashed $border;
+                }
+            }
+            @include breakpoint($screen-m) {
+                &.ui-grid__col-m-12:last-child {
+                    // padding-bottom: rem(9999);
+                    // margin-bottom: rem(-9999);
+                    border-left: 1px dashed $border;
+                    border-top: none;
+                }
+            }
+            // > textarea {
+            //     width: 100%;
+            //     height: 200px;
+            //     resize: none;
+            //     padding: rem(20);
+            // }
+        }
+
+        &-title {
+            position: relative;
+            padding: rem(20);
+            border-bottom: 1px dashed $border;
+            > h2 {
+                position: absolute;
+                left: rem(10);
+                top: rem(-10);
+                padding: 0 rem(10);
+                line-height: rem(20);
+                font-size: rem(16);
+                color: $fz;
+                background-color: #fff;
+            }
+            > p {
+                line-height: rem(25);
+                font-size: rem(14);
+                color: $color;
+            }
+            code {
+                display: inline-block;
+                height: rem(23);
+                line-height: rem(20);
+                padding: 0 rem(4);
+                margin: 0 rem(4);
+                border: 1px solid $border;
+                border-radius: $radius;
+                background-color: $bg-l;
+            }
+        }
+    }
+
+    //API
+    > table {
+        min-width: 50%;
+        max-width: 100%;
+        margin: rem(8) 0 rem(16);
+        border: 1px solid $border;
+        font-size: rem(12);
+        th {
+            border: 1px solid $border;
+            background-color: $bg-l;
+            padding: rem(8) rem(16);
+            text-align: left;
+            color: $color;
+        }
+        td {
+            border: 1px solid $border;
+            background-color: #fff;
+            padding: rem(8) rem(16);
+            text-align: left;
+            color: $color-l;
+            &:first-child {
+                color: $color;
+                background-color: #fafafa;
+            }
+        }
+    }
+    
+}
+
+.ui-layout__body {
+    height: 100%;
+    padding: 0 50px;
+}
+.ui-layout__fix--left {
+    height: 100%;
+}
+.ui-layout__sider--fix {
+    left: 50px;
+    margin-left: 0;
+    top: $header-h;
+}
+
+//grid
+// .ui-grid__row {
+//     background-color: #f5f5f5;
+//     padding-bottom: 10px;
+//     [class^="ui-grid__col-"] .demo {
+//         min-height: 30px;
+//         color: #fff;
+//         border: 1px solid $main-dr;
+//         background-color: $main;
+//         text-align: center;
+//     }
+// }

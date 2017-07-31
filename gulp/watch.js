@@ -18,7 +18,8 @@ function watch(){
 
 	dirList.forEach((dir) => {
 		if(fs.statSync(c_paths.src + '/' + dir).isDirectory()){
-			WatchEvent(gulp.watch(dir + '/**/*.html',{cwd: c_paths.src}),views,server.reload);
+			WatchEvent(gulp.watch(dir + '/**/*.md',{cwd: c_paths.src}),views.markdown,server.reload);
+			WatchEvent(gulp.watch(dir + '/**/*.html',{cwd: c_paths.src}),views.views,server.reload);
 			WatchEvent(gulp.watch(dir + '/**/*.{scss,css}', {cwd: c_paths.src}),styles);
 			WatchEvent(gulp.watch(dir + '/**/*.js', {cwd: c_paths.src}), scripts,server.reload);
 			WatchEvent(gulp.watch(dir + '/**/*.{jpg,png,gif}', {cwd: c_paths.src}), images,server.reload);

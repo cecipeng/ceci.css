@@ -1,0 +1,178 @@
+<h2 id="api">API</h2>
+<h3 id="menu-props">Menu props</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>theme</td>
+<td>主题颜色</td>
+<td>String: <code>light</code> <code>dark</code></td>
+<td><code>light</code></td>
+</tr>
+<tr>
+<td>mode</td>
+<td>菜单类型，现在支持垂直、水平、和内嵌模式三种</td>
+<td>String: <code>vertical</code> <code>horizontal</code> <code>inline</code></td>
+<td><code>vertical</code></td>
+</tr>
+<tr>
+<td>selectedKeys</td>
+<td>当前选中的菜单项 key 数组</td>
+<td>Array</td>
+<td></td>
+</tr>
+<tr>
+<td>defaultSelectedKeys</td>
+<td>初始选中的菜单项 key 数组</td>
+<td>Array</td>
+<td></td>
+</tr>
+<tr>
+<td>openKeys</td>
+<td>当前展开的 SubMenu 菜单项 key 数组</td>
+<td>Array</td>
+<td></td>
+</tr>
+<tr>
+<td>defaultOpenKeys</td>
+<td>初始展开的 SubMenu 菜单项 key 数组</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onOpen</td>
+<td>SubMenu 展开回调</td>
+<td>Function({ key, item, keyPath })</td>
+<td></td>
+</tr>
+<tr>
+<td>onClose</td>
+<td>SubMenu 收起回调</td>
+<td>Function({ key, item, keyPath })</td>
+<td></td>
+</tr>
+<tr>
+<td>onSelect</td>
+<td>被选中时调</td>
+<td>Function({ item, key, selectedKeys })</td>
+<td>无</td>
+</tr>
+<tr>
+<td>onDeselect</td>
+<td>取消选中时调用，仅在 multiple 生效</td>
+<td>Function({ item, key, selectedKeys })</td>
+<td>-</td>
+</tr>
+<tr>
+<td>onClick</td>
+<td>点击 menuitem 调用此函数，参数为 {item, key, keyPath}</td>
+<td>function</td>
+<td>-</td>
+</tr>
+<tr>
+<td>style</td>
+<td>根节点样式</td>
+<td>Object</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>More options in <a href="https://github.com/react-component/menu#api">rc-menu</a></p>
+</blockquote>
+<h3 id="menu-item-props">Menu.Item props</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>disabled</td>
+<td>是否禁用</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>key</td>
+<td>item 的唯一标志</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<h3 id="menu-submenu-props">Menu.SubMenu props</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>disabled</td>
+<td>是否禁用</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>key</td>
+<td>唯一标志</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>子菜单项值</td>
+<td>String or React.Element</td>
+<td></td>
+</tr>
+<tr>
+<td>children</td>
+<td>子菜单的菜单项</td>
+<td>(MenuItem or SubMenu)[]</td>
+<td></td>
+</tr>
+<tr>
+<td>onTitleClick</td>
+<td>点击子菜单标题</td>
+<td>Function({ eventKey, domEvent })</td>
+</tr>
+</tbody>
+</table>
+<h3 id="menu-itemgroup-props">Menu.ItemGroup props</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>分组标题</td>
+<td>String or React.Element</td>
+<td></td>
+</tr>
+<tr>
+<td>children</td>
+<td>分组的菜单项</td>
+<td>MenuItem[]</td>
+</tr>
+</tbody>
+</table>

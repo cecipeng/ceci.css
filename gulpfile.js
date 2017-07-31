@@ -15,9 +15,10 @@ const build = require('./gulp/build');
 gulp.task('default', 
 	gulp.series(
 		clean.clean, 
+		views.markdown, 
 		gulp.parallel(
 			watch, 
-			views, 
+			views.views, 
 			scripts, 
 			styles, 
 			images, 
@@ -30,8 +31,9 @@ gulp.task('dist',
 	gulp.series(
 		clean.clean, 
 		clean.cleanBuild, 
+		views.markdown, 
 		gulp.parallel(
-			views, 
+			views.views, 
 			scripts, 
 			styles, 
 			images
@@ -51,8 +53,9 @@ gulp.task('dist:tiny',
 	gulp.series(
 		clean.clean, 
 		clean.cleanBuild, 
+		views.markdown, 
 		gulp.parallel(
-			views, 
+			views.views, 
 			scripts, 
 			styles, 
 			images

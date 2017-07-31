@@ -36,6 +36,7 @@
     "postcss-sprites": "latest",
     "postcss-url": "latest",
     "rucksack-css": "latest",
+    "gulp-markdown": "latest",
     "doiuse": "latest"
   }
 }

@@ -64,7 +64,7 @@ $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 			margin-left: -($wrapper-w / 2);
 			overflow: auto;
 			z-index: $zindex-fix;
-			@include breakpoint(max-width $screen-lg) { //屏幕过窄时不固定
+			@include breakpoint(max-width $screen-l) { //屏幕过窄时不固定
 				position: absolute;
 				left: 0;
 				margin-left: 0;
@@ -77,7 +77,7 @@ $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 				right: 50%;
 				margin-left: 0;
 				margin-right: -($wrapper-w / 2);
-				@include breakpoint(max-width $screen-lg) { //屏幕过窄时不固定
+				@include breakpoint(max-width $screen-l) { //屏幕过窄时不固定
 					position: absolute;
 					right: 0;
 					margin-right: 0;

@@ -6,7 +6,7 @@
 $conf-mobile: 		false;
 $conf-press:		'.s-pressed'; //结合hightlight插件，按钮按下时添加的类名
 
-// 配置项二：兼容CSS3动画，默认：支持
+// 配置项二：兼容CSS3，默认：支持
 $conf-css3: 		true;
 
 // 配置项三：是否引入字体图标，默认：不引入
@@ -28,7 +28,7 @@ $conf-para:			false; //段落
 $conf-header:		false; //头部
 $conf-footer:		false; //底部
 $conf-placeholder:	false; //占位图
-$conf-nav:			false; //导航
+$conf-nav:			true; //导航
 $conf-list:			false; //列表
 $conf-page:			false; //分页
 $conf-search:		false; //搜索

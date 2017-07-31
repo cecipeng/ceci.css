@@ -55,6 +55,13 @@ input, select {
 	vertical-align: middle; 
 	outline: none;
 }
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  	-webkit-appearance: button; /* 2 */
+  	cursor: pointer; /* 3 */
+}
 textarea { 
 	resize: vertical; 
 	border: none;
@@ -80,7 +87,7 @@ a, a:hover, a:active {
 input, textarea, select {       
 	font-family: 'San Francisco',Helvetica,Roboto,'Droid Sans','Microsoft YaHei', 'SimSun', Arial;
 }  
-body { 
+html { 
 	font-family: 'San Francisco',Helvetica,Roboto,'Droid Sans','Microsoft YaHei', 'SimSun', Arial;
 }
 

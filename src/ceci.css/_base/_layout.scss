@@ -15,7 +15,7 @@ body {
 	width: $wrapper-w;
 	margin: 0 auto;
 	overflow: hidden;
-	@include breakpoint($screen-lg) {
+	@include breakpoint($screen-l) {
     	width: $min-w;
     }
 }
@@ -64,7 +64,7 @@ body {
 			right: 50%;
 			margin-right: -($wrapper-w / 2);
 			z-index: $zindex-fix;
-			@include breakpoint($screen-lg) { //屏幕过窄时不固定
+			@include breakpoint($screen-l) { //屏幕过窄时不固定
 				position: absolute;
 				right: 0;
 				margin-right: 0;

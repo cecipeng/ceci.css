@@ -3,8 +3,8 @@
 // ------------------------------------------
 
 // 按钮
-@import "_ui-btn/btn";
-@if $conf-btn { 
-    @include import-ui-btn; 
+@import "_ui-nav/nav";
+@if $conf-nav { 
+    @include import-ui-nav; 
 } 
 

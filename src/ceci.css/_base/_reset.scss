@@ -18,6 +18,9 @@ ul, ol, th, td, button, textarea, input {
 ul, ol { 
 	list-style: none; 
 }
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  	display: block;
+}
 h1, h2, h3, h4, h5, h6 { 
 	font-size: 100%; 
 	font-weight: normal; 
@@ -55,6 +58,13 @@ input, select {
 	vertical-align: middle; 
 	outline: none;
 }
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  	-webkit-appearance: button; /* 2 */
+  	cursor: pointer; /* 3 */
+}
 textarea { 
 	resize: vertical; 
 	border: none;
@@ -72,6 +82,7 @@ html, body {
     // scrollbar-darkshadow-color: #fff; 	// 滚动条暗边框（ThreedDarkShadow）颜色
 }
 a, a:hover, a:active {
+	cursor: pointer;
 	outline: 0;
 	text-decoration: none;
 	background-color: transparent;
@@ -83,7 +94,7 @@ a, a:hover, a:active {
 input, textarea, select {       
 	font-family: 'Microsoft YaHei', 'SimSun', Arial, Helvetica;
 }  
-body { 
+html { 
 	font-family: 'Microsoft YaHei', 'SimSun', Arial, Helvetica;
 }
 a { 
@@ -108,15 +119,15 @@ input::-ms-reveal {
 }
 
 ::-webkit-scrollbar {// webkit美化滚动条
-	width: 6px;
-	height: 6px;
+	width: rem(10);
+	height: rem(10);
 }
 ::-webkit-scrollbar-thumb {
-	border-radius: rem(3);
-	background: #999;
+	border-radius: rem(6);
+	background: #ccc;
 }
 ::-webkit-scrollbar-track {
-	background: #dbdbdb;
+	background: #eee;
 }
 ::-ms-clear,
 ::-ms-reveal {

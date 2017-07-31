@@ -10,17 +10,35 @@
 </head>
 
 <body>
-@@include('../ceci.css/_elements/_ui-btn/_btn.html')
+ 
+<div class="ui-layout ui-layout__fix--top">
+    <div class="ui-layout__header ui-layout__header--fix">
+		@@include('../ceci.css/_components/_ui-nav/_nav-horizontal.html')
+	</div>
+    <div class="ui-layout__body">
+        <div class="ui-layout__fix--left">
+            <div class="ui-layout__sider ui-layout__sider--left ui-layout__sider--fix">
+                @@include('../ceci.css/_components/_ui-nav/_nav-inline.html')
+            </div>
+            <div class="ui-layout__content doc__content">
+                <iframe id="iframe" class="doc__iframe" src="views/nav.html" onload="setHeight()"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="ui-layout__footer">footer</div>
+</div>
 
-<!--@@include('../ceci.css/_elements/_ui-layout/_layout.html')-->
-<!--@@include('../ceci.css/_elements/_ui-layout/_layout-sider.html')-->
-<!--@@include('../ceci.css/_elements/_ui-layout/_layout-widesider.html')-->
-<!--@@include('../ceci.css/_elements/_ui-layout/_layout-fix.html')-->
-
-
-<!--<script src="../../common/scripts/jquery-1.8.3.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script>
+    $(".ui-nav__submenu .ui-nav__item > a").on('click',function(){
+        const _src = 'views/' + $(this).attr('href').replace("#","") + '.html';
+        $("#iframe").attr('src', _src)
+    })
 
+    function setHeight(){
+        const _height = $("#iframe").contents().find("body").height() + 40;
+        $("#iframe").height(_height);
+    }
 </script>
 
 </body>
