@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+//--------------------- display ---------------------//
+
+.show {
+	display: block;
+}
+.ibshow {
+	display: inline-block;
+}
+.hide {
+	display: none;
+}
+.oh {
+	overflow: hidden;
+}
+
+
+//--------------------- float ---------------------//
+
+.relative { position: relative; }
+.fixed { position: fixed; }
+
+
+//--------------------- float ---------------------//
+
+.fl { 
+	float: left;
+} 
+.fr { 
+	float: right;
+}
+
+
+//--------------------- clearfix ---------------------//
+
+.cl { 
+	clear: both;
+}
+.clx:after { 
+	content: ""; 
+	display: table; 
+	clear: both;
+}
+
+
+//--------------------- margin ---------------------//
+
+.mt10 { margin-top: rem(10); }
+.mt20 { margin-top: rem(20); }
+
+.ml10 { margin-left: rem(10); }
+.ml20 { margin-left: rem(20); }
+
+.mr10 { margin-right: rem(10); }
+.mr20 { margin-right: rem(20); }
+
+.mb10 { margin-bottom: rem(10); }
+.mb20 { margin-bottom: rem(20); }
+.mb30 { margin-bottom: rem(30); }
+
+//--------------------- font ---------------------//
+
+.tl { text-align: left; } 
+.tc { text-align: center; } 
+.tr { text-align: right; }
+.fz12 { font-size: rem(12); } 
+.fz14 { font-size: rem(14); }
+.textoverflow { 
+	overflow: hidden; 
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+}
+.wordbreak { 
+	word-break: break-all; 
+	word-wrap: break-word; 
+}
+.nowrap { white-space: nowrap; }

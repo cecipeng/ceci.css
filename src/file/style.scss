@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+/*!
+ * Ceci.css —— a beautiful css framework
+ * Repository - https://github.com/cecipeng/ceci.css
+ * Website - 
+ * Author - CeciPeng <1047328479@qq.com>
+ * Version - v1.0.0
+ */
+
+
+//--------------------- base ---------------------//
+
+// reset
+@import "_base/_reset.scss";	// default
+
+@function cm($unit){
+	@return $unit * 1cm;
+}
+
+//--------------------- page ---------------------//
+@media print {
+	body { color: #000; background: #fff; } //为达到颜色清晰明了
+	img {
+		max-width: 100% !important;//防止图片过宽而超出纸张边缘
+	}
+	@page {
+		margin: 2cm; //内容距离纸张边缘
+	}
+	ul, img {
+		page-break-inside: avoid; //列表和图片不被分开在不同的页
+	}
+	article {
+		page-break-before: always; //确保 articles 文章标签的内容，在新的一页开始
+	}
+	h2, h3 { page-break-after: avoid; }
+}
+
+.formwrap {
+	position: relative;
+	width:cm(21);
+	padding-top: cm(.9);
+	margin: 0 auto;
+	// padding: cm(2.1);
+	// background-color: #f5f5f5;
+	.form-head {
+		margin-bottom: cm(0.5);
+		line-height: 1.5;
+		font-size: cm(1);
+		text-align: center;
+	}
+	.form-subtitle {
+		clear: fix;
+		li {
+			float: left;
+			width: 50%;
+			&:first-child {
+				padding-right: cm(0.5);
+			}
+		}
+	}
+	.form-title {
+		float: left;
+		line-height: 2;
+		font-size: cm(0.4);
+	}
+	.form-content {
+		display: block;
+		line-height: 2;
+		font-size: cm(0.4);
+		overflow: hidden;
+	}
+	.form-table {
+		margin-top: cm(0.25);
+		border: 1px solid #000;
+	}
+	.form-row {
+		position: relative;
+		
+		border-top: 1px solid #000;
+		&:first-child {
+			border-top: none;
+		}
+		clear: fix;
+		li {
+			float: left;
+			width: 50%;
+			padding: cm(0.15) cm(0.25);
+			border-left: 1px solid #000;
+			&:first-child {
+				border-left: none;
+			}
+		}
+	}
+	.form-row-fixtitle {
+		position: relative;
+		min-height: cm(6);
+		padding: cm(0.15) cm(0.25);
+		padding-top: cm(0.9);
+		.form-title {
+			position: absolute;
+			left: cm(0.25);
+			top: cm(0.15);
+		}
+		.form-content {
+
+		}
+	}
+	.form-content-only {
+		padding: cm(0.15) cm(0.25);
+		.time {
+			margin: 0 cm(0.2);
+		}
+	}
+	.form-tag {
+		position: absolute;
+		left: 0;
+		top: 0;
+		border: 1px solid #000;
+		padding: 0 cm(.1);
+		line-height: cm(.8);
+		font-size: cm(.6);
+	}
+}

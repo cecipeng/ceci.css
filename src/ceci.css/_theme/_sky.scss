@@ -35,7 +35,7 @@ $border-d: 		        #ccc;
 
 // background-color
 $bg-l: 	                #f5f5f5;
-$bg: 			        #ddd;
+$bg: 			        #eee;
 $bg-d: 	                #ddd;
 
 // disabled color
@@ -96,10 +96,10 @@ $dur-h:                 2s;
 $header-h:              rem(64);      // header height  
 $nav-h:                 rem(0);      // mainnav height  
 $footer-h:              rem(64);      // footer height 
-$wrapper-w:				rem(1200);      // 正文 width
+$wrapper-w:				100%;      // 正文 width
 $min-w:				    rem(0);      // 正文 width,1024还需加上滚动条宽度
 $side-w:				rem(200);      // 侧栏 width
-$padding:  				rem(0);
+$padding:  				rem(20);
 
 
 

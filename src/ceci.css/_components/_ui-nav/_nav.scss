@@ -25,13 +25,13 @@ $nav-hor-subitem-color:     $color; //字体颜色
 
 ////////////////// 垂直菜单设置 vertical
 //菜单项
-$nav-ver-menu-width:        150px; //宽度
+$nav-ver-menu-width:        $side-w; //宽度
 $nav-ver-item-height:       rem(30); //高度
 $nav-ver-item-fz:           $fz-s; //字体大小
 $nav-ver-item-color:        $color; //字体颜色
 
 //子菜单项
-$nav-ver-submenu-width:     180px; //宽度
+$nav-ver-submenu-width:     $side-w; //宽度
 $nav-ver-submenu-radius:    $radius; //圆角
 $nav-ver-subitem-height:    rem(30); //菜单项高度
 $nav-ver-subitem-fz:        $fz-s; //字体大小

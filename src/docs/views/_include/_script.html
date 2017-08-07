@@ -1,0 +1,11 @@
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('pre code').each(function(i, block) {
+			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
+			block.innerHTML = _html;
+			hljs.highlightBlock(block);
+		});
+	});
+</script>

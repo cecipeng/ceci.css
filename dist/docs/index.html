@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="stylesheet" href="../ceci.css/ceci.css">
+    <link rel="stylesheet" href="css/doc.css">
+    <title>ceci.css</title>
+</head>
+
+<body>
+ 
+<div class="ui-layout ui-layout__fix--top">
+    <div class="ui-layout__header ui-layout__header--fix">
+		<ul class="ui-nav ui-nav--horizontal">
+    <li class="ui-nav__item"><a href="###">导航项1</a></li>
+    <li class="ui-nav__item"><a href="###">导航项2</a></li>
+    <li class="ui-nav__item ui-nav__item--active">
+        <a href="###" class="ui-nav__subtitle">导航项3</a>
+        <ul class="ui-nav__submenu">
+            <li class="ui-nav__subitem"><a href="###">子菜单1</a></li>
+            <li class="ui-nav__subitem"><a href="###">子菜单2</a></li>
+            <li class="ui-nav__subitem"><a href="###">子菜单3</a></li>
+            <li class="ui-nav__subitem"><a href="###">子菜单4</a></li>
+            <li class="ui-nav__subitem"><a href="###">子菜单5</a></li>
+            <li class="ui-nav__subitem"><a href="###">子菜单6</a></li>
+        </ul>
+    </li>
+    <li class="ui-nav__item"><a href="###">导航项4</a></li>
+</ul>
+	</div>
+    <div class="ui-layout__body ui-layout__scroll">
+        <div class="ui-layout__fix--left">
+            <div class="ui-layout__sider ui-layout__sider--left ui-layout__sider--fix">
+                <!-- 菜单 -->
+                <ul class="ui-nav ui-nav--inline">
+                    <li class="ui-nav__item ui-nav__item--active"><a href="###">导航项1</a></li>
+                    <li class="ui-nav__item"><a href="###">导航项2</a></li>
+                    <li class="ui-nav__item ui-nav__item--open">
+                        <a href="###" class="ui-nav__subtitle">导航项3</a>
+                        <ul class="ui-nav__submenu">
+                            <li class="ui-nav__item"><a href="#layout">Layout 布局</a></li>
+                            <li class="ui-nav__item"><a href="#nav">Nav 导航菜单</a></li>
+                            <li class="ui-nav__item"><a href="#grid">Grid 栅格</a></li>
+                            <li class="ui-nav__item"><a href="###">子菜单4</a></li>
+                            <li class="ui-nav__item"><a href="###">子菜单5</a></li>
+                            <li class="ui-nav__item"><a href="###">子菜单6</a></li>
+                        </ul>
+                    </li>
+                    <li class="ui-nav__item"><a href="###">导航项4</a></li>
+                </ul>
+                <!-- /菜单 -->
+            </div>
+            <div class="ui-layout__content doc__content">
+                <iframe id="iframe" class="doc__iframe" src="views/nav.html" onload="setHeight()"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    $(".ui-nav__submenu .ui-nav__item > a").on('click',function(){
+        const _src = 'views/' + $(this).attr('href').replace("#","") + '.html';
+        $("#iframe").attr('src', _src)
+    })
+
+    function setHeight(){
+        const _height = $("#iframe").contents().find("body").height() + 40;
+        $("#iframe").height(_height);
+    }
+</script>
+
+</body>
+</html>

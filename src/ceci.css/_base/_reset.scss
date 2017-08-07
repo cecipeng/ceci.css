@@ -9,7 +9,7 @@
 *, *:before, *:after {
 	box-sizing:border-box;
 }
-body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, blockquote, textarea, input, button, hr, figure { 
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, blockquote, textarea, input, button, hr, figure, pre, code { 
 	margin:0; 
 }
 ul, ol, th, td, button, textarea, input { 
@@ -111,27 +111,27 @@ a:hover {
 //--------------------- other reset if you need ---------------------//
 
 // IE去除输入框自带清除文字按钮
-input::-ms-clear {
-	display: none;
-}
-input::-ms-reveal {
-	display: none;
-}
+// input::-ms-clear {
+// 	display: none;
+// }
+// input::-ms-reveal {
+// 	display: none;
+// }
 
-::-webkit-scrollbar {// webkit美化滚动条
-	width: rem(10);
-	height: rem(10);
-}
-::-webkit-scrollbar-thumb {
-	border-radius: rem(6);
-	background: #ccc;
-}
-::-webkit-scrollbar-track {
-	background: #eee;
-}
-::-ms-clear,
-::-ms-reveal {
-	display: none;
-}
+// ::-webkit-scrollbar {// webkit美化滚动条
+// 	width: rem(10);
+// 	height: rem(10);
+// }
+// ::-webkit-scrollbar-thumb {
+// 	border-radius: rem(6);
+// 	background: #ccc;
+// }
+// ::-webkit-scrollbar-track {
+// 	background: #eee;
+// }
+// ::-ms-clear,
+// ::-ms-reveal {
+// 	display: none;
+// }
 
 }

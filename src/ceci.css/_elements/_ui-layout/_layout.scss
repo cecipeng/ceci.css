@@ -58,9 +58,11 @@ $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 		top: 0;
 		bottom: 0;
 		width: $side-w;
+		overflow: auto;
 		&--fix { //固定侧栏
 			position: fixed;
 			left: 50%;
+			top: $header-h; ////////////////////////
 			margin-left: -($wrapper-w / 2);
 			overflow: auto;
 			z-index: $zindex-fix;
@@ -71,7 +73,7 @@ $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 			}
 		}
 		&--right { //右侧
-			left: auto;
+			left: auto !important;
 			right: 0;
 			&.#{$layout-cls}__sider--fix {
 				right: 50%;
@@ -98,10 +100,18 @@ $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 			// .#{$layout-cls}__body {
 			// 	height: 100%;
 			// }
+			// .ui-layout__body {
+			// 	height: 100%;
+			// 	overflow: auto;
+			// }
 		}
 		&--bottom { //固定底部
 			position: relative;
 			padding-bottom: $footer-h;
+			// .ui-layout__body {
+			// 	height: 100%;
+			// 	overflow: auto;
+			// }
 		}
 		&--left { //固定侧栏（左）
 			position: relative;

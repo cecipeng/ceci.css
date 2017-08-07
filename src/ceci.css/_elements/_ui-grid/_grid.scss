@@ -37,13 +37,7 @@ $grid-gutter-l:     rem(24);
 //行
 .#{$grid-cls}__row {
     position: relative;
-	@extend %cf;
-}
-//列（默认下）
-@include create-col()
-
-    //偏移量
-    @include create-offset()
+    @extend %cf;
 
     //间隔
     &-gutter-s {
@@ -70,6 +64,13 @@ $grid-gutter-l:     rem(24);
             padding-right: $grid-gutter-l / 2;
         }
     }
+}
+//列（默认下）
+@include create-col()
+
+//偏移量
+@include create-offset()
+
 
 //--------------------- flex布局 ---------------------//
 .#{$grid-cls}__flex {

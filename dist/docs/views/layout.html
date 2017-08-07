@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="doc__mdbody">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="stylesheet" href="../../ceci.css/ceci.css">
+    <link rel="stylesheet" href="../css/doc.css">
+	<link rel="stylesheet" href="../css/styles/solarized-light.css"> 	
+    <title>ceci.css</title>
+</head>
+
+<body>
+	<!-- 介绍 -->
+	<section class="doc__markdown">
+		<h1 id="layout-">Layout 布局</h1>
+<p>页面级布局</p>
+<h2 id="-">预览演示</h2>
+		
+	</section>
+	<!-- /介绍 -->
+
+	<!-- 预览演示 -->
+	<section class="doc__markdown">
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				<h2 id="-">基本上中下布局</h2>
+<p>包括顶部，正文，底部。</p>
+
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<div class="ui-layout">
+    <div class="ui-layout__header">header</div>
+    <div class="ui-layout__body">body</div>
+    <div class="ui-layout__footer">footer</div>
+</div>
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+<div class="ui-layout">
+    <div class="ui-layout__header">header</div>
+    <div class="ui-layout__body">body</div>
+    <div class="ui-layout__footer">footer</div>
+</div>
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				<h2 id="-">固定顶部和底部</h2>
+<p>顶部底部固定，剩余空间填充body，高度超出只在body部分出现滚动条。需同时在<code>ui-layout</code>上加<code>ui-layout__fix--top</code>，在<code>ui-layout__header</code>上加<code>ui-layout__header--fix</code></p>
+<p><code>ui-layout__wrapper</code>设置内容固定宽度并居中，常见的居中布局方式。</p>
+<p><code>ui-layout__scroll</code>设置该容器出现滚动条。</p>
+
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<div class="ui-layout ui-layout__fix--top ui-layout__fix--bottom">
+    <div class="ui-layout__header ui-layout__header--fix">固定header</div>
+    <div class="ui-layout__body ui-layout__scroll">
+        <div class="ui-layout__wrapper">wrapper</div>
+    </div>
+    <div class="ui-layout__footer ui-layout__footer--fix">固定footer</div>
+</div>
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+<div class="ui-layout ui-layout__fix--top ui-layout__fix--bottom">
+    <div class="ui-layout__header ui-layout__header--fix">固定header</div>
+    <div class="ui-layout__body ui-layout__scroll">
+        <div class="ui-layout__wrapper">wrapper</div>
+    </div>
+    <div class="ui-layout__footer ui-layout__footer--fix">固定footer</div>
+</div>
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				<h2 id="-">侧栏</h2>
+<p>侧栏默认情况在左边，且是绝对定位（absolute级）。</p>
+<p>侧栏在左侧时：需在父级上加<code>ui-layout__fix--left</code></p>
+<p>侧栏在左侧时：需同时在<code>ui-layout__sider</code>加<code>ui-layout__sider--right</code>，在父级上加<code>ui-layout__fix--right</code></p>
+<p>侧栏固定（fix级）在页面：在<code>ui-layout__sider</code>加<code>ui-layout__sider--fix</code></p>
+
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<div class="ui-layout ui-layout__fix--left">
+    <div class="ui-layout__sider">
+        <div class="demo">sider</div>
+    </div>
+    <div class="ui-layout__content">
+        <div class="ui-layout__header">header</div>
+        <div class="ui-layout__body">content</div>
+        <div class="ui-layout__footer">footer</div>
+    </div>
+</div>
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+<div class="ui-layout ui-layout__fix--left">
+    <div class="ui-layout__sider">
+        <div class="demo">sider</div>
+    </div>
+    <div class="ui-layout__content">
+        <div class="ui-layout__header">header</div>
+        <div class="ui-layout__body">content</div>
+        <div class="ui-layout__footer">footer</div>
+    </div>
+</div>
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<div class="ui-layout">
+    <div class="ui-layout__header">header</div>
+    <div class="ui-layout__body">
+        <div class="ui-layout__wrapper ui-layout__fix--right">
+            <div class="ui-layout__sider ui-layout__sider--right">sider</div>
+            <div class="ui-layout__content">content</div>
+        </div>
+    </div>
+    <div class="ui-layout__footer">footer</div>
+</div>
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+<div class="ui-layout">
+    <div class="ui-layout__header">header</div>
+    <div class="ui-layout__body">
+        <div class="ui-layout__wrapper ui-layout__fix--right">
+            <div class="ui-layout__sider ui-layout__sider--right">sider</div>
+            <div class="ui-layout__content">content</div>
+        </div>
+    </div>
+    <div class="ui-layout__footer">footer</div>
+</div>
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<div class="ui-layout">
+    <div class="ui-layout__header">header</div>
+    <div class="ui-layout__body ui-layout__fix--left">
+        <div class="ui-layout__sider ui-layout__sider--left">sider</div>
+        <div class="ui-layout__content">content</div>
+    </div>
+    <div class="ui-layout__footer">footer</div>
+</div>
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+<div class="ui-layout">
+    <div class="ui-layout__header">header</div>
+    <div class="ui-layout__body ui-layout__fix--left">
+        <div class="ui-layout__sider ui-layout__sider--left">sider</div>
+        <div class="ui-layout__content">content</div>
+    </div>
+    <div class="ui-layout__footer">footer</div>
+</div>
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+	</section>
+	<!-- /预览演示 -->
+
+	<!-- api -->
+	<section class="doc__markdown">
+		<h2 id="api">API</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>添加位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ui-layout__scroll</td>
+<td>滚动</td>
+<td>layout__xxx</td>
+</tr>
+<tr>
+<td>ui-layout__wrapper</td>
+<td>居中</td>
+<td>单独dom</td>
+</tr>
+</tbody>
+</table>
+<p>固定设置</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>添加位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ui-layout__header--fix</td>
+<td>顶部栏固定，结合ui-layout__fix--top使用</td>
+<td>ui-layout__header</td>
+</tr>
+<tr>
+<td>ui-layout__footer--fix</td>
+<td>底部栏固定，同上</td>
+<td>ui-layout__footer</td>
+</tr>
+<tr>
+<td>ui-layout__fix--top</td>
+<td>顶部栏固定，结合ui-layout__header--fix使用</td>
+<td>ui-layout</td>
+</tr>
+<tr>
+<td>ui-layout__fix--bottom</td>
+<td>底部栏固定，同上</td>
+<td>ui-layout</td>
+</tr>
+<tr>
+<td>ui-layout__fix--left</td>
+<td>侧栏固定在左侧</td>
+<td>ui-layout__sider父级</td>
+</tr>
+<tr>
+<td>ui-layout__fix--right</td>
+<td>侧栏固定在右侧，结合ui-layout__sider--right使用</td>
+<td>ui-layout__sider父级</td>
+</tr>
+<tr>
+<td>ui-layout__sider--right</td>
+<td>侧栏位于右侧，结合ui-layout__fix--right使用</td>
+<td>ui-layout__sider</td>
+</tr>
+<tr>
+<td>ui-layout__sider--fix</td>
+<td>侧栏固定（fix级）在页面</td>
+<td>ui-layout__sider</td>
+</tr>
+</tbody>
+</table>
+		
+	</section>
+	<!-- /api -->
+
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('pre code').each(function(i, block) {
+			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
+			block.innerHTML = _html;
+			hljs.highlightBlock(block);
+		});
+	});
+</script>
+	
+</body>
+</html>
