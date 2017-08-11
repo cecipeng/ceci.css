@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+//-----------------------------------------------------
+// author:  590000
+//-----------------------------------------------------
+
+
+//--------------------- 通用layout ---------------------//
+body {
+	min-width: $min-w;		//modify
+	overflow: auto;				//modify
+}
+//居中内容统一使用类名：layout-wrapper
+.layout-wrapper {
+	width: $wrapper-w;
+	margin: 0 auto;
+	overflow: hidden;
+	@include breakpoint($screen-l) {
+    	width: $min-w;
+    }
+}
+
+.layout-mod {
+
+	/////////////////// 项目中的布局——edit
+	
+	
+	
+	
+	/////////////////// 以下为常用的布局效果，视情况注释掉
+	
+	//局部滚动条统一使用类名：layout-scroll
+	.layout-scroll {   
+		height: 100%;
+		overflow-y: auto !important;
+	}
+
+	//内容底部留一定距离
+	.layout-body {
+		padding-bottom: 80px;
+	}
+
+	//固定悬浮在居中内容外侧
+	.layout-fix {
+		position: fixed;
+		left: 50%;
+		bottom: 200px; //
+		width: 180px; //
+		margin-left: -($wrapper-w / 2);  //
+	}
+
+	//左右布局统一使用类名：layout-side、layout-main
+	.layout-2col {
+		position: relative;
+		padding-right: 270px; //
+	}
+	.layout-side {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 270px;   //
+		&.layout-side-fix { //侧栏固定
+			position: fixed;
+			right: 50%;
+			margin-right: -($wrapper-w / 2);
+			z-index: $zindex-fix;
+			@include breakpoint($screen-l) { //屏幕过窄时不固定
+				position: absolute;
+				right: 0;
+				margin-right: 0;
+			}
+		}
+	}
+	.layout-main {
+		
+	}
+
+	//BFC布局
+	.layout-bfc-main {
+		overflow: hidden;
+	}
+	.layout-bfc-fr {
+		float: right;
+	}
+	.layout-bfc-fl {
+		float: left;
+	}
+
+	//出现弹窗时主体内容不出现滚动条，统一使用类名：layout-mod-pop
+	&.layout-mod-pop {
+		height: 100%;
+		overflow: hidden;
+		.layout-footer {
+			position: relative;
+		}
+	}
+
+	//内容少时layout-footer要置底
+	position: relative;
+	min-height: 100%;
+	padding-bottom: $footer-h;
+	.layout-footer {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	//顶部固定的处理
+	.layout-header {
+		position: relative;
+		padding-bottom: $nav-h;
+		.com-mainnav {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			&.fixed {
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				z-index: $zindex-fix;
+			}
+		}
+	}
+}

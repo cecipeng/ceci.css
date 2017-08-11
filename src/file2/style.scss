@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+/*!
+ * Ceci.css —— a beautiful css framework
+ * Repository - https://github.com/cecipeng/ceci.css
+ * Website - 
+ * Author - CeciPeng <1047328479@qq.com>
+ * Version - v1.0.0
+ */
+
+
+//--------------------- base ---------------------//
+
+// reset
+@import "_base/_reset.scss";
+@import "_base/_mixin.scss";
+@import "_base/_breakpoint.scss";
+
+body {
+	height: 100%; //////
+	overflow: hidden; ///////
+	@include breakpoint(max-width 986px) {
+    	width: 968px;
+		overflow-x: auto; 
+    }
+}
+.ui-layout {
+	height: 100%;////
+	position: relative;
+	padding-left: 265px; ////
+	background-color: #edf2f6;
+	&__sider {
+		position: absolute;////
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 265px;////
+		padding-top: 114px;
+		background: #3d485d;
+		.logo {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			height: 64px;
+			background: #38adff;
+			line-height: 64px;
+			text-align: center;
+			color: #fff;
+		}
+	}
+}
+
+.nav__title {
+	position: absolute;
+	left: 0;
+	top: 64px;
+	right: 0;
+	height: 50px;
+	line-height: 50px;
+	background: #354052;
+	color: #fff;
+	text-align: center;
+}
+.nav__list {
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden; 
+	li {
+		height: 58px;
+		line-height: 58px;
+		font-size: 14px;
+		color: #fff;
+		text-align: center;
+	}
+}
+.ui-layout__container {
+	height: 100%;
+	overflow: auto;
+}
+.ui-layout__header {
+	height: 64px;
+	border-bottom: 1px solid #eee;
+	@extend %vm; ////
+	text-align: right; ////////
+	padding: 0 20px;
+	background: #fff;
+	.select {
+		display: inline-block; //////
+		vertical-align: middle; //////
+		height: 30px;
+		line-height: 30px;
+		min-width: 100px;
+		padding: 0 10px;
+		border: 1px solid #38adff;
+		color: #38adff;
+	}
+	.userwrap {
+		float: left;
+		height: 100%;
+		@extend %vm; ////
+		li {
+			display: inline-block; //////
+			vertical-align: middle; ///////
+			line-height: 20px;
+			height: 20px;
+			padding: 0 16px;
+			border-left: 1px solid #ccc;
+			&:first-child {
+				border-left: none;
+			}
+		}
+	}
+}
+
+.ui-layout__body {
+	padding: 20px;
+	
+}
+.cardlist {
+	@extend %cf; /////
+
+	li {
+		float: left;
+		width: 300px;
+		height: 200px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		font-size: 20px;
+		line-height: 80px;
+		text-align: center;
+	}
+}
+
+.com-page {
+	padding-top: 40px;
+	text-align: center; ///////
+	.btn-num,
+	.btn-turnpage {
+		display: inline-block; ///////
+		vertical-align: middle; ///////
+		min-width: 30px;
+		height: 30px;
+		line-height: 30px;
+		padding: 0 10px;
+		color: #666;
+		background-color: #fff;
+		border: 1px solid #ddd;
+	}
+}
+	
