@@ -1,0 +1,68 @@
+@@include('_include/_meta.html')	
+    <title>ceci.css</title>
+</head>
+
+<body>
+	<!-- 介绍 -->
+	<section class="doc__markdown">
+		@@include('../../ceci.css/_elements/_ui-icon/doc/intro.html')		
+	</section>
+	<!-- /介绍 -->
+
+	<!-- 预览演示 -->
+	<section class="doc__markdown">
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				@@include('../../ceci.css/_elements/_ui-icon/doc/basic.html')
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					@@include('../../ceci.css/_elements/_ui-icon/_icon.html')
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../ceci.css/_elements/_ui-icon/_icon.html')
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				@@include('../../ceci.css/_elements/_ui-icon/doc/list.html')
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-24">
+					@@include('../../ceci.css/_elements/_ui-icon/_icon-list.html')
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+	</section>
+	<!-- /预览演示 -->
+
+@@include('_include/_script.html')
+<script src="../js/clipboard.min.js"></script>	
+<script>
+	//复制图标到粘贴板
+	var clipboard = new Clipboard('.doc__icon li');
+	$(".doc__icon__item").on("click",function(){
+		const _this = $(this);
+		_this.addClass("doc__clipboard");
+		setTimeout(function(){
+			_this.removeClass("doc__clipboard");
+		},2000);
+	});
+</script>
+</body>
+</html>

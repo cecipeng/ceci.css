@@ -28,8 +28,8 @@
                             <li class="ui-nav__item"><a href="#layout">Layout 布局</a></li>
                             <li class="ui-nav__item"><a href="#nav">Nav 导航菜单</a></li>
                             <li class="ui-nav__item"><a href="#grid">Grid 栅格</a></li>
-                            <li class="ui-nav__item"><a href="###">子菜单4</a></li>
-                            <li class="ui-nav__item"><a href="###">子菜单5</a></li>
+                            <li class="ui-nav__item"><a href="#button">Button 按钮</a></li>
+                            <li class="ui-nav__item"><a href="#icon">图标</a></li>
                             <li class="ui-nav__item"><a href="###">子菜单6</a></li>
                         </ul>
                     </li>
@@ -46,15 +46,18 @@
 
 <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script>
+    //切换页面
     $(".ui-nav__submenu .ui-nav__item > a").on('click',function(){
         const _src = 'views/' + $(this).attr('href').replace("#","") + '.html';
         $("#iframe").attr('src', _src)
     })
 
+    //设置iframe高度
     function setHeight(){
         const _height = $("#iframe").contents().find("body").height() + 40;
         $("#iframe").height(_height);
     }
+    
 </script>
 
 </body>

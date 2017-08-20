@@ -179,3 +179,11 @@
 }
 
 //改变亮度，直接使用lighten和darken
+
+//统一hover和active
+@function hover($color,$per:10%) {
+    @return lighten($color,$per);
+}
+@function active($color,$per:5%) {
+    @return darken($color,$per);
+}

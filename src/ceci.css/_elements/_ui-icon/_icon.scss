@@ -1,0 +1,55 @@
+// ------------------------------------------
+// iconfont
+// ------------------------------------------
+
+
+@mixin import-ui-icon {
+
+//--------------------- 定义 ---------------------//
+
+//定义icon相关变量
+$icon-cls:				#{$conf-nsp-ele}icon; //通用类名
+
+@font-face {font-family: "iconfont";
+	src: url('fonts/iconfont.eot?t=1503205416644'); /* IE9*/
+	src: url('fonts/iconfont.eot?t=1503205416644#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('fonts/iconfont.woff?t=1503205416644') format('woff'), /* chrome, firefox */
+	url('fonts/iconfont.ttf?t=1503205416644') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+	url('fonts/iconfont.svg?t=1503205416644#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+%iconfont {
+    font-family:"iconfont" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0px;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+}
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$icon-cls} {
+	display: inline-block;
+	vertical-align: baseline;
+	@extend %iconfont;
+
+	&-down:before { content: "\e654"; }
+
+	&-plus:before { content: "\e61e"; }
+	
+	&-minus:before { content: "\e6fe"; }
+	
+	&-delete:before { content: "\e86e"; }
+	
+	&-search:before { content: "\e870"; }
+	
+	&-ok:before { content: "\e8c5"; }
+	
+	&-up:before { content: "\e8c6"; }
+	
+	&-right:before { content: "\e8c7"; }
+	
+	&-left:before { content: "\e8c8"; }
+}
+
+}

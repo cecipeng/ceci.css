@@ -30,11 +30,6 @@
 
 
 //--------------------- core ---------------------//
-// iconfont,default:false
-@import "fonts/iconfont";
-@if $conf-iconfont {
-	@include import-iconfont;
-}
 
 // grid
 @import "_base/_layout";

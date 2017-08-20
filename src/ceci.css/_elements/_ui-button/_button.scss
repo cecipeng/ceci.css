@@ -1,0 +1,198 @@
+// ------------------------------------------
+// button
+// ------------------------------------------
+
+
+@mixin import-ui-button {
+
+//--------------------- 定义 ---------------------//
+
+//定义button相关变量
+$button-cls:				#{$conf-nsp-ele}button; //通用类名
+$button-padding-s:			0 rem(6);	//padding
+$button-padding:			0 rem(10);	
+$button-padding-l:			0 rem(16);	
+$button-fz-s:				$fz-s;		//font-size
+$button-fz:					$fz;
+$button-fz-l:				$fz-l;
+$button-radius-s:			$radius-s;	//border-radius
+$button-radius:				$radius;
+$button-radius-l:			$radius-l;
+$button-width-s:			rem(50);   //width
+$button-width:				rem(80);
+$button-width-l:			rem(120);
+$button-height-s:			rem(20);	//height
+$button-height:				rem(30);
+$button-height-l:			rem(36);
+
+$button-main-color:			#fff;		//button-main
+$button-main-bg:			$main;
+// $button-main-bg-hover:		$main-l;
+// $button-main-bg-active:		$main-d;
+$button-main-border:		transparent;
+
+$button-default-color:			$color;		//button-default
+// $button-default-color-hover:	$main;
+// $button-default-color-active:	$main-d;
+$button-default-bg:				#fff;
+$button-default-border:			$border;
+// $button-default-border-hover:	$main;
+// $button-default-border-active:	$main-d;
+
+$button-disabled-color:			#ccc;		//disabled
+$button-disabled-bg:			$disabled;
+$button-disabled-border:		$border;
+
+//定义尺寸
+@mixin button-size($padding,$fz,$radius,$w,$h) {
+	min-width: $w;
+	line-height: $h;
+	padding: $padding;
+	font-size: $fz;
+	border-radius: $radius;
+}
+//定义颜色
+@mixin button-color($color,$bg,$border) {
+	color: $color;
+	background-color: $bg;
+	border-color: $border;
+}
+
+//定义主要按钮多态
+@mixin button-state($color,$bg,$border) {
+	@include button-color($color,$bg,$border);
+	@if $conf-mobile {
+		&#{$conf-press} {
+			@include button-color(active($color),active($bg),active($border));
+		}
+	}
+	@else {
+		&:hover {
+			@include button-color(hover($color),hover($bg),hover($border));
+		}
+		&:active {
+			@include button-color(active($color),active($bg),active($border));
+		}
+	}
+}
+
+//定义默认按钮多态
+@mixin button-state-default($color,$bg,$border) {
+	@include button-color($color,$bg,$border);
+	@if $conf-mobile {
+		&#{$conf-press} {
+			@include button-color($main-d,$bg,$main-d);
+		}
+	}
+	@else {
+		&:hover {
+			@include button-color($main,$bg,$main);
+		}
+		&:active {
+			@include button-color($main-d,$bg,$main-d);
+		}
+	}
+}
+
+
+//定义点击特效
+@mixin button-click {
+	&:after {
+		display: block;
+		position: absolute;
+		top: -1px;
+		left: -1px;
+		bottom: -1px;
+		right: -1px;
+		content: '';
+		border-radius: inherit;
+		border: 0 solid $main;
+		opacity: 0.4;
+		animation: buttonEffect .4s;
+	}
+}
+@keyframes buttonEffect {
+	to {
+	  	opacity: 0;
+	  	top: -6px;
+	  	left: -6px;
+	  	bottom: -6px;
+	  	right: -6px;
+	  	border-width: 6px;
+	}
+}
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$button-cls} {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	@include button-size($button-padding,$button-fz,$button-radius,$button-width,$button-height);
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid transparent;
+	@include transition(all);
+
+	//不可点击态
+	&--disabled {
+		@include button-color($button-disabled-color,$button-disabled-bg,$button-disabled-border);
+		cursor: default;
+		pointer-events: none;
+	}
+
+	//点击时特效
+	@if $conf-mobile {
+		&#{$conf-press} {
+			@include button-click;
+		}
+	}
+	@else {
+		&--clicked {
+			@include button-click;
+		}
+	}
+
+	//尺寸
+	&--s {
+		@include button-size($button-padding-s,$button-fz-s,$button-radius-s,$button-width-s,$button-height-s);
+	}
+	&--l {
+		@include button-size($button-padding-l,$button-fz-l,$button-radius-l,$button-width-l,$button-height-l);
+	}
+
+	//--------------------- 默认按钮 ---------------------//
+	&__default {
+		@include button-state-default($button-default-color,$button-default-bg,$button-default-border);
+		&.#{$button-cls}__ghost {
+			@include button-state-default(#fff,transparent,#fff);
+		}
+	}
+
+	//--------------------- 主要确认按钮 ---------------------//
+	&__main {
+		@include button-state($button-main-color,$button-main-bg,$button-main-border);
+		&.#{$button-cls}__ghost {
+			@include button-state($button-main-bg,transparent,$button-main-bg);
+		}
+	}
+
+	//--------------------- 形态：圆形按钮 ---------------------//
+	&__circle {
+		@include button-size(0,$button-fz,50%,$button-height + rem(2),$button-height);
+		&.#{$button-cls}--s {
+			@include button-size(0,$button-fz-s,50%,$button-height-s + rem(2),$button-height-s);
+		}
+		&.#{$button-cls}--l {
+			@include button-size(0,$button-fz-l,50%,$button-height-l + rem(2),$button-height-l);
+		}
+	}
+
+	//--------------------- 形态：幽灵按钮 ---------------------//
+	&__ghost {
+	
+	}
+	
+}
+
+}

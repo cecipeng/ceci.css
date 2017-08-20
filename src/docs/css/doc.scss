@@ -203,7 +203,7 @@
 }
 
 ////////////////// 组件——栅格
-.doc-grid .ui-grid__row {
+.doc__grid .ui-grid__row {
     background-color: #f5f5f5;
     padding-top: rem(10);
     &:first-child {
@@ -224,3 +224,62 @@
 //     padding-bottom: 10px;
     
 // }
+
+
+////////////////// 组件——按钮
+.doc__markdown .ui-button {
+    margin: 0 10px 10px 0;
+}
+
+////////////////// 组件——图标
+.doc__icon {
+    @extend %cf;
+    > li {
+        float: left;
+        width: 16.6666666666666%;
+        min-width: rem(130);
+        padding: 0 rem(10);
+        margin-bottom: rem(10);
+        text-align: center;
+    }
+    .doc__icon__item {
+        position: relative;
+        display: block;
+        padding: rem(10);
+        border-radius: rem(10);
+        cursor: pointer;
+        overflow: hidden;
+        &:hover {
+            background: $bg-l;
+        }
+        &:active {
+            background: $bg;
+        }
+    }
+    .ui-icon {
+        font-size: rem(30);
+        color: $color-d;
+    }
+    .doc__icon__name {
+        line-height: rem(20);
+        padding-top: rem(10);
+        font-size: rem(16);
+        color: $color;
+        @extend %tof;
+    }
+    .doc__clipboard {
+        &:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba($main,.8);
+            z-index: 1;
+            font-size: rem(16);
+            color: #fff;
+            line-height: rem(83);
+            content: "复制成功";
+        }
+    }
+}

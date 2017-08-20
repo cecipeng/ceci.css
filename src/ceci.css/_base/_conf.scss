@@ -9,13 +9,11 @@ $conf-press:		'.s-pressed'; //结合hightlight插件，按钮按下时添加的�
 // 配置项二：兼容CSS3，默认：支持
 $conf-css3: 		true;
 
-// 配置项三：是否引入字体图标，默认：不引入
-$conf-iconfont: 	false;
-
-// 配置项四：引入的element和component
+// 配置项三：引入的element和component
 $conf-layout: 		true; //布局
 $conf-grid: 		true; //栅格
-$conf-btn: 			true; //按钮
+$conf-button: 		true; //按钮
+$conf-icon: 	    true; //字体图标
 $conf-tab:			false; //tab切换
 $conf-title:		false; //标题栏
 $conf-crumb:		false; //面包屑
@@ -37,20 +35,20 @@ $conf-totop:		false; //返回顶部
 $conf-slider:		false; //幻灯片
 $conf-largeview:	false; //查看大图
 
-// 配置项五：是否需要引入animation.css，默认：不引入
+// 配置项四：是否需要引入animation.css，默认：不引入
 $conf-animation: 	false; 
 
-// 配置项六：引用图片相对于ceci.scss的相对路径
+// 配置项五：引用图片相对于ceci.scss的相对路径
 $conf-imgurl:		'../images/';
 
-// 配置项七：是否使用rem单位，默认：不引入
+// 配置项六：是否使用rem单位，默认：不引入
 $conf-rem:			false;
 $conf-remsize:		30;
 
-// 配置项八：组件相对于ceci.scss的相对路径
+// 配置项七：组件相对于ceci.scss的相对路径
 $conf-element:      '_elements/';
 $conf-component:    '_components/';
 
-// 配置九：element、component的namespace名
+// 配置八：element、component的namespace名
 $conf-nsp-ele:      'ui-';
 $conf-nsp-comp:     'com-';

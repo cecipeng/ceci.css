@@ -15,7 +15,13 @@
 }
 
 // 按钮
-@import "_ui-btn/btn";
-@if $conf-btn {
-	@include import-ui-btn;
+@import "_ui-button/button";
+@if $conf-button {
+	@include import-ui-button;
+}
+
+// 图标
+@import "_ui-icon/icon";
+@if $conf-icon {
+	@include import-ui-icon;
 }
