@@ -1,6 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
+const gulp = require('gulp4');
 const fileinclude = require('gulp-file-include');
 const md = require('gulp-markdown');
 

@@ -2,9 +2,15 @@
 // components
 // ------------------------------------------
 
-// 按钮
+// 导航
 @import "_ui-nav/nav";
 @if $conf-nav { 
     @include import-ui-nav; 
+} 
+
+// tab
+@import "_ui-tab/tab";
+@if $conf-tab { 
+    @include import-ui-tab; 
 } 
 

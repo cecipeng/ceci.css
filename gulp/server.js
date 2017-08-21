@@ -1,6 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
+const gulp = require('gulp4');
 const browserSync = require('browser-sync');
 const bsCreate = browserSync.create();
 
@@ -16,7 +16,7 @@ module.exports = {
 				baseDir: c_paths.tmp,
 				directory: true,
 			},
-			startPath: "/docs/index.html"
+			startPath: c_paths.sitemap
 		});
 	}
 }

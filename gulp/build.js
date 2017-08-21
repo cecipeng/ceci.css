@@ -1,6 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
+const gulp = require('gulp4');
 const path = require('path');
 const fileinclude = require('gulp-file-include');
 const uglify = require('gulp-uglify');
@@ -40,7 +40,9 @@ const processors = [
 	// 		padding: 10 //图片间距，单位：px
 	// 	}
 	// }),
-	cssnano()
+	cssnano({
+		'postcss-zindex': false
+	})
 ];
 
 
@@ -77,7 +79,10 @@ function buildScripts(){
 function buildImages(){
 	return gulp.src(c_paths.tmp +'/**/*.{jpg,png,gif}')
 		.pipe(imagemin(
-			[imageminJpegoptim(),imageminPngquant()]
+			[imageminJpegoptim({
+				progressive: true,
+				max: 40
+			}),imageminPngquant()]
 			)
 		)
 		.pipe(gulp.dest(c_paths.tmp))

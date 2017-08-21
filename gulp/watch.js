@@ -1,6 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
+const gulp = require('gulp4');
 const fs = require('fs');
 
 const conf = require('./config.js');

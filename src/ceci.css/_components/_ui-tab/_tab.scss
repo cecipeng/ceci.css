@@ -1,0 +1,66 @@
+// ------------------------------------------
+// tab
+// ------------------------------------------
+
+
+@mixin import-ui-tab {
+
+//--------------------- 定义 ---------------------//
+
+//定义tab相关变量
+$tab-cls:				#{$conf-nsp-ele}tabs; //通用类名
+
+//基础
+$tab-border:       $border; //边线颜色
+$tab-h:            rem(38); //tabhead的总高度
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$tab-cls} {
+	overflow: hidden;
+
+    //--------------------- tab切换卡 ---------------------//
+    //最外层容器
+    &__head {
+        border-bottom: 1px solid $tab-border;
+    }
+
+    //实际包含tab的容器，其他同级div用于右侧的其他操作元素
+    &__headcontainer {
+        overflow: hidden;
+    }
+
+    //实际包含tab的容器，其他同级div用于左右切换按钮
+    &__headwrap {
+        overflow: hidden;
+        white-space: nowrap;
+        clear: fix;
+    }
+
+    //左右切换按钮
+    &__turn {
+        display: none;
+        position: absolute;
+        top: 0;
+        height: $tab-h;
+        line-height: $tab-h;
+    }
+
+    //控制：出现横向滚动条
+    &__scroll {
+        padding-left: 32px;
+        padding-right: 32px;
+        .#{$tab-cls}__turn {
+            display: block;
+        }
+    }
+
+    // 单个tab外层容器
+    &__list {
+        float: left;
+    }
+    &__item {
+
+    }
+}
+
+}
