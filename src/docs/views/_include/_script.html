@@ -2,6 +2,7 @@
 <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
 <script>
 	$(document).ready(function() {
+		//代码高亮
 		$('pre code').each(function(i, block) {
 			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
 			block.innerHTML = _html;

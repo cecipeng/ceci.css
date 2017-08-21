@@ -1,0 +1,40 @@
+//tab切换
+$(".ui-tabs__item").on("click",function(){
+    const _root = $(this).closest(".ui-tabs");
+    const _content = _root.find(".ui-tabs__body .ui-tabs__content")
+    const _idx = $(this).index();
+    const _transform = _idx * 100;
+
+    _root.find(".ui-tabs__body").css("transform","translateX(-"+ _transform +"%)");
+    $(this).addClass("ui-tabs__item--active").siblings().removeClass("ui-tabs__item--active");
+    _content.eq(_idx).addClass("ui-tabs__content--active").siblings().removeClass("ui-tabs__content--active");
+});
+
+//横向tab标签卡滚动
+$(".ui-tabs__turn:not(.ui-tabs__turn--disabled)").on("click",function(){
+    const _root = $(this).closest(".ui-tabs");
+    const _wrap = _root.find(".ui-tabs__headwrap");
+    const _list = _root.find(".ui-tabs__list");
+    const _item = _root.find(".ui-tabs__item");
+    const _wrapH = _wrap.width();
+    let _result = 0;
+
+    //计算滚动距离
+    for(var i=0; i<_item.length; i++) {
+        console.log(i);
+        console.log(_item.eq(i).position().left);
+        if(_item.eq(i).position().left >= _wrapH) {
+            _result = _item.eq(i-1).position().left;
+            break;
+        }
+    }
+ 
+    //赋值
+    _list.css("transform","translateX(-"+_result+"px)");
+
+    //计算列表已显示最尾部
+    if(_item.eq(_item.length-1).position().left <= _wrapH) {
+        console.log(_item.eq(_item.length-1).html());
+        _root.find(".ui-tabs__next").addClass("ui-tabs__turn--disabled");
+    }
+})

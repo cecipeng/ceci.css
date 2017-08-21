@@ -118,6 +118,11 @@
                 border-radius: $radius;
                 background-color: $bg-l;
             }
+            pre code {
+                display: block;
+                height: auto;
+                margin: rem(10) 0;
+            }
         }
         //code
         .hljs {
@@ -282,4 +287,10 @@
             content: "复制成功";
         }
     }
+}
+
+////////////////// 组件——图标 
+.doc__markdown .ui-tabs__content {
+    font-size: rem(14);
+    color: #999;
 }
