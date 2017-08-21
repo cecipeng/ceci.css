@@ -122,3 +122,44 @@
 		font-size: cm(.6);
 	}
 }
+
+//--------------------- page ---------------------//
+.filewrap {
+	position: relative;
+	width: cm(21);
+	height: 100%;
+	margin: 0 auto;
+	font-size: cm(.5);
+	line-height: 2;
+	.file-header {
+		text-align: center;
+		line-height: 1.5;
+	}
+	.file-title {
+		font-size: cm(1);
+	}
+	.file-subline {
+	}
+	.file-container {
+		padding-top: cm(1.5);
+		
+	}
+	.file-content {
+		text-indent: cm(1);
+	}
+	.file-footer {
+		padding-top: cm(1.5);
+		text-align: right;
+	}
+	.file-footerbox {
+		display: inline-block;
+		text-align: center;
+	}
+	.file-fix {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		font-weight: 700;
+	}
+}

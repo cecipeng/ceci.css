@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="doc__mdbody">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="stylesheet" href="../../ceci.css/ceci.css">
+    <link rel="stylesheet" href="../css/doc.css">
+	<link rel="stylesheet" href="../css/styles/solarized-light.css"> 	
+    <title>ceci.css</title>
+</head>
+
+<body>
+	<!-- 介绍 -->
+	<section class="doc__markdown">
+		<h1 id="icon-">Icon 图标</h1>
+<p>可使用以下提供的字体图标，或使用自定义iconfont</p>
+<h2 id="-">预览演示</h2>
+		
+	</section>
+	<!-- /介绍 -->
+
+	<!-- 预览演示 -->
+	<section class="doc__markdown">
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				<h2 id="-">使用方式</h2>
+<p>基础：<code>ui-icon</code>，再加上具体的图标类名</p>
+
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<i class="ui-icon ui-icon-plus"></i>
+				</div>
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+<i class="ui-icon ui-icon-plus"></i>
+						</code>
+					</pre>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				<h2 id="-">图标列表</h2>
+<p>目前支持的图标列表如下，可点击进行复制</p>
+
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-24">
+					<ul class="doc__icon">
+    <li data-clipboard-text='<i class="ui-icon ui-icon-plus"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-plus"></i>
+            <p class="doc__icon__name">ui-icon-plus</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-minus"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-minus"></i>
+            <p class="doc__icon__name">ui-icon-minus</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-delete"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-delete"></i>
+            <p class="doc__icon__name">ui-icon-delete</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-search"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-search"></i>
+            <p class="doc__icon__name">ui-icon-search</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-ok"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-ok"></i>
+            <p class="doc__icon__name">ui-icon-ok</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-up"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-up"></i>
+            <p class="doc__icon__name">ui-icon-up</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-down"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-down"></i>
+            <p class="doc__icon__name">ui-icon-down</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-right"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-right"></i>
+            <p class="doc__icon__name">ui-icon-right</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-left"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-left"></i>
+            <p class="doc__icon__name">ui-icon-left</p>
+        </a>
+    </li>
+</ul>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+
+	</section>
+	<!-- /预览演示 -->
+
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('pre code').each(function(i, block) {
+			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
+			block.innerHTML = _html;
+			hljs.highlightBlock(block);
+		});
+	});
+</script>
+
+<script src="../js/clipboard.min.js"></script>	
+<script>
+	//复制图标到粘贴板
+	var clipboard = new Clipboard('.doc__icon li');
+	$(".doc__icon__item").on("click",function(){
+		const _this = $(this);
+		_this.addClass("doc__clipboard");
+		setTimeout(function(){
+			_this.removeClass("doc__clipboard");
+		},2000);
+	});
+</script>
+</body>
+</html>
