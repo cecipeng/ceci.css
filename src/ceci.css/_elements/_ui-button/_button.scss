@@ -21,9 +21,9 @@ $button-radius-l:			$radius-l;
 $button-width-s:			rem(50);   //width
 $button-width:				rem(80);
 $button-width-l:			rem(120);
-$button-height-s:			rem(20);	//height
-$button-height:				rem(30);
-$button-height-l:			rem(36);
+$button-height-s:			$com-height-s;	//height
+$button-height:				$com-height;
+$button-height-l:			$com-height-l;
 
 $button-main-color:			#fff;		//button-main
 $button-main-bg:			$main;

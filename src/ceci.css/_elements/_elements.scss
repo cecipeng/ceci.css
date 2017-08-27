@@ -25,3 +25,15 @@
 @if $conf-icon {
 	@include import-ui-icon;
 }
+
+// 输入框
+@import "_ui-input/input";
+@if $conf-input {
+	@include import-ui-input;
+}
+
+// 单选框
+@import "_ui-radio/radio";
+@if $conf-radio {
+	@include import-ui-radio;
+}

@@ -57,7 +57,7 @@
     
     // 预览演示
     .doc__mdbox {
-        margin-bottom: rem(30);
+        margin-bottom: rem(50);
         border: 1px solid $border;
         margin-top: rem(10);
         border-radius: $radius;
@@ -70,6 +70,7 @@
             }
             @include breakpoint($screen-s) {
                 &.ui-grid__col-s-24:last-child {
+                    position: relative;
                     border-top: 1px dashed $border;
                 }
             }
@@ -127,6 +128,47 @@
         //code
         .hljs {
             background-color: $bg-l;
+        }
+    }
+    //查看／复制代码
+    .doc__codebox {
+        position: relative;
+        pre {
+            display: none;
+            opacity: 0;
+            transform: translateY(rem(-20));
+            @include transition(all);
+        }
+        &--active {
+            pre {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+    .doc__codetrl {
+        position: absolute;
+        top: 0;
+        right: 0;
+        @extend %cf;
+    }
+    .doc__showcode,
+    .doc__copycode {
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 10px;
+        margin-right: 10px;
+        background-color: $main-lr;
+        color: $color;
+        font-size: $fz-s;
+        &:hover {
+            color: $main;
+        }
+        &:active {
+            background-color: $main;
+            color: #fff;
         }
     }
 

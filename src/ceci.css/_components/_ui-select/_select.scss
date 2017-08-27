@@ -1,0 +1,143 @@
+// ------------------------------------------
+// select
+// ------------------------------------------
+
+
+@mixin import-ui-select {
+
+//--------------------- 定义 ---------------------//
+
+//定义select相关变量
+$select-cls:				#{$conf-nsp-ele}select; //通用类名
+$select-selection-height-l: $com-height-l; //大尺寸选择器高度
+$select-selection-height:   $com-height; //标准选择器高度
+$select-selection-height-s: $com-height-s; //小尺寸选择器高度
+$select-padding:            rem(12); //内边距，用于选择器和菜单
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$select-cls} {
+    //--------------------- 标准选择器样式 ---------------------//
+    //外容器
+    &__wrap {
+        display: inline-block;
+        position: relative;
+        //其他尺寸
+        &--l {
+            .#{$select-cls}__selection {
+                height: $select-selection-height-l;
+                line-height: $select-selection-height-l - rem(2);
+            }
+            .#{$select-cls} {
+                top: $select-selection-height-l;
+                &__item {
+                    height: $select-selection-height-l;
+                    line-height: $select-selection-height-l;
+                }
+            }
+        }
+        &--s {
+            .#{$select-cls}__selection {
+                height: $select-selection-height-s;
+                line-height: $select-selection-height-s - rem(2);
+            }
+            .#{$select-cls} {
+                top: $select-selection-height-s;
+                &__item {
+                    height: $select-selection-height-s;
+                    line-height: $select-selection-height-s;
+                }
+            }
+        }
+    }
+    //选择器
+    &__selection {
+        height: $select-selection-height;
+        line-height: $select-selection-height - rem(2);
+        padding: 0 $select-padding;
+        border: 1px solid $border;
+        border-radius: $radius;
+        font-size: $fz;
+        color: $color;
+        @extend %tof;
+        @include transition(border-color);
+        cursor: pointer;
+        .ui-icon-down {
+            position: absolute;
+            top: 1px;
+            right: 5px;
+            @include transition(all);
+        }
+        &--active {
+            border-color: $main;
+            .ui-icon-down {
+                transform: rotate(180deg);
+                color: $main;
+            }
+        }
+        //禁用
+        &--disabled {
+            color: $disabled-color;
+            background-color: $disabled-bg;
+            border-color: $disabled-border;
+            cursor: default;
+        }
+    }
+    //选择器文字
+    &__text {
+        float: left;
+        max-width: 100%;
+        padding-right: rem(10);
+        @extend %tof;
+    }
+    //下拉容器
+    display: none;
+    position: absolute;
+    left: 0;
+    top: $select-selection-height;
+    width: 100%;
+    border-radius: $radius;
+    z-index: $zindex-dd;
+    box-shadow: $shadow;
+    background: #fff;
+    @if $conf-css3 {
+        opacity: 0;
+        transform: translateY(rem(20));
+        @include transition(all);
+    }
+    
+    &--active {
+        display: block;
+        @if $conf-css3 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    //下拉菜单
+    &__item {
+        padding: 0 $select-padding;
+        height: $select-selection-height;
+        line-height: $select-selection-height;
+        font-size: $fz;
+        color: $color;
+        cursor: pointer;
+        &:hover {
+            background-color: $main-lr;
+        }
+        //已选项
+        &--selected {
+            color: $color-d;
+            background-color: $bg-l;
+        }
+        
+    }
+
+    //--------------------- 输入框形式 ---------------------//
+    &__field {
+        width: 100%;
+        height: 100%;
+        font-size: $fz;
+        color: $color;
+    }
+}
+
+}

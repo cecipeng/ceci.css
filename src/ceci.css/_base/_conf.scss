@@ -15,9 +15,12 @@ $conf-grid: 		true; //栅格
 $conf-button: 		true; //按钮
 $conf-icon: 	    true; //字体图标
 $conf-tab:			true; //tab切换
+$conf-input:		true; //输入框
+$conf-radio:		true; //单选框
 $conf-title:		false; //标题栏
 $conf-crumb:		false; //面包屑
-$conf-dropdown:		false; //下拉菜单
+$conf-dropdown:		true; //下拉菜单
+$conf-select:		true; //选择器
 $conf-form:			false; //表单
 $conf-pop:			false; //弹窗
 $conf-link:			false; //链接

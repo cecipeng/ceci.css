@@ -1,0 +1,28 @@
+// ------------------------------------------
+// radio
+// ------------------------------------------
+
+
+@mixin import-ui-radio {
+
+//--------------------- 定义 ---------------------//
+
+//定义radio相关变量
+$radio-cls:				#{$conf-nsp-ele}radio; //通用类名
+
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$radio-cls} {
+	
+	//不可点击态
+	&--disabled {
+		color: $disabled-color;
+		background-color: $disabled-bg;
+		border-color: $disabled-border;
+		cursor: default;
+		pointer-events: none;
+	}
+	
+}
+
+}

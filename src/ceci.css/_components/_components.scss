@@ -14,3 +14,14 @@
     @include import-ui-tab; 
 } 
 
+// dropdown
+@import "_ui-dropdown/dropdown";
+@if $conf-dropdown { 
+    @include import-ui-dropdown; 
+} 
+
+// select
+@import "_ui-select/select";
+@if $conf-select { 
+    @include import-ui-select; 
+} 

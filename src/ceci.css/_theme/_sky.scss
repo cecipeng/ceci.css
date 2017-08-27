@@ -19,7 +19,7 @@ $main:                  $blue;
 $main-d:                #4caaeb;
 $main-dr:               darken($main,10%);
 $main-l:                #55b9ff;
-$main-lr:               lighten($main,35%);
+$main-lr:               lighten($main,36%);
 
 // sub color
 $sub: 					$green;
@@ -101,7 +101,9 @@ $wrapper-w:				100%;      // 正文 width
 $min-w:				    rem(0);      // 正文 width,1024还需加上滚动条宽度
 $side-w:				rem(200);      // 侧栏 width
 $padding:  				rem(20);
-
+$com-height:            rem(30);     // 标准高度
+$com-height-l:          rem(36);
+$com-height-s:          rem(20);
 
 
 //--------------------- media ---------------------//

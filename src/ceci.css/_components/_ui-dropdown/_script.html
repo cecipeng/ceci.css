@@ -1,0 +1,38 @@
+//dropdown展开收起
+$(".ui-dropdown__wrap").on("mouseenter",function(e){
+    const _selection = $(this).find(".ui-dropdown__selection");
+    const _top = _selection.position().top;
+    const _left = _selection.position().left;
+    const _width = _selection.outerWidth();
+    const _height = _selection.outerHeight();
+
+    if(_selection.hasClass("ui-dropdown__selection--disabled")) return false;
+    
+    //设置位置
+    $(this).find(".ui-dropdown").addClass("ui-dropdown--active").css({
+        "top": _top + _height
+    });
+
+    //箭头改变方向
+    _selection.addClass("ui-dropdown__selection--active");
+})
+$(".ui-dropdown__wrap").on("mouseleave",function(e){
+    const _this = $(this);
+    setTimeout(function(){
+        _this.find(".ui-dropdown").removeClass("ui-dropdown--active");
+        _this.find(".ui-dropdown__selection").removeClass("ui-dropdown__selection--active");
+    },200);
+})
+
+//dropdown选择菜单项
+$(".ui-dropdown__item").on("click",function(){
+    const _root = $(this).closest(".ui-dropdown__wrap");
+    const _dropdown = _root.find(".ui-dropdown");
+    const _selection = _root.find(".ui-dropdown__selection");
+
+    //收起菜单
+    _dropdown.removeClass("ui-dropdown--active");
+    _selection.removeClass("ui-dropdown__selection--active");
+
+    $(this).addClass("ui-dropdown__item--selected").siblings().removeClass("ui-dropdown__item--selected");
+})

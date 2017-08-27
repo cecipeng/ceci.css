@@ -15,6 +15,8 @@ $tab-border:       $border; //边线颜色
 $tab-h:            rem(38); //tabhead的总高度
 $tab-border-w:     rem(2); //active态边线
 $tab-margin:       rem(10); //单个tab外边距
+$tab-radius:       $radius; //圆角
+
 //--------------------- 通用样式（固定样式） ---------------------//
 .#{$tab-cls} {
 	overflow: hidden;
@@ -128,6 +130,50 @@ $tab-margin:       rem(10); //单个tab外边距
             opacity: 1;
         }
     }
+
+    //--------------------- 额外的内容 ---------------------//
+    &__headextra {
+        float: right;
+    }
+
+    //--------------------- 卡片式 ---------------------//
+    &--card &__item {
+        position: relative;
+        padding-right: 24px;
+        padding-left: 24px;
+        border: 1px solid $tab-border;
+        border-radius: $tab-radius $tab-radius 0 0;
+        border-bottom: 1px solid transparent;
+        &del {
+            display: inline-block;
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            margin-top: -10px;
+            opacity: 0;
+            font-size: 12px;
+            @include transition(opacity);
+            &:hover {
+                color: $main;
+            }
+            &:active {
+                color: $main-d;
+            }
+        }
+        &:hover {
+            color: $main;
+            .ui-icon {
+                color: $color;
+                opacity: 1;
+            }
+        }
+        &--active {
+            border-bottom: 1px solid #fff;
+        }
+    }
+
 }
 
 }
