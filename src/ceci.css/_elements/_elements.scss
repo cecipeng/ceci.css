@@ -37,3 +37,9 @@
 @if $conf-radio {
 	@include import-ui-radio;
 }
+
+// 多选框
+@import "_ui-checkbox/checkbox";
+@if $conf-checkbox {
+	@include import-ui-checkbox;
+}

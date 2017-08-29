@@ -1,0 +1,50 @@
+@@include('_include/_meta.html')	
+    <title>ceci.css</title>
+</head>
+
+<body>
+	<!-- 介绍 -->
+	<section class="doc__markdown">
+		@@include('../../ceci.css/_elements/_ui-checkbox/doc/intro.html')		
+	</section>
+	<!-- /介绍 -->
+
+	<!-- 预览演示 -->
+	<section class="doc__markdown">
+		<div class="doc__mdbox">
+			<!--title-->
+			<div class="doc__mdbox-title">
+				@@include('../../ceci.css/_elements/_ui-checkbox/doc/basic.html')
+			</div>
+			<!--/title-->
+			<!--预览、代码-->
+			<div class="ui-grid__row">
+				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+					@@include('../../ceci.css/_elements/_ui-checkbox/_checkbox.html')
+				</div>
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../ceci.css/_elements/_ui-checkbox/_checkbox.html')
+						</code>
+					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+	</section>
+	<!-- /预览演示 -->
+
+	<!-- api -->
+	<section class="doc__markdown">
+		@@include('../../ceci.css/_elements/_ui-checkbox/doc/api.html')		
+	</section>
+	<!-- /api -->
+
+
+@@include('_include/_script.html')
+</body>
+</html>

@@ -108,6 +108,24 @@ $input-border:				$border;
 			margin-left: -1px;
 		}
 	}
+
+	//--------------------- 搜索框 ---------------------//
+	//最外层
+	&__search {
+		display: inline-block;
+		position: relative;
+	}
+	&__search & {
+		padding-right: rem(40);
+	}
+	&__searchbtn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: $input-height-l;
+		min-width: 0;
+	}
 }
 
 }

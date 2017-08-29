@@ -25,3 +25,15 @@
 @if $conf-select { 
     @include import-ui-select; 
 } 
+
+// crumb
+@import "_ui-crumb/crumb";
+@if $conf-crumb { 
+    @include import-ui-crumb; 
+} 
+
+// backtop
+@import "_ui-backtop/backtop";
+@if $conf-backtop { 
+    @include import-ui-backtop; 
+} 

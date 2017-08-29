@@ -1,45 +1,47 @@
 // ------------------------------------------
-// radio
+// checkbox
 // ------------------------------------------
 
 
-@mixin import-ui-radio {
+@mixin import-ui-checkbox {
 
 //--------------------- 定义 ---------------------//
 
-//定义radio相关变量
-$radio-cls:				#{$conf-nsp-ele}radio; //通用类名
-$radio-size:			rem(16);
+//定义checkbox相关变量
+$checkbox-cls:				#{$conf-nsp-ele}checkbox; //通用类名
+$checkbox-size:				rem(16);
 
 //--------------------- 通用样式（固定样式） ---------------------//
-.#{$radio-cls} {
+.#{$checkbox-cls} {
 	display: inline-block;
 	vertical-align: middle;
 	position: relative;
 	font-size: $fz;
 	color: $color;
-	line-height: $radio-size;
+	line-height: $checkbox-size;
 	cursor: pointer;
 
 	&__btn {
 		position: relative;
 		display: inline-block;
 		vertical-align: middle;
-		width: $radio-size;
-		height: $radio-size;
-		border-radius: 50%;
+		width: $checkbox-size;
+		height: $checkbox-size;
 		border: 1px solid $border;
+		@include transition(all);
 		&:before {
 			position: absolute;
 			left: 50%;
 			top: 50%;
-			width: $radio-size / 2;
-			height: $radio-size / 2;
-			margin-top: -($radio-size / 4);
-			margin-left: -($radio-size / 4);
-			border-radius: 50%;
-			background-color: $main;
-			content: "";
+			width: $checkbox-size / 2;
+			height: $checkbox-size / 2;
+			margin-top: -($checkbox-size / 4);
+			margin-left: -($checkbox-size / 4);
+			color: #fff;
+			// background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKBAMAAAB/HNKOAAAAElBMVEUAAAD///////////////////8+Uq06AAAABnRSTlMAYDCQUICtr+75AAAAJElEQVQI12NAByIgglGAwYmBQZCBgVmBUQDINxIEibIKoCoFAB23AQWgZl9/AAAAAElFTkSuQmCC');
+			// background-repeat: no-repeat;
+			// background-size: 100% 100%;
+			content: "\e8c5";
 			transform: scale(0);
 			opacity: 0;
 			@include transition(all);
@@ -62,6 +64,7 @@ $radio-size:			rem(16);
 
 	//选中态
 	&--active &__btn {
+		background-color: $main;
 		border-color: $main;
 		&:before {
 			opacity: 1;
@@ -79,7 +82,7 @@ $radio-size:			rem(16);
 		background-color: $disabled-bg;
 		border-color: $disabled-border;
 		&:before {
-			background-color: $disabled-border;
+			color: $disabled-border;
 		}
 	}
 	

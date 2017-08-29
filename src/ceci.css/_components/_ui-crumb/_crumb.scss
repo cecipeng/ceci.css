@@ -1,0 +1,67 @@
+// ------------------------------------------
+// crumb
+// ------------------------------------------
+
+
+@mixin import-ui-crumb {
+
+//--------------------- 定义 ---------------------//
+
+//定义crumb相关变量
+$crumb-cls:				#{$conf-nsp-ele}crumb; //通用类名
+$crumb-fz:              $fz-s; //文字大小
+$crumb-color:           $color; //文字颜色
+$crumb-last-color:      $color-d; //最后一个无点击的文字颜色
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$crumb-cls} {
+	font-size: $crumb-fz;
+    color: $crumb-color;
+
+    &__item {
+        // 最后一个无链接
+        &:last-child {
+            color: $crumb-last-color;
+        }
+    }
+    //最后一个无分隔符
+    &__item:last-child &__separator {
+        display: none;
+    }
+
+    //最后一个无多态
+    &__item:last-child &__link {
+        &:hover,
+        &:active {
+            cursor: default;
+            color: $crumb-last-color;
+        }
+    }
+
+    //分隔符
+    &__separator {
+        margin: 0 rem(8);
+        color: $color-l; ///
+        font-family: 'SimSun';
+    }
+
+    &__link {
+        cursor: pointer;
+        @include transition(color);
+        &:hover {
+            color: $main;
+        }
+        &:active {
+            color: $main-d;
+        }
+    }
+
+    //图标
+    .#{$conf-nsp-ele}icon {
+        font-size: rem(16);
+        margin-right: rem(5);
+    }
+
+}
+
+}

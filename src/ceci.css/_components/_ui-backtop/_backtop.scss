@@ -1,0 +1,45 @@
+// ------------------------------------------
+// backtop
+// ------------------------------------------
+
+
+@mixin import-ui-backtop {
+
+//--------------------- 定义 ---------------------//
+
+//定义backtop相关变量
+$backtop-cls:				#{$conf-nsp-ele}backtop; //通用类名
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$backtop-cls} {
+	
+    position: fixed;
+    right: rem(100);
+    bottom: rem(50);
+    
+    cursor: pointer;
+    z-index: $zindex-fix;
+
+    //默认样式
+    &__default {
+        display: block;
+        width: rem(40);
+        height: rem(40);
+        border-radius: 50%;
+        background-color: rgba(#000,.4);
+        background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAACnRSTlMAwPAw0EAQoHAgS5K9nwAAAG9JREFUGNNjQAFMq+BAgYE5FA4MINKcE5DUGikj2MxaiwwQEi4uynAJlUQxJwOYhBujQIoyTCKBUYANKAWRYGAUYABKQSRAHKAURALEAUqBJcAcsBQTUALEAUqpMXAkwDhsDUACwoEDyjnsBQwYAABPsBdFWuNclgAAAABJRU5ErkJggg==');
+        background-repeat: no-repeat;
+        background-size: 50% auto;
+        background-position: center center;
+        @include transition(background-color);
+        &:hover {
+            background-color: rgba(#000,.35);
+        }
+        &:active {
+            background-color: rgba(#000,.5);
+        }
+    }
+
+}
+
+}

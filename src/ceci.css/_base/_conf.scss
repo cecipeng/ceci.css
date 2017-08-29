@@ -17,8 +17,9 @@ $conf-icon: 	    true; //字体图标
 $conf-tab:			true; //tab切换
 $conf-input:		true; //输入框
 $conf-radio:		true; //单选框
+$conf-checkbox:		true; //多选框
+$conf-crumb:		true; //面包屑
 $conf-title:		false; //标题栏
-$conf-crumb:		false; //面包屑
 $conf-dropdown:		true; //下拉菜单
 $conf-select:		true; //选择器
 $conf-form:			false; //表单
@@ -34,7 +35,7 @@ $conf-list:			false; //列表
 $conf-page:			false; //分页
 $conf-search:		false; //搜索
 $conf-star:			false; //星级评分
-$conf-totop:		false; //返回顶部
+$conf-backtop:		true; //返回顶部
 $conf-slider:		false; //幻灯片
 $conf-largeview:	false; //查看大图
 
