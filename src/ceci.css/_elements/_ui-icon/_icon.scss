@@ -28,7 +28,8 @@ $icon-cls:				#{$conf-nsp-ele}icon; //通用类名
 }
 
 //--------------------- 通用样式（固定样式） ---------------------//
-.#{$icon-cls} {
+.#{$icon-cls},
+%#{$icon-cls} {
 	display: inline-block;
 	vertical-align: baseline;
 	@extend %iconfont;

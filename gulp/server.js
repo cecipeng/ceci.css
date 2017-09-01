@@ -16,7 +16,7 @@ module.exports = {
 				baseDir: c_paths.tmp,
 				directory: true,
 			},
-			startPath: c_paths.sitemap
+			// startPath: c_paths.sitemap
 		});
 	}
 }

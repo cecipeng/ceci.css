@@ -1,0 +1,255 @@
+// ------------------------------------------
+// page
+// ------------------------------------------
+
+
+@mixin import-ui-page {
+
+//--------------------- 定义 ---------------------//
+
+//定义page相关变量
+$page-cls:				#{$conf-nsp-ele}page; //通用类名
+
+//页码
+$page-height:			$com-height;	//height
+$page-height-s:			$com-height-s;	//迷你版尺寸
+$page-height-simple:	$com-height-s;	//简洁版尺寸
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$page-cls} {
+	font-size: $fz;
+    color: $color;
+    &__count,
+    &__list,
+    &__size,
+    &__jumper {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $page-height;
+        margin-right: rem(12); ////////////////////
+    }
+
+    //按钮通用
+    &__item,
+    &__more,
+    &__turn, {
+        display: inline-block;
+        vertical-align: middle;
+        height: $page-height;
+        text-align: center;
+        border-radius: $radius;
+        user-select: none;
+        cursor: pointer;
+        @include transition(all);
+    }
+
+    //页码
+    &__item,
+    &__turn {
+        min-width: $page-height;
+        line-height: $page-height - rem(2);
+        margin-right: rem(4); /////////////////////
+        font-family: Arial;
+        border: 1px solid $border;
+        background-color: #fff;
+        &:hover {
+            border-color: $main;
+            color: $main;
+        }
+        //选中态
+        &--active,
+        &:active,
+        &--active:hover {
+            border-color: $main;
+            color: #fff;
+            background-color: $main;
+        }
+    }
+
+    //更多
+    &__more {
+        position: relative;
+        width: $page-height;
+        line-height: $page-height;
+        font-family: 'SimSun';
+        &:after {
+            content: '...';
+        }
+    }
+    &__prevmore {
+        &:hover:after {
+            color: $main;
+            content: '<<'
+        }
+    }
+    &__nextmore {
+        &:hover:after {
+            color: $main;
+            content: '>>'
+        }
+    }
+
+    //翻页
+    &__turn {
+        font-family: 'SimSun';
+        font-size: $fz;
+        //选中态
+        &:active {
+            border-color: $main-d;
+            color: $main-d;
+            background-color: #fff;
+        }
+    }
+    &__prev {
+        &:after {
+            content: '<'
+        }
+    }
+    &__next {
+        &:after {
+            content: '>'
+        }
+    }
+
+    //跳转到
+    &__jumper {
+        .#{$conf-nsp-ele}input {
+            width: rem(50); ////////////////
+            text-align: center;
+        }
+        .#{$conf-nsp-ele}button {
+
+            min-width: rem(0);
+            text-align: center;
+        }
+    }
+
+    //统计
+    &__count {
+        &text {
+            color: $main;
+        }
+    }
+
+
+    //--------------------- 迷你版 ---------------------//
+    &--mini {
+        font-size: $fz-s;
+    }
+    &--mini &__count,
+    &--mini &__list,
+    &--mini &__size,
+    &--mini &__jumper {
+        line-height: $page-height-s;
+        margin-right: rem(6); ////////////////////
+    }
+
+    //按钮通用
+    &--mini &__item,
+    &--mini &__more,
+    &--mini &__turn {
+        height: $page-height-s;
+        border-radius: $radius-s;
+    }
+
+    //页码
+    &--mini &__item,
+    &--mini &__turn {
+        min-width: $page-height-s;
+        line-height: $page-height-s;
+        margin-right: rem(0); /////////////////////
+        border: none;
+    }
+
+    //更多
+    &--mini &__more {
+        width: $page-height-s;
+        line-height: $page-height-s;
+    }
+
+    //跳转到
+    &--mini &__jumper {
+        .#{$conf-nsp-ele}input {
+            width: rem(30); ///////////////
+            height: $page-height-s;
+            line-height: $page-height-s - rem(2);
+            padding: 0 rem(3);
+            font-size: $fz-s;
+        }
+        .#{$conf-nsp-ele}button {
+            padding: 0 rem(8);
+            height: $page-height-s;
+            line-height: $page-height-s - rem(2);
+        }
+    }
+    //每页条目数
+    &--mini &__size {
+        .#{$conf-nsp-ele}select__item,
+        .#{$conf-nsp-ele}select__selection {
+            height: $page-height-s;
+            line-height: $page-height-s - rem(2);
+            padding: 0 rem(6);
+            font-size: $fz-s;
+        }
+        .#{$conf-nsp-ele}select {
+            top: $page-height-s;
+        }
+    }
+
+
+    //--------------------- 简洁版 ---------------------//
+    &--simple {
+        font-size: $fz-s; //////////////////
+    }
+    &--simple &__list {
+        line-height: $page-height-simple;
+        margin-right: rem(0); ////////////////////
+    }
+
+    //页码
+    &--simple &__turn {
+        min-width: $page-height-simple;
+        height: $page-height-simple;
+        line-height: $page-height-simple;
+        margin-right: rem(0); /////////////////////
+        border: none;
+    }
+
+    //跳转到
+    &__simpleturn {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $page-height-simple;
+        .#{$conf-nsp-ele}input {
+            width: rem(30); ///////////////
+            height: $page-height-simple;
+            line-height: $page-height-simple - rem(2);
+            margin-right: rem(6); /////////////////
+            padding: 0 rem(3);
+            font-size: $fz-s;
+            text-align: center;
+        }
+    }
+
+    //简洁版二，只有上一页下一页
+    &--simple2 &__turn {
+        &:after {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &--simple2 &__prev {
+        &:after {
+            float: left;
+            margin-right: rem(6);////////
+        }
+    }
+    &--simple2 &__next {
+        &:after {
+            float: right;
+            margin-left: rem(6);////////
+        }
+    }
+}
+
+}

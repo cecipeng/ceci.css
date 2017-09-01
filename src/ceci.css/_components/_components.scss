@@ -36,4 +36,17 @@
 @import "_ui-backtop/backtop";
 @if $conf-backtop { 
     @include import-ui-backtop; 
+}
+
+// page
+@import "_ui-page/page";
+@if $conf-page { 
+    @include import-ui-page; 
+} 
+
+
+// datepicker
+@import "_ui-datepicker/datepicker";
+@if $conf-datepicker { 
+    @include import-ui-datepicker; 
 } 

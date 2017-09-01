@@ -19,6 +19,7 @@ $conf-input:		true; //输入框
 $conf-radio:		true; //单选框
 $conf-checkbox:		true; //多选框
 $conf-crumb:		true; //面包屑
+$conf-datepicker:	true; //日期选择器
 $conf-title:		false; //标题栏
 $conf-dropdown:		true; //下拉菜单
 $conf-select:		true; //选择器
@@ -32,7 +33,7 @@ $conf-footer:		false; //底部
 $conf-placeholder:	false; //占位图
 $conf-nav:			true; //导航
 $conf-list:			false; //列表
-$conf-page:			false; //分页
+$conf-page:			true; //分页
 $conf-search:		false; //搜索
 $conf-star:			false; //星级评分
 $conf-backtop:		true; //返回顶部

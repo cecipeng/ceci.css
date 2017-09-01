@@ -116,10 +116,12 @@ $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 		&--left { //固定侧栏（左）
 			position: relative;
 			padding-left: $side-w;
+			height: 100%;
 		}
 		&--right { //固定侧栏（右）
 			position: relative;
 			padding-right: $side-w;
+			height: 100%;
 		}
 	}
 
