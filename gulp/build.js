@@ -41,7 +41,8 @@ const processors = [
 	// 	}
 	// }),
 	cssnano({
-		'postcss-zindex': false
+		'postcss-zindex': false,
+		'postcss-reduce-idents': false
 	})
 ];
 

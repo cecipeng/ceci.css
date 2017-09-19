@@ -347,3 +347,14 @@
 .doc__markdown .ui-input__searchbtn {
     margin: 0;
 }
+
+////////////////// 组件——走马灯
+.doc__markdown .ui-carousel__slide {
+    background: lighten($main,15%);
+    font-size: 15px;
+    line-height: 200px;
+    text-align: center;
+}
+.doc__markdown .ui-grid__col-s-24 {
+    height: 240px;
+}

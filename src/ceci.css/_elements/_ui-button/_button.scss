@@ -21,9 +21,9 @@ $button-radius-l:			$radius-l;
 $button-width-s:			rem(50);   //width
 $button-width:				rem(80);
 $button-width-l:			rem(120);
-$button-height-s:			$com-height-s;	//height
-$button-height:				$com-height;
-$button-height-l:			$com-height-l;
+$button-height-s:			$com-height-s - rem(2);	//height
+$button-height:				$com-height - rem(2);
+$button-height-l:			$com-height-l - rem(2);
 
 $button-main-color:			#fff;		//button-main
 $button-main-bg:			$main;
@@ -61,6 +61,7 @@ $button-disabled-border:		$disabled-border;
 //定义主要按钮多态
 @mixin button-state($color,$bg,$border) {
 	@include button-color($color,$bg,$border);
+	outline: none !important;
 	@if $conf-mobile {
 		&#{$conf-press} {
 			@include button-color(active($color),active($bg),active($border));
@@ -71,6 +72,7 @@ $button-disabled-border:		$disabled-border;
 			@include button-color(hover($color),hover($bg),hover($border));
 		}
 		&:active {
+			
 			@include button-color(active($color),active($bg),active($border));
 		}
 	}

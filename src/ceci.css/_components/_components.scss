@@ -50,3 +50,10 @@
 @if $conf-datepicker { 
     @include import-ui-datepicker; 
 } 
+
+
+// carousel
+@import "_ui-carousel/carousel";
+@if $conf-carousel { 
+    @include import-ui-carousel; 
+} 

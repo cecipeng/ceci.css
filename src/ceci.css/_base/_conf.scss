@@ -37,7 +37,7 @@ $conf-page:			true; //分页
 $conf-search:		false; //搜索
 $conf-star:			false; //星级评分
 $conf-backtop:		true; //返回顶部
-$conf-slider:		false; //幻灯片
+$conf-carousel:		true; //走马灯
 $conf-largeview:	false; //查看大图
 
 // 配置项四：是否需要引入animation.css，默认：不引入
@@ -48,7 +48,7 @@ $conf-imgurl:		'../images/';
 
 // 配置项六：是否使用rem单位，默认：不引入
 $conf-rem:			false;
-$conf-remsize:		30;
+$conf-remsize:		100;
 
 // 配置项七：组件相对于ceci.scss的相对路径
 $conf-element:      '_elements/';

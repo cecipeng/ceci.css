@@ -6,8 +6,12 @@
 @mixin import-reset {
 //--------------------- fixed init ---------------------//
 
-*, *:before, *:after {
-	box-sizing:border-box;
+* {
+	box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, blockquote, textarea, input, button, hr, figure, pre, code { 
 	margin:0; 
@@ -62,6 +66,7 @@ button,
 html input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
+	outline: none;
   	-webkit-appearance: button; /* 2 */
   	cursor: pointer; /* 3 */
 }
@@ -81,7 +86,7 @@ html, body {
     // scrollbar-track-color: #fff; 		// 滚动条的拖动区域(TrackBar)颜色
     // scrollbar-darkshadow-color: #fff; 	// 滚动条暗边框（ThreedDarkShadow）颜色
 }
-a, a:hover, a:active {
+a, a:hover, a:active, a:focus {
 	cursor: pointer;
 	outline: 0;
 	text-decoration: none;

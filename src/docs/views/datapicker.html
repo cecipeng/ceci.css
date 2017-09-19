@@ -1,5 +1,4 @@
 @@include('_include/_meta.html')	
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <title>ceci.css</title>
 </head>
 
@@ -102,19 +101,41 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <script>
 	(function(){
-		$('#demo1 .ui-datepicker__selection').daterangepicker()
+		$('#demo1 .ui-datepicker__selection').daterangepicker({
+			buttonClasses: 'ui-button ui-button',
+			applyClass: 'ui-button__main',
+			cancelClass: 'ui-button__default'
+		})
 
 		$('#demo2 .ui-datepicker__selection').daterangepicker({
 			timePicker: true,
 			timePickerIncrement: 30,
 			locale: {
-				format: 'MM/DD/YYYY h:mm A'
-			}
+				format: 'MM/DD/YYYY h:mm A',
+				applyLabel: '确认',
+				cancelLabel: '取消',
+				firstDay : 1,
+				daysOfWeek: [
+					"天",
+					"一",
+					"二",
+					"三",
+					"四",
+					"五",
+					"六"
+				],
+			},
+			buttonClasses: 'ui-button ui-button',
+			applyClass: 'ui-button__main',
+			cancelClass: 'ui-button__default'
     	})
 
 		$('#demo3 .ui-datepicker__selection').daterangepicker({
 			singleDatePicker: true,
-        	showDropdowns: true
+        	showDropdowns: true,
+			buttonClasses: 'ui-button ui-button--s',
+			applyClass: 'ui-button__main',
+			cancelClass: 'ui-button__default'
     	})
 	})()
 </script>

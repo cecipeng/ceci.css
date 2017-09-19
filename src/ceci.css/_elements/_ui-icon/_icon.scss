@@ -2,14 +2,12 @@
 // iconfont
 // ------------------------------------------
 
+//定义icon相关变量
+$icon-cls:				#{$conf-nsp-ele}icon; //通用类名
 
 @mixin import-ui-icon {
 
 //--------------------- 定义 ---------------------//
-
-//定义icon相关变量
-$icon-cls:				#{$conf-nsp-ele}icon; //通用类名
-
 @font-face {font-family: "iconfont";
 	src: url('fonts/iconfont.eot?t=1504010828646'); /* IE9*/
 	src: url('fonts/iconfont.eot?t=1504010828646#iefix') format('embedded-opentype'), /* IE6-IE8 */
