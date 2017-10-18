@@ -82,9 +82,8 @@ a, a:hover, a:active, a:focus {
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
 }
-[placeholder],
-*[placeholder] {
-	color: #999;	
+::-webkit-input-placeholder {
+	color: #999;
 }
 
 //--------------------- depend on your needs ---------------------//

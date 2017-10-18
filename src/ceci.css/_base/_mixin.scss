@@ -111,7 +111,7 @@
   font-size: $base;
   font-size: $base \9; // ie8-9
   transform: scale($font-scale) rotate($rotate);
-  .ie-rotate-via-degrees($rotate);
+//   .ie-rotate-via-degrees($rotate);
     :root & {
         font-size: $base; // reset ie9 and above
     }

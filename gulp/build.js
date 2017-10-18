@@ -24,7 +24,7 @@ const sprites = require('postcss-sprites');
 const url = require('postcss-url');
 const processors = [
 	url({
-		filter: c_paths.tmp + '/**' + c_images.base64Path + '/*.{jpg,png,gif}',
+		filter: c_paths.tmp + '/**' + c_images.base64Path + '/**/*.{jpg,png,gif}',
 		url: 'inline'
 	}),
 	// sprites({
