@@ -125,20 +125,28 @@ a:hover {
 // 	display: none;
 // }
 
-// ::-webkit-scrollbar {// webkit美化滚动条
-// 	width: rem(10);
-// 	height: rem(10);
-// }
-// ::-webkit-scrollbar-thumb {
-// 	border-radius: rem(6);
-// 	background: #ccc;
-// }
-// ::-webkit-scrollbar-track {
-// 	background: #eee;
-// }
-// ::-ms-clear,
-// ::-ms-reveal {
-// 	display: none;
-// }
+
+	// // webkit美化滚动条
+	// ::-webkit-scrollbar {  //容器
+	// 	width: rem(13);
+	// 	height: rem(13);
+	// }
+	// ::-webkit-scrollbar-thumb {  //上下移动的bar
+	// 	border-radius: rem(7);
+	// 	background: #add5d9;
+	// }
+	// ::-webkit-scrollbar-thumb:hover {  //鼠标经过thumb
+	// 	background: #9ec6ca;
+	// }
+	// ::-webkit-scrollbar-thumb:active {  //鼠标点击thumb
+	// 	background: #9ec6ca;
+	// }
+	// ::-webkit-scrollbar-track {  //滚动的轨道（底）
+	// 	background: #dbeeef;
+	// }
+	// ::-ms-clear,
+	// ::-ms-reveal {
+	// 	display: none;
+	// }
 
 }

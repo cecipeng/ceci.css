@@ -39,7 +39,7 @@
     <div class="ui-grid__col-4"><div class="demo">4份</div></div>
 </div>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <div class="ui-grid__row">
@@ -49,6 +49,9 @@
 </div>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -70,7 +73,7 @@
     <div class="ui-grid__col-6 ui-grid__offset-4"><div class="demo">偏移量4</div></div>
 </div>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <div class="ui-grid__row">
@@ -79,6 +82,9 @@
 </div>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -102,7 +108,7 @@
     <div class="ui-grid__col-8"><div class="demo">分布</div></div>
 </div>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <div class="ui-grid__row ui-grid__row-gutter">
@@ -112,6 +118,9 @@
 </div>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -154,7 +163,7 @@
     <div class="ui-grid__col-3"><div class="demo">分布</div></div>
 </div>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <div class="ui-grid__row ui-grid__flex ui-grid__flex-center">
@@ -181,6 +190,9 @@
 </div>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -203,7 +215,7 @@
     <div class="ui-grid__col-s-4 ui-grid__col-m-24"><div class="demo">4份</div></div>
 </div>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <div class="ui-grid__row">
@@ -213,6 +225,9 @@
 </div>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -364,11 +379,21 @@
 <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
 <script>
 	$(document).ready(function() {
+		//代码高亮
 		$('pre code').each(function(i, block) {
 			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
 			block.innerHTML = _html;
 			hljs.highlightBlock(block);
 		});
+
+		//代码展开
+		$(".doc__showcode").on("click",function(){
+			const _root = $(this).closest(".doc__codebox");
+			const _text = $(this).text() == "查看代码" ? "收起代码" : "查看代码";
+			_root.toggleClass("doc__codebox--active");
+			$(this).text(_text)
+		})
+
 	});
 </script>
 	

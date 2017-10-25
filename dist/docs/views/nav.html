@@ -51,7 +51,7 @@
     <li class="ui-nav__item"><a href="###">导航项4</a></li>
 </ul>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <ul class="ui-nav ui-nav--horizontal">
@@ -72,6 +72,9 @@
 </ul>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -105,7 +108,7 @@
     <li class="ui-nav__item"><a href="###">导航项4</a></li>
 </ul>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <ul class="ui-nav ui-nav--vertical">
@@ -126,6 +129,9 @@
 </ul>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -159,7 +165,7 @@
     <li class="ui-nav__item"><a href="###">导航项4</a></li>
 </ul>
 				</div>
-				<div class="ui-grid__col-s-24 ui-grid__col-m-12">
+				<div class="doc__codebox ui-grid__col-s-24 ui-grid__col-m-12">
 					<pre>
 						<code class="html">	
 <ul class="ui-nav ui-nav--inline">
@@ -180,6 +186,9 @@
 </ul>
 						</code>
 					</pre>
+					<p class="doc__codetrl">
+						<a class="doc__showcode">查看代码</a>
+					</p>
 				</div>
 			</div>
 			<!--/预览、代码-->
@@ -236,11 +245,21 @@
 <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
 <script>
 	$(document).ready(function() {
+		//代码高亮
 		$('pre code').each(function(i, block) {
 			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
 			block.innerHTML = _html;
 			hljs.highlightBlock(block);
 		});
+
+		//代码展开
+		$(".doc__showcode").on("click",function(){
+			const _root = $(this).closest(".doc__codebox");
+			const _text = $(this).text() == "查看代码" ? "收起代码" : "查看代码";
+			_root.toggleClass("doc__codebox--active");
+			$(this).text(_text)
+		})
+
 	});
 </script>
 	

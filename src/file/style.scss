@@ -15,7 +15,7 @@
 @import "_base/_reset.scss";	// default
 
 @function cm($unit){
-	@return $unit * 1cm;
+	@return $unit * 1.2 * 1cm;
 }
 
 //--------------------- page ---------------------//
@@ -41,6 +41,8 @@
 	width:cm(21);
 	padding-top: cm(.9);
 	margin: 0 auto;
+	font-family: 'FangSong';
+	font-weight: bold;
 	// padding: cm(2.1);
 	// background-color: #f5f5f5;
 	.form-head {
@@ -48,6 +50,9 @@
 		line-height: 1.5;
 		font-size: cm(1);
 		text-align: center;
+	}
+	.com-strong {
+		font-weight: bold;
 	}
 	.form-subtitle {
 		clear: fix;
@@ -62,13 +67,37 @@
 	.form-title {
 		float: left;
 		line-height: 2;
-		font-size: cm(0.4);
+		font-size: cm(0.55*1.4);
 	}
 	.form-content {
 		display: block;
 		line-height: 2;
-		font-size: cm(0.4);
+		font-size: cm(0.55*1.4);
+		text-indent: cm(.83);
 		overflow: hidden;
+		font-family: 'FangSong';
+		font-weight: normal;
+	}
+	.form-opinion {
+		padding-top: cm(.8);
+		padding-right: cm(1.1);
+		text-align: right;
+		font-family: 'FangSong';
+		font-weight: normal;
+		line-height: 2;
+		font-size: cm(0.55*1.4);
+		
+	}
+	.form-opinion-inner {
+		display: inline-block;
+		text-align: center;
+	}
+	.form-content-center {
+		text-indent: 0;
+		text-align: center;
+	}
+	.form-opinion-text {
+		
 	}
 	.form-table {
 		margin-top: cm(0.25);
@@ -94,7 +123,7 @@
 	}
 	.form-row-fixtitle {
 		position: relative;
-		min-height: cm(6);
+		min-height: cm(5.42);
 		padding: cm(0.15) cm(0.25);
 		padding-top: cm(0.9);
 		.form-title {
@@ -137,6 +166,7 @@
 	}
 	.file-title {
 		font-size: cm(1);
+		font-weight: bold;
 	}
 	.file-subline {
 	}

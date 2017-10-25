@@ -11,6 +11,8 @@ const server = require('./gulp/server');
 const clean = require('./gulp/clean');
 const build = require('./gulp/build');
 
+// const siteMap = require('./sitemap');
+// siteMap('./src')
 
 gulp.task('default', 
 	gulp.series(

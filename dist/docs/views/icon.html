@@ -112,6 +112,60 @@
             <p class="doc__icon__name">ui-icon-left</p>
         </a>
     </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-refresh"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-refresh"></i>
+            <p class="doc__icon__name">ui-icon-refresh</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-filter"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-filter"></i>
+            <p class="doc__icon__name">ui-icon-filter</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-user"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-user"></i>
+            <p class="doc__icon__name">ui-icon-user</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-lock"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-lock"></i>
+            <p class="doc__icon__name">ui-icon-lock</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-home"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-home"></i>
+            <p class="doc__icon__name">ui-icon-home</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-share"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-share"></i>
+            <p class="doc__icon__name">ui-icon-share</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-koubacktopling"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-koubacktopling"></i>
+            <p class="doc__icon__name">ui-icon-koubacktopling</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-trash"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-trash"></i>
+            <p class="doc__icon__name">ui-icon-trash</p>
+        </a>
+    </li>
+    <li data-clipboard-text='<i class="ui-icon ui-icon-password"></i>'>
+        <a class="doc__icon__item">
+            <i class="ui-icon ui-icon-password"></i>
+            <p class="doc__icon__name">ui-icon-password</p>
+        </a>
+    </li>
 </ul>
 				</div>
 			</div>
@@ -125,11 +179,21 @@
 <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
 <script>
 	$(document).ready(function() {
+		//代码高亮
 		$('pre code').each(function(i, block) {
 			var _html = block.innerHTML.replace(/\</g, '&lt;').replace(/\>/, '&gt;')
 			block.innerHTML = _html;
 			hljs.highlightBlock(block);
 		});
+
+		//代码展开
+		$(".doc__showcode").on("click",function(){
+			const _root = $(this).closest(".doc__codebox");
+			const _text = $(this).text() == "查看代码" ? "收起代码" : "查看代码";
+			_root.toggleClass("doc__codebox--active");
+			$(this).text(_text)
+		})
+
 	});
 </script>
 

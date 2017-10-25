@@ -7,10 +7,51 @@
 	<link rel="stylesheet" href="../ceci.css/ceci.css">
     <link rel="stylesheet" href="css/doc.css">
     <title>ceci.css</title>
+    <style>
+    .sc img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 4px solid green;
+        border-radius: 50%;
+    }
+    .sc {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+    }
+    .sc svg {
+        clip-path: url(#theSVGPath);
+    }
+    .sc1 {
+        right: 50%;
+        top: 125px;
+    }
+    .sc1 img {
+        
+    }
+    .sc2 {
+        left: 50%;
+        top: 41.667px;
+    }
+    </style>
 </head>
 
 <body>
- 
+<div class="sc sc2">
+    <img src="assets/a.png" alt="">
+</div>
+<div class="sc sc1">
+    <svg height="200" width="200"> 
+        <image xlink:href="assets/a.png" x="0" y="0" width="200" height="200"/> 
+        <defs> 
+            <clipPath id="theSVGPath"> 
+                <path d="M100 0 A 100 100, 0, 0, 0, 200 100 A 100 100, 0, 1, 1, 100 0 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+</div>
+
 <div class="ui-layout ui-layout__fix--top">
     <div class="ui-layout__header ui-layout__header--fix">
 		@@include('../ceci.css/_components/_ui-nav/_nav-horizontal.html')
