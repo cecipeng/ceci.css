@@ -1,0 +1,22 @@
+@@include('_include/_com-meta.html')
+<link rel="stylesheet" href="../styles/jquery.fullPage.css" />
+    <title>title</title>
+</head>
+<body>
+<div id="fullpage">
+    <div class="section">1</div>
+    <div class="section">2</div>
+    <div class="section">3</div>
+    <div class="section">4</div>
+</div>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../scripts/jquery.fullPage.min.js"></script>
+@@include('_include/_com-js.html')
+
+<script>
+$(function(){
+	$('#fullpage').fullpage();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+// ------------------------------------------
+// components
+// ------------------------------------------
+
+// 布局
+@import "_ui-layout/layout";
+@if $conf-layout {
+	@include import-ui-layout;
+}
+
+// 栅格
+@import "_ui-grid/grid";
+@if $conf-grid {
+	@include import-ui-grid;
+}
+
+// 按钮
+@import "_ui-button/button";
+@if $conf-button {
+	@include import-ui-button;
+}
+
+// 图标
+@import "_ui-icon/icon";
+@if $conf-icon {
+	@include import-ui-icon;
+}
+
+// 输入框
+@import "_ui-input/input";
+@if $conf-input {
+	@include import-ui-input;
+}
+
+// 单选框
+@import "_ui-radio/radio";
+@if $conf-radio {
+	@include import-ui-radio;
+}
+
+// 多选框
+@import "_ui-checkbox/checkbox";
+@if $conf-checkbox {
+	@include import-ui-checkbox;
+}
+
+// 导航
+@import "_ui-nav/nav";
+@if $conf-nav { 
+    @include import-ui-nav; 
+} 
+
+// tab
+@import "_ui-tab/tab";
+@if $conf-tab { 
+    @include import-ui-tab; 
+} 
+
+// dropdown
+@import "_ui-dropdown/dropdown";
+@if $conf-dropdown { 
+    @include import-ui-dropdown; 
+} 
+
+// select
+@import "_ui-select/select";
+@if $conf-select { 
+    @include import-ui-select; 
+} 
+
+// crumb
+@import "_ui-crumb/crumb";
+@if $conf-crumb { 
+    @include import-ui-crumb; 
+} 
+
+// backtop
+@import "_ui-backtop/backtop";
+@if $conf-backtop { 
+    @include import-ui-backtop; 
+}
+
+// page
+@import "_ui-page/page";
+@if $conf-page { 
+    @include import-ui-page; 
+} 
+
+
+// datepicker
+@import "_ui-datepicker/datepicker";
+@if $conf-datepicker { 
+    @include import-ui-datepicker; 
+} 
+
+
+// carousel
+@import "_ui-carousel/carousel";
+@if $conf-carousel { 
+    @include import-ui-carousel; 
+} 
+
+// modal
+@import "_ui-modal/modal";
+@if $conf-modal { 
+    @include import-ui-modal; 
+} 

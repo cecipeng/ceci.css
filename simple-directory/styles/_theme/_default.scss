@@ -1,0 +1,132 @@
+// ------------------------------------------
+// theme
+// ------------------------------------------
+
+
+//--------------------- color ---------------------//
+
+// base color ( can't use it directly)
+$org:                   #ddd;
+$green:                 #ddd;
+$yellow:                #ddd;
+$red:                   #ddd;
+$blue:                  #38acff;
+$purple:                #ddd;
+$pink:                  #ddd;
+
+// main color
+$main:                  $blue;  /// used
+$main-d:                mix(#000,$main,10%);
+$main-dr:               mix(#000,$main,20%); 
+$main-l:                mix(#fff,$main,10%);
+$main-lr:               mix(#fff,$main,20%);
+
+// sub color
+$sub: 					$green;
+$sub-d: 				mix(#000,$sub,10%);
+$sub-dr: 			    mix(#000,$sub,20%); 
+$sub-l: 			    mix(#fff,$sub,10%);
+$sub-lr: 			    mix(#fff,$sub,20%);
+
+//other color
+$error:                 $red;
+$success:               $green;
+
+
+// border
+$border-l: 	            #ddd;
+$border: 				#ddd;
+$border-d: 		        #ddd;
+
+// background-color
+$bg-l: 	                #ddd;
+$bg: 			        #ddd;
+$bg-d: 	                #ddd;
+
+// disabled color
+$disabled-color:        #ddd;
+$disabled-bg:           #ddd;
+$disabled-border:       #ddd;
+
+//--------------------- font ---------------------//
+
+//color
+$color:                 #666;
+$color-d: 			    #333;
+$color-l: 		        #999;
+$color-disable: 		$color-l;
+
+//font-size
+$fz-s:                  unit(12);
+$fz:                    unit(14);
+$fz-l:                  unit(16);
+$fz-xl:                 unit(18);
+$fz-xxl:                unit(20);
+$fz-xxxl:               unit(24);
+
+//line-height
+$lh:                    1.5;
+
+
+$shadow-s:              0 unit(1) unit(6) rgba(0,0,0,.2);
+$shadow:                0 unit(1) unit(6) rgba(0,0,0,.2);
+$shadow-l:              0 unit(1) unit(6) rgba(0,0,0,.2);
+
+//--------------------- radius ---------------------//
+
+$radius-s:              unit(2);
+$radius:                unit(3);
+$radius-l:              unit(6);
+
+
+//--------------------- z-index ---------------------//
+
+$zi:                    1;
+$zi-up:                 3;      //两者之间的上层
+$zi-down:               2;      //两者之间的下层
+$zi-fix:                50;		//fixed topbar,backtotop
+$zi-dd:                 70;		//dropdown
+$zi-modal:              100;	//pop  
+
+
+//--------------------- animation ---------------------//
+
+$dur-s:                 0.3s;
+$dur:                   0.5s;
+$dur-l:                 1s;
+$dur-h:                 2s;
+
+
+//--------------------- width and height ---------------------//
+
+$header-h:              unit(64);       // header height  
+$nav-h:                 unit(0);        // mainnav height  
+$footer-h:              unit(64);       // footer height 
+$wrapper-w:				100%;           // 正文 width
+$min-w:				    unit(0);        // 正文 width,1024还需加上滚动条宽度
+$side-w:				unit(200);      // 侧栏 width
+$padding:  				unit(20);
+$com-height:            unit(30);       // 标准高度
+$com-height-l:          unit(36);
+$com-height-s:          unit(20);
+
+
+//--------------------- media ---------------------//
+$screen-xs:             unit(480);
+$screen-s:              unit(768);
+$screen-m:              unit(992);
+$screen-l:              unit(1200);
+$screen-xl:             unit(1600);
+// $mq-s:                  max-width $min-w;
+// $mq-n:                  1024px 1200px;
+// $mq-l:                  1000px;
+// $mq-h:                  1600px;
+// media query
+// @example:
+// 示例scss:
+//   .foo{
+//     width: 500px;
+//     @include breakpoint($mq-n){
+//       width: 200px;
+//     }
+//   }

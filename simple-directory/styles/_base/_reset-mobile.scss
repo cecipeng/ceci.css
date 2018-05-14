@@ -1,0 +1,98 @@
+// ------------------------------------------
+// reset for mobile
+// ------------------------------------------
+
+@mixin import-reset-mobile {
+//--------------------- fixed init ---------------------//
+
+* {
+	box-sizing:border-box;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); //  remove tap highlight color for mobile safari
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, blockquote, textarea, input, button, hr, figure { 
+	margin:0; 
+}
+ul, ol, th, td, button, textarea, input { 
+	padding:0; 
+}
+ul, ol { 
+	list-style: none; 
+}
+h1, h2, h3, h4, h5, h6 { 
+	font-size: 100%; 
+	font-weight: normal; 
+}
+em, i {
+	font-style: normal;
+}
+img { 
+	vertical-align: top; 
+	border: none; 
+}
+sub,
+sup {
+  	font-size: 75%;
+  	line-height: 0;
+  	position: relative;
+  	vertical-align: baseline;
+}
+sup {
+  	top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+svg:not(:root) {
+  	overflow: hidden;
+}
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+}
+input, select { 
+	border: none;
+	vertical-align: middle; 
+	outline: none;
+}
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+	outline: none;
+  	-webkit-appearance: button; /* 2 */
+  	cursor: pointer; /* 3 */
+}
+textarea { 
+	resize: vertical; 
+	border: none;
+	outline: none;
+	box-shadow: none;
+	appearance: none;   //去除ios默认样式
+}
+html, body {
+    height: 100%;
+}
+a, a:hover, a:active, a:focus {
+	outline: 0;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+::-webkit-input-placeholder {
+	color: #999;
+}
+
+//--------------------- depend on your needs ---------------------//
+
+input, textarea, select {       
+	font-family: 'San Francisco',Helvetica,Roboto,'Droid Sans','Microsoft YaHei', 'SimSun', Arial;
+}  
+html { 
+	font-family: 'San Francisco',Helvetica,Roboto,'Droid Sans','Microsoft YaHei', 'SimSun', Arial;
+}
+
+}

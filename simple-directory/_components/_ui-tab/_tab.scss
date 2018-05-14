@@ -1,0 +1,179 @@
+// ------------------------------------------
+// tab
+// ------------------------------------------
+
+
+@mixin import-ui-tab {
+
+//--------------------- 定义 ---------------------//
+
+//定义tab相关变量
+$tab-cls:				#{$conf-nsp-ele}tabs; //通用类名
+
+//基础
+$tab-border:       $border; //边线颜色
+$tab-h:            unit(38); //tabhead的总高度
+$tab-border-w:     unit(2); //active态边线
+$tab-margin:       unit(10); //单个tab外边距
+$tab-radius:       $radius; //圆角
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$tab-cls} {
+	overflow: hidden;
+
+    //--------------------- tab切换卡 ---------------------//
+    //最外层容器
+    &__head {
+        height: $tab-h;
+        border-bottom: 1px solid $tab-border;
+    }
+
+    //实际包含tab的容器，其他同级div用于右侧的其他操作元素
+    &__headcontainer {
+        margin-bottom: unit(-1);
+        overflow: hidden;
+    }
+
+    //实际包含tab的容器，其他同级div用于左右切换按钮
+    &__headwrap {
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        clear: fix;
+    }
+
+    //左右切换按钮
+    &__turn {
+        display: none;
+        position: absolute;
+        top: 0;
+        width: $tab-h;
+        height: $tab-h;
+        line-height: $tab-h;
+        font-size: unit(14);
+        color: $color;
+        transition: transition(color);
+        cursor: pointer;
+        &:hover {
+            color: $main;
+        }
+        &:active {
+            color: $main-d;
+        }
+        &--disabled {
+            &,
+            &:hover,
+            &:active {
+                color: $disabled-color;
+                cursor: default;
+            }
+        }
+    }
+    &__prev {
+        left: 0;
+        @extend %iconfont;
+        @extend .ui-icon-left;
+    }
+    &__next {
+        right: 0;
+        @extend %iconfont;
+        @extend .ui-icon-right;
+    }
+
+    //控制：出现横向滚动条
+    &__scroll {
+        position: relative;
+        padding-left: $tab-h;
+        padding-right: $tab-h;
+        .#{$tab-cls}__turn {
+            display: block;
+        }
+    }
+
+    // 单个tab
+    &__list {
+        
+        float: left;
+        transition: transition(transform);
+    }
+    &__item {
+        display: inline-block;
+        line-height: 1.5;
+        margin-right: $tab-margin;
+        padding: unit(8) unit(16)unit(7);
+        font-size: unit(14);
+        color: $color;
+        cursor: pointer;
+        border-bottom: $tab-border-w solid transparent;
+        transition: color .3s ease-out, border-bottom-color .3s ease-out;
+        &:hover {
+            color: $main;
+        }
+        &--active {
+            color: $main;
+            border-bottom-color: $main;
+        }
+    }
+
+    //--------------------- tab切换内容 ---------------------//
+    &__body {
+        white-space: nowrap;
+        font-size: 0;
+        transition: transition(transform);
+    }
+    &__content {
+        opacity: 0;
+        display: inline-block;
+        width: 100%;
+        transition: transition(opacity);
+        &--active {
+            opacity: 1;
+        }
+    }
+
+    //--------------------- 额外的内容 ---------------------//
+    &__headextra {
+        float: right;
+    }
+
+    //--------------------- 卡片式 ---------------------//
+    &--card &__item {
+        position: relative;
+        padding-right: 24px;
+        padding-left: 24px;
+        border: 1px solid $tab-border;
+        border-radius: $tab-radius $tab-radius 0 0;
+        border-bottom: 1px solid transparent;
+        &del {
+            display: inline-block;
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            margin-top: -10px;
+            opacity: 0;
+            font-size: 12px;
+            transition: transition(opacity);
+            &:hover {
+                color: $main;
+            }
+            &:active {
+                color: $main-d;
+            }
+        }
+        &:hover {
+            color: $main;
+            .ui-icon {
+                color: $color;
+                opacity: 1;
+            }
+        }
+        &--active {
+            border-bottom: 1px solid #fff;
+        }
+    }
+
+}
+
+}

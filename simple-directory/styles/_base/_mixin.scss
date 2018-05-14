@@ -1,0 +1,261 @@
+// ------------------------------------------
+// mixin
+// ------------------------------------------
+
+//--------------------- extend ---------------------//
+
+// wordbreak
+%wb {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+// 文字超出显示省略号
+%tof {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// clearfix
+%cf {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+//垂直居中
+%vm {
+    &:after {
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 100%;
+        content: "";
+    }
+}
+
+//chrome美化滚动条（小号，大号的在reset中全局设置）
+%scroll {
+    /* webkit美化滚动条*/
+    ::-webkit-scrollbar {  //容器
+        width: 2px;
+        height: 2px;
+    }
+    ::-webkit-scrollbar-thumb {  //上下移动的bar
+        border-radius: 6px;
+        background: #eee;
+    }
+    ::-webkit-scrollbar-thumb:hover {  //鼠标经过thumb
+
+        background: #ccc;
+    }
+    ::-webkit-scrollbar-thumb:active {  //鼠标点击thumb
+        background: #ccc;
+    }
+    ::-webkit-scrollbar-track {  //滚动的轨道（底）
+        border-radius: 6px;
+        background: #fff;
+    }
+    ::-ms-clear,
+    ::-ms-reveal {
+        display: none;
+    }
+}
+
+
+//--------------------- mixin ---------------------//
+
+// 单位计算
+@function unit($px, $form:$conf-remsize){
+    @if $conf-rem {
+        @return $px / $form * 1rem;
+    }
+    @else {
+        @return $px * 1px;
+    }
+}
+
+// 设置透明度 0~100
+// @mixin opacity($s) {
+//   	opacity: $s/100;
+//   	filter: alpha(opacity=$op);
+// }
+
+//多行溢出（仅限chrome）
+@mixin tof2($li) {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $li;
+    -webkit-box-orient: vertical;
+}
+
+// 小三角
+@mixin arrow($d:top,$color:#ddd,$xsize:10px,$ysize:10px) {
+    width: 0;
+    height: 0;
+    border-width: $xsize $ysize;
+    border-color: transparent;
+    border-#{$d}-color: $color;
+    border-style: solid;
+}
+
+// 绝对定位水平垂直居中
+@mixin middle($left:-50%,$top:-50%) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @if $conf-css3 {
+        transform: translate($left,$top);
+    }
+    @else {
+        margin-left: $left;
+        margin-top: $top;
+    }
+}
+
+// 快速设置宽高值
+@mixin size($width,$height) {
+    width: $width;
+    height: $height;
+}
+
+// 兼容Placeholder文字颜色
+@mixin placeholder($color) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// 设置小于12px的字体（TODO:未测试过）
+@mixin under12px($size, $base: 12px, $rotate: 0deg) {
+  display: inline-block;
+  $font-scale: $size / $base;
+  font-size: $base;
+  font-size: $base \9; // ie8-9
+  transform: scale($font-scale) rotate($rotate);
+//   .ie-rotate-via-degrees($rotate);
+    :root & {
+        font-size: $base; // reset ie9 and above
+    }
+}
+
+
+//渐变效果
+@function transition($type:color) {
+    @return $type 0.3s ease-out;
+}
+
+//hover and active
+//$data-hover: ($n1,$hover,$active)($n2,$hover,$active)($n3,$hover,$active);
+// @mixin hovers($data) {
+//     $ease: .3s ease-out;
+//     $return: nth(nth($data,1),1) $ease;
+//     @for $i from 2 through length($data) {
+//         $return: join(#{$return}, #{nth(nth($data,$i),1) $ease}, 'comma');
+//     }
+//     transition: $return;
+//     &:hover {
+//         @each $prop, $hover, $active in $data {
+//             #{$prop}: $hover;
+//         }
+//     }
+//     &:active {
+//         @each $prop, $hover, $active in $data {
+//             #{$prop}: $active;
+//         }
+//     }
+// }
+@mixin hover($n,$val1,$val2) {
+    @if $conf-mobile {
+        &#{$conf-press} {
+             #{$n}: $val1;
+        }
+    }
+    @else {
+        &:hover {
+            #{$n}: $val1;
+        }
+        &:active {
+            #{$n}: $val2;
+        }
+        @if $conf-css3 {
+            transition: $n 0.3s ease-out;
+        }
+    }
+}
+
+// sprite
+// $global_sprite:
+//     ('img-logo', 'images/logo.png')  
+//     ('img-logo2', 'images/logo2.png')  
+// ;
+// // each sprite
+// @each $spName, $spSrc in $global_sprite {
+//   	%#{$spName} {
+//     	background-image: url($spSrc);
+//     	background-repeat: no-repeat;
+//   	}
+// }
+// @example:
+//   @extend %icon;
+
+
+// 背景图片（common.css引用公用图片）
+@mixin bgurl($url, $repeat:no-repeat, $x:left, $y:top) {
+    background: url('#{$conf-imgurl}#{$url}') $repeat $x $y; 
+}
+
+// 线性渐变
+@mixin linear($start, $end, $to:bottom) {
+    background-color: $start; // Old browsers
+    background-image: linear-gradient(to $to, $start 0%, $end 100%);     // W3C
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start}', endColorstr='#{$end}', GradientType=0 ); // IE6-9
+}
+// 径向渐变
+@mixin circle($start, $end, $deg: 45deg) {
+    background-color: $start; // Old browsers
+    background-image: linear-gradient($deg, $start 0%, $end 100%);     // W3C
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start}', endColorstr='#{$end}', GradientType=1 ); // IE6-9
+}
+
+//--------------------- function ---------------------//
+//同时改变色相、饱和度、亮度、透明度，直接使用hsla()
+
+//改变色相
+@function color-sexiang($color,$p){
+    @return adjust-hue($color,$p);
+}
+
+//改变饱和度（升高）
+@function color-baohedu-lighten($color,$p){
+    @return saturate($color,$p);
+}
+
+//改变饱和度（降低）
+@function color-baohedu-darken($color,$p){
+    @return desaturate($color,$p);
+}
+
+//改变亮度，直接使用lighten和darken
+
+//统一hover和active
+@function hover($color,$per:10%) {
+    @return lighten($color,$per);
+}
+@function active($color,$per:5%) {
+    @return darken($color,$per);
+}

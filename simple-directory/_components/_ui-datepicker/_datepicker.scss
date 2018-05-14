@@ -1,0 +1,591 @@
+// ------------------------------------------
+// datepicker - 基于 daterangepicker 插件的css文件
+// ------------------------------------------
+
+//
+// A stylesheet for use with Bootstrap 3.x
+// @author: Dan Grossman http://www.dangrossman.info/
+// @copyright: Copyright (c) 2012-2015 Dan Grossman. All rights reserved.
+// @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
+// @website: https://www.improvely.com/
+//
+
+@mixin import-ui-datepicker {
+
+//--------------------- 定义 ---------------------//
+
+//定义datepicker相关变量
+$datepicker-cls:				daterangepicker; //通用类名
+
+//装饰小三角
+$datepicker-arrow-size:         unit(7) !default; 
+
+// ------------------------
+// 公用
+// ------------------------
+// color
+$datepicker-color:                      inherit !default; //默认字体色
+$datepicker-bg-color:                   #fff !default; //背景色
+// 公用 border
+$datepicker-border-size:    			1px !default;
+$datepicker-border-color:   			$border !default;
+$datepicker-border-radius:   			$radius !default; // 所有圆角大小
+
+// ------------------------
+// td
+// ------------------------
+// 默认
+$datepicker-cell-border-color:          transparent !default; //td边线色：透明
+$datepicker-cell-hover-bg-color:        #d8ebff !default; //td的hover
+
+// 区间选择
+$datepicker-in-range-color:             $color !default;
+$datepicker-in-range-border-color:      transparent !default;
+$datepicker-in-range-bg-color:          #f4f4f4 !default;
+
+// 选中的
+$datepicker-active-color:               #fff !default;
+$datepicker-active-bg-color:            $main !default;
+$datepicker-active-border-color:        transparent !default;
+
+//非本月
+$datepicker-unselected-color:           $disabled-color !default;
+$datepicker-unselected-border-color:    transparent !default;
+$datepicker-unselected-bg-color:        #fff !default;
+
+// 不可选
+$datepicker-cell-disabled-color:        $disabled-color !default;
+
+// td尺寸
+$datepicker-cell-size:           unit(26) !default; //td尺寸
+
+// ------------------------
+// 容器
+// ------------------------
+//datapicker容器
+$datepicker-width:          unit(278) !default; // 宽度
+$datepicker-padding:        unit(4) !default; //内边距
+$datepicker-z-index:        $zi-dd !default; //datapicker标准层级
+
+//calendar容器
+$datepicker-calendar-margin:              unit(10)  !default; //外边距
+
+//dropdown z-index
+$datepicker-dropdown-z-index: $datepicker-z-index + 1 !default; //弹出层层级在datapicker标准层级之上
+
+
+// ------------------------
+// 输入框
+// ------------------------
+$datepicker-control-height:               $com-height !default; //高度
+$datepicker-control-color:                $color !default; //文字颜色
+$datepicker-control-border-radius:        $radius !default; //圆角
+$datepicker-control-active-border-color:  $main !default; //active时border颜色
+$datepicker-control-disabled-color:       #ccc !default; //disabled时文字颜色
+
+
+// ------------------------
+// 预定义安排
+// ------------------------
+$datepicker-ranges-color:                $main !default;
+$datepicker-ranges-bg-color:             $bg !default;
+
+
+// ------------------------
+// 媒体查询
+// ------------------------
+//界值
+$datepicker-media-m:  					unit(564);
+$datepicker-media-l:  					unit(730);
+
+//--------------------- 通用样式（固定样式） ---------------------//
+
+.#{$datepicker-cls} {
+	// ------------------------
+	// 下拉容器
+	// ------------------------
+	position: absolute;
+  	width: $datepicker-width;
+  	// padding: $datepicker-padding;
+  	margin-top: $datepicker-border-size;
+	padding-bottom: $datepicker-calendar-margin;
+  	color: $datepicker-color;
+  	background-color: $datepicker-bg-color;
+  	border-radius: $datepicker-border-radius;
+	box-shadow: $shadow;
+	$arrow-prefix-size: $datepicker-arrow-size;
+	$arrow-suffix-size: ($datepicker-arrow-size - $datepicker-border-size);
+	@include breakpoint($datepicker-media-m) {
+		width: auto;
+		// 左对齐
+		&.ltr {
+			direction: ltr;
+			text-align: left;
+			.calendar{
+				&.left {
+					clear: left;
+					margin-right: 0;
+					.calendar-table {
+						border-right: none;
+						border-top-right-radius: 0;
+						border-bottom-right-radius: 0;
+					}
+				}
+				&.right {
+					margin-left: 0;
+					.calendar-table {
+						border-left: none;
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+			.left .#{$datepicker-cls}_input {
+				padding-right: unit(12);  ///////////////////////////
+			}
+			.calendar.left .calendar-table {
+				padding-right: unit(12);  ///////////////////////////
+			}
+			.calendar {
+				display: inline-block;
+			}
+		}
+		// 右对齐
+		&.rtl {
+			direction: rtl;
+			text-align: right;
+			.calendar{
+				&.left {
+					clear: right;
+					margin-left: 0;
+					.calendar-table {
+						border-left: none;
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+				&.right {
+					margin-right: 0;
+					.calendar-table {
+						border-right: none;
+						border-top-right-radius: 0;
+						border-bottom-right-radius: 0;
+					}
+				}
+			}
+			.left .#{$datepicker-cls}_input {
+				padding-left: unit(12);  ///////////////////////////
+			}
+			.calendar.left .calendar-table {
+				padding-left: unit(12);  ///////////////////////////
+			}
+			.ranges, .calendar {
+				text-align: right;
+				float: right;
+			}
+		}
+	}
+	@include breakpoint($datepicker-media-l) {
+		.ranges {
+			width: auto;
+		}
+		// &.ltr {
+		// 	.ranges {
+		// 		float: left;
+		// 	}
+		// }
+		// &.rtl {
+		// 	.ranges {
+		// 		float: right;
+		// 	}
+		// }
+		// .calendar.left {
+		// 	clear: none !important;
+		// }
+	}
+
+	// ------------------------
+	// 右上角装饰小三角
+	// ------------------------
+	&:before, &:after {
+	  	position: absolute;
+	  	display: inline-block;
+	  	border-bottom-color: rgba(0, 0, 0, 0.2);
+	  	content: '';
+	}
+  	&:before {
+		top: -$arrow-prefix-size;
+		border-right: $arrow-prefix-size solid transparent;
+		border-left: $arrow-prefix-size solid transparent;
+		border-bottom: $arrow-prefix-size solid $datepicker-border-color;
+  	}
+  	&:after {
+		top: -$arrow-suffix-size;
+		border-right: $arrow-suffix-size solid transparent;
+		border-bottom: $arrow-suffix-size solid $datepicker-bg-color;
+		border-left: $arrow-suffix-size solid transparent;
+  	}
+	//向左打开 打开方向不同，箭头位置不同
+  	&.opensleft {
+		&:before {
+			// TODO: Make this relative to prefix size.
+			right: $arrow-prefix-size + unit(2);
+		}
+		&:after {
+			// TODO: Make this relative to suffix size.
+			right: $arrow-suffix-size + unit(4);
+		}
+	}
+	//居中打开
+  	&.openscenter {
+		&:before {
+			left: 0;
+			right: 0;
+			width: 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		&:after {
+			left: 0;
+			right: 0;
+			width: 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+  	}
+	//向右打开
+  	&.opensright {
+		&:before {
+			// TODO: Make this relative to prefix size.
+			left: $arrow-prefix-size + unit(2);
+		}
+		&:after {
+			// TODO: Make this relative to suffix size.
+			left: $arrow-suffix-size + unit(4);
+		}
+  	}
+	//???????????????????????????
+  	&.dropup {
+		margin-top: -5px;
+		// NOTE: Note sure why these are special-cased.
+		&:before {
+			top: initial;
+			bottom: -$arrow-prefix-size;
+			border-bottom: initial;
+			border-top: $arrow-prefix-size solid $datepicker-border-color;
+		}
+		&:after {
+			top: initial;
+			bottom:-$arrow-suffix-size;
+			border-bottom: initial;
+			border-top: $arrow-suffix-size solid $datepicker-bg-color;
+		}
+  	}
+
+  	&.dropdown-menu {
+		max-width: none;
+		z-index: $datepicker-dropdown-z-index;
+  	}
+	// 单个时
+	&.single {
+		.ranges, .calendar {
+			float: none;
+		}
+		@include breakpoint($datepicker-media-m) {
+			.ranges {
+				ul {
+					width: 100%;
+				}
+			}
+			.calendar.left {
+				clear: none;
+			}
+
+			&.ltr {
+				.calendar {
+					float:left;
+				}
+			}
+			&.rtl {
+				.calendar {
+					float:right;
+				}
+			}
+		}
+			
+	}
+
+  	// 显示日历
+  	&.show-calendar {
+		.calendar {
+			display: inline-block;
+		}
+  	}
+	// ------------------------
+	// 日历容器
+	// ------------------------
+  	.calendar {
+		display: none;
+		max-width: $datepicker-width - ($datepicker-calendar-margin * 2);
+		margin: $datepicker-calendar-margin;
+		margin-bottom: 0;
+		&.single {
+			.calendar-table {
+				border: none;
+			}
+		}
+		th, td {
+			white-space: nowrap;
+			text-align: center;
+		}
+  	}
+	//日历表格
+  	.calendar-table {
+		border: $datepicker-border-size solid $datepicker-bg-color;
+		padding: $datepicker-padding;
+		border-radius: $datepicker-border-radius;
+		background-color: $datepicker-bg-color;
+  	}
+	table {
+		width: 100%;
+		margin: 0;
+	}
+	
+	// ------------------------
+	// td
+	// ------------------------
+  	td, th {
+		text-align: center;
+		width: $datepicker-cell-size;
+		height: $datepicker-cell-size;
+		border-radius: $datepicker-border-radius;
+		border: $datepicker-border-size solid $datepicker-cell-border-color;
+		white-space: nowrap;
+		cursor: pointer;
+		font-size: $fz-s;
+		color: $color;
+		font-weight: normal;
+		//选中的td
+		&.available {
+			&:hover {
+				background-color: $datepicker-cell-hover-bg-color; //??????????
+				border-color: $datepicker-cell-border-color;
+				color: $main;
+				border-radius: $datepicker-border-radius;
+			}
+		}
+		&.week {
+			font-size: 80%;
+			color: #ccc; //??????????
+		}
+  	}
+  	td {
+		// ------------------------
+		// td ： 非本月
+		// ------------------------
+		&.off {
+			&, &.in-range, &.start-date, &.end-date {
+				background-color: $datepicker-unselected-bg-color;
+				border-color: $datepicker-unselected-border-color;
+				color: $datepicker-unselected-color;
+			}
+		}
+
+		// ------------------------
+		// 区间选择
+		// ------------------------
+		//区间的td
+		&.in-range {
+			background-color: $datepicker-in-range-bg-color;
+			border-color: $datepicker-in-range-border-color;
+			color: $datepicker-in-range-color;
+			border-radius: 0;
+			&.start-date,
+			&.end-date {
+				border-radius: $datepicker-border-radius;
+			}
+		}
+
+		//即是区间开始，也是结束的td
+		&.start-date.end-date {
+			border-radius: $datepicker-border-radius;
+		}
+
+		// ------------------------
+		// 选中的td
+		// ------------------------
+		&.active {
+			&, &:hover {
+				background-color: $datepicker-active-bg-color;
+				border-color: $datepicker-active-border-color;
+				color: $datepicker-active-color;
+			}
+		}
+	}
+
+	th {
+		&.month {
+			width: auto;
+			color: $color-d;
+			font-size: $fz;
+		}
+		//左右切换图标
+		.fa {
+			font-size: $fz;
+			font-family: 'SimSun';
+		}
+		.fa-chevron-left {
+			&:after {
+				content: '<'
+			}
+		}
+		.fa-chevron-right {
+			&:after {
+				content: '>'
+			}
+		}
+	}
+
+	// 不可选的td
+	td, option {
+		&.disabled {
+			color: $datepicker-cell-disabled-color;
+			cursor: not-allowed;
+			text-decoration: line-through;
+		}
+	}
+
+	// ------------------------
+	// 年月下拉选择框
+	// ------------------------
+  	select {
+		border: 1px solid $datepicker-border-color;
+		border-radius: $datepicker-border-radius;
+		&.monthselect, &.yearselect {
+			font-size: unit(12); //////////////////////////
+			padding: 1px;
+			height: auto;
+			margin: 0;
+			cursor: default;
+		}
+
+		&.monthselect {
+			margin-right: 8%;
+			width: 50%;
+		}
+
+		&.yearselect {
+			width: 40%;
+		}
+
+		&.hourselect, &.minuteselect, &.secondselect, &.ampmselect {
+			width: unit(50); //////////////////////////
+			margin-bottom: 0;
+		}
+  	}
+
+	// ------------------------
+	// 日期输入框（下拉框中顶部可直接输入日期）
+	// ------------------------
+	.input-mini {
+		display: block;
+		width: 100%;
+		padding: 0 unit(6) 0 unit(28); /////////////////////////////////////
+		vertical-align: middle;
+		height: $datepicker-control-height;
+		line-height: $datepicker-control-height;
+		border: $datepicker-border-size solid $datepicker-border-color;
+		border-radius: $datepicker-control-border-radius;
+		color: $datepicker-control-color;
+		&.active {
+			border-color: $datepicker-control-active-border-color;
+		}
+	}
+	//输入框中的小图标
+  	.#{$datepicker-cls}_input {
+		position: relative;
+		//输入框中的小图标
+		i {
+			position: absolute;
+			left: unit(8);
+			top: unit(8);
+		}
+	}
+	&.rtl { //日历右浮动时，小图标显示在右边
+		.input-mini {
+			padding-right: unit(28);
+			padding-left: unit(6);
+		}
+		.#{$datepicker-cls}_input i {
+			left: auto;
+			right: unit(8);
+		}
+	}
+
+	// ------------------------
+	// 时间选择
+	// ------------------------
+	.calendar-time {
+		text-align: center;
+		margin: unit(5) auto; //////////////////
+		line-height: $datepicker-control-height;
+		position: relative;
+		padding-left: unit(28); //////////////////
+
+		select {
+			&.disabled {
+				color: $datepicker-control-disabled-color;
+				cursor: not-allowed;
+			}
+		}
+	}
+	
+  
+	// ------------------------
+	// 预定义安排
+	// ------------------------
+	.ranges {
+		font-size: $fz-s;
+		float: none;
+		border-top: 1px solid $datepicker-border-color;
+		padding: $datepicker-calendar-margin;
+		padding-bottom: 0;
+		text-align: left;
+		.range_inputs {
+			text-align: right;
+			button {
+				margin-left: unit(10);
+			}
+		}
+		ul {
+			list-style: none;
+			margin: 0 auto;
+			padding: 0;
+			width: 100%;
+			@include breakpoint($datepicker-media-m) {
+				width: unit(160); /////////////////////////////
+			}
+		}
+		li {
+			font-size: $fz-s;
+			background-color: $datepicker-ranges-bg-color;
+			border: $datepicker-border-size solid $datepicker-ranges-bg-color;
+			border-radius: $datepicker-border-radius;
+			color: $datepicker-ranges-color;
+			padding: unit(3) unit(12); ////////////////////////////
+			margin-bottom: unit(8); ///////////////////////
+			cursor: pointer;
+			transition: transition(all);
+			&:hover,
+			&.active {
+				background-color: $datepicker-ranges-color;
+				border-color: $datepicker-ranges-color;
+				color: #fff;
+			}
+		}
+	}
+
+}
+
+}
+
