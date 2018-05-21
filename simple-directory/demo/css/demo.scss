@@ -1,0 +1,299 @@
+@charset "UTF-8";
+
+@import '../../styles/_base/_components'; // init components variable
+@import "_conf"; // custorm components want to import
+@import '../../styles/style'; // base style (include mixin,variable,breakpoint)
+@import '../../_components/_components'; // components
+@import '_breakpoint';
+@import '_grid';
+
+///////////////////////////// define
+$header-height:         50px;
+$sider-width:           200px;
+$padding:               24px;
+
+
+///////////////////////////// 布局
+.demo-l {
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        padding-top: $header-height;
+        background: #fff;
+    }
+    &__header {
+        position: absolute 0;
+        height: $header-height;
+        padding: 0 $padding;
+        background: #333;
+    }
+    &__title {
+        float: left;
+        line-height: $header-height;
+        font-size: 16px;
+        color: #fff;
+    }
+    &__container {
+        position: relative;
+        height: 100%;
+        padding-left: $sider-width;
+    }
+    &__sider {
+        position: absolute 0 auto 0 0;
+        width: $sider-width;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #f5f5f5;
+        border-right: 1px solid #e1e1e1;
+    }
+    &__body {
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    &__iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    &__navitem {
+        border-bottom: 1px solid #e1e1e1;
+        &.open {
+            .demo-navtitle {
+                color: $main;
+                &:after {
+                    transform-origin: center 30%;
+                    transform: rotate(180deg);
+                    border-top-color: $main;
+                }
+            }
+        }
+    }
+}
+// sider
+.demo-navbtn,
+.demo-navtitle {
+    display: block;
+    height: 40px;
+    line-height: 39px;
+    padding-left: $padding;
+    // border-bottom: 1px solid #e1e1e1;
+    font-size: 14px;
+    color: $color-d;
+    font-weight: bold;
+}
+.demo-navtitle {
+    position: relative;
+    padding-right: 20px;
+    &:hover {
+        color: $main;
+    }
+    &:after {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        width: 0;
+        height: 0;
+        margin-top: -2px;
+        border: 5px solid transparent;
+        border-top-color: #ccc;
+        content: "";
+    }
+}
+.demo-navbtn {
+    &:hover {
+        background-color: #f1f1f1;
+        color: $main;
+    }
+    &.on {
+        background: $main;
+        color: #fff;
+    }
+}
+.demo-menu {
+    display: none;
+    
+    &__item {
+        a {
+            display: block;
+            height: 40px;
+            line-height: 39px;
+            padding-left: $padding + 20px;
+            font-size: 12px;
+            color: $color;
+            @extend %tof;
+            padding-right: 10px;
+            &:hover {
+                color: $main;
+            }
+            &.on {
+                background: $main;
+                color: #fff;
+            }
+        }
+    }
+}
+// 内容
+.demo-content {
+    background: #fff;
+    height: 100%;
+    padding: 0 30px 30px;
+    &__title {
+        padding: 20px 0;
+        font-size: 22px;
+        color: $color-d;
+        font-weight: bold;
+    }
+    &__subtitle {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: $main;
+    }
+    &__subintro {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: $color-l;
+    }
+    &__mdbox {
+        margin-bottom: 30px;
+    }
+}
+// 页面索引
+.demo-page {
+    &__body {
+        margin-top: 30px;
+    }
+    &__head {
+        @extend %cf;
+        background-color: #eee;
+    }
+    &__th {
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    &__item {
+        a {
+            display: block;
+            @extend %cf;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+            &:hover {
+                background-color: lighten($main,38%);
+            }
+        }
+    }
+}
+.demo-grid__row {
+    border: 1px solid $border;
+    > div {
+        padding: 20px;
+    }
+}
+@include breakpoint($screen-s) {
+    &.demo-grid__col-s-24:last-child {
+        position: relative;
+        border-top: 1px dashed $border;
+    }
+}
+@include breakpoint($screen-m) {
+    &.demo-grid__col-m-12:last-child {
+        // padding-bottom: unit(9999);
+        // margin-bottom: unit(-9999);
+        border-left: 1px dashed $border;
+        border-top: none;
+    }
+}
+
+//查看／复制代码
+.demo__codebox {
+    position: relative;
+    pre {
+        display: none;
+        opacity: 0;
+        transform: translateY(unit(-20));
+        transition: transition(all);
+    }
+    &--include {
+        line-height: 1;
+        code {
+            height: unit(50);
+            padding: 0;
+            font-size: unit(14);
+            color: $main;
+        }
+    }
+    &--active {
+        pre {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+.demo__codetrl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @extend %cf;
+}
+.demo__showcode,
+.demo__copycode {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    margin-right: 10px;
+    background-color: $main;
+    color: #fff;
+    font-size: $fz-s;
+    &:hover {
+        background-color: darken($main,5%);
+    }
+    &:active {
+        background-color: $main;
+        color: #fff;
+    }
+}
+.demo__codebox {
+    box-sizing: border-box;
+}
+.hljs {
+    background-color: #fff !important;
+}
+
+/////////////////////////////////////////
+// fish样式重置
+////////////////////////////////////////
+
+//modal
+.edui-modal {
+    position: relative;
+    padding: 20px 0;
+}
+.ant-modal-mask {
+    position: absolute;
+}
+.ant-modal-wrap {
+    position: relative;
+}
+.edui-modal .ant-modal {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+}
+.demo-grid__col-s-24 {
+    position: relative;
+}
+
+//layout
+.edui-layout {
+    height: 300px;
+}
+
+//input
+.demo-input__width {
+    width: 300px;
+}

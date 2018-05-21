@@ -1,0 +1,105 @@
+//tab切换
+class Tabs {
+    constructor(root) {
+        this.$root = root;
+        this.$turn = root.find(".ui-tabs__turn");
+        this.$item = root.find(".ui-tabs__item");
+        this.$content = root.find(".ui-tabs__content");
+        this.$body = root.find(".ui-tabs__body");
+        this.$wrap = root.find(".ui-tabs__headwrap");
+        this.$list = root.find(".ui-tabs__list");
+        this.result = 0;
+        this.wrapH = this.$wrap.width();
+        this.direct = 0; //滚动方向，
+    }
+    init(){
+        const _this = this;
+        this.$turn.on("click",function(){
+            _this.scrollTo($(this));
+        })
+        this.$item.on("click",function(){
+            _this.tabTo($(this)); //$(this)指点击的item
+        })
+    }
+    scrollToNext(){
+        const _this = this;
+        
+        //计算滚动距离
+        for(var i=0;i<this.$item.length;i++){ 
+
+            if(this.$item.eq(i).position().left >= this.wrapH) {
+                this.result += this.$item.eq(i-1).position().left;
+                break;
+            }
+        }
+
+        //赋值
+        this.$list.css("transform","translateX(-"+this.result+"px)");
+
+        //判断是否到头部或尾部，按钮添加禁用态
+        setTimeout(function(){
+            _this.judageDisabled()
+        },310); //延迟时间是transform完成后（.3s）
+    }
+    scrollToPrev(){
+        const _this = this;
+
+        //计算滚动距离
+        for(var i=0;i<this.$item.length;i++){
+            if(this.$item.eq(i).position().left>=this.wrapH) {
+                this.result += this.$item.eq(i).position().left;
+                break;
+            }
+        }
+
+        //赋值
+        this.$list.css("transform","translateX(-"+this.result+"px)");
+
+        //判断是否到头部或尾部，按钮添加禁用态
+        setTimeout(function(){
+            _this.judageDisabled()
+        },310); //延迟时间是transform完成后（.3s）
+    }
+    judageDisabled(){
+        if(this.$item.eq(this.$item.length-1).position().left <= this.wrapH) {
+            this.$root.find(".ui-tabs__next").addClass("ui-tabs__turn--disabled");
+        }
+        else {
+            this.$root.find(".ui-tabs__next").removeClass("ui-tabs__turn--disabled");
+        }
+        if(this.$item.eq(0).position().left >= 0) {
+            this.$root.find(".ui-tabs__prev").addClass("ui-tabs__turn--disabled");
+        }
+        else {
+            this.$root.find(".ui-tabs__prev").removeClass("ui-tabs__turn--disabled");
+        }
+    }
+    scrollTo(_this){ // 横向tab标签卡滚动
+
+        if(_this.hasClass("ui-tabs__turn--disabled")) return;
+        if(_this.hasClass("ui-tabs__prev")) { //向前滚动
+            this.wrapH = -1 * Math.abs(this.wrapH);
+            this.scrollToPrev();
+        }
+        else if(_this.hasClass("ui-tabs__next")) { //向后滚动
+            this.wrapH = Math.abs(this.wrapH);
+            this.scrollToNext();
+        }
+           
+    }
+    tabTo(_this){ // tab切换
+        const _idx = _this.index();
+        const _transform = _idx * 100;
+
+        this.$body.css("transform","translateX(-"+ _transform +"%)");
+        _this.addClass("ui-tabs__item--active").siblings().removeClass("ui-tabs__item--active");
+        this.$content.eq(_idx).addClass("ui-tabs__content--active").siblings().removeClass("ui-tabs__content--active");
+    }
+}
+
+const tab = [];
+const $tab = $(".ui-tabs");
+for(let i = 0;i<$tab.length;i++) {
+    tab[i] = new Tabs($tab.eq(i));
+    tab[i].init();
+}

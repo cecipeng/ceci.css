@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/demo.css">
+    <title>CECI.CSS demo</title>
+</head>
+
+<body>
+
+<div class="demo-l__wrapper">
+    <div class="demo-l__header">
+        <h1 class="demo-l__title">总览</h1>
+    </div>
+    <div class="demo-l__container">
+        <div class="demo-l__sider">
+            <div class="demo-l__navitem">
+                <a class="demo-navtitle">模块入口</a>
+                <ul class="demo-menu" id="pagecontent">
+                </ul>
+            </div>
+            <div class="demo-l__navitem">
+                <a class="demo-navtitle">UI组件</a>
+                <ul class="demo-menu">
+                    <li class="demo-menu__item"><a class="demo-link" href="#views/layout">layout 布局</a></li>
+                    <li class="demo-menu__item"><a class="demo-link" href="#views/grid">grid 栅格系统</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-l__body">
+            <iframe id="iframe" class="demo-l__iframe" src="views/version.html"></iframe>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    //读取页面索引（索引的json文件根据脚手架的sitemap插件生成）
+    function createContent(){
+        
+        $.ajax({
+            type: "get",
+            url:"../module/content.json",
+            dataType: "json",  
+            success: function(res){
+                res.forEach(function(item) {
+                    $("#pagecontent").append(`
+                        <li class="demo-menu__item"><a class="demo-link" href="#pages/${item.en}">${item.en} ${item.zn}</a></li>
+                    `)
+                });
+            },
+            error: function(xx){
+                console.log(xx);
+            }
+        });
+    }
+    createContent();
+
+
+    //切换页面
+    $(".demo-l__sider").on('click','.demo-link',function(){
+        const _src = $(this).attr('href').replace("#","") + '.html';
+        $(".demo-link").each(function(){
+            $(this).removeClass("on");
+        })
+        $(this).addClass("on");
+        $("#iframe").attr('src', _src)
+    })
+
+    //点击展开
+    $(".demo-navtitle").on('click',function(){
+        const $root = $(this).closest(".demo-l__navitem");
+        const $bro = $root.siblings(".demo-l__navitem");
+
+        if(!$root.hasClass('open')) {
+            $bro.removeClass('open').find(".demo-menu").slideUp('fast');
+            $root.addClass('open').find(".demo-menu").slideDown('fast');
+        }
+        else {
+            $root.removeClass('open').find(".demo-menu").slideUp('fast');
+        }
+    })
+
+    // //设置iframe高度
+    // function setHeight(){
+    //     const _height = $("#iframe").contents().find("body").height() + 40;
+    //     $("#iframe").height(_height);
+    // }
+    
+</script>
+
+</body>
+</html>

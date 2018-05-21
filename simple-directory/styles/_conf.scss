@@ -1,0 +1,37 @@
+// ------------------------------------------
+// conf
+// ------------------------------------------
+
+// 是否是移动端项目，默认：支持pc端项目
+$conf-mobile: 		    false;
+$conf-press:		      '.s-pressed'; //结合hightlight插件，按钮按下时添加的类名（变量尚未使用）
+
+// 兼容CSS3，默认：支持（变量尚未使用）
+$conf-css3: 		      true;
+
+// 公用style路径（变量尚未使用）
+$conf-common:         '../../../common/styles';
+
+// 是否需要引入animation.css，默认：不引入
+$conf-animation: 	    false; 
+
+// 引用图片相对于style.scss的相对路径（变量尚未使用）
+$conf-imgurl:		      '../images/';
+$conf-comimgurl:      '../../../_common/_images/'; //公用图片
+
+// 是否使用rem单位，默认：不引入
+$conf-rem:			      false;
+$conf-remsize:		    100;
+
+// 组件相对于style.scss的相对路径（变量尚未使用）
+$conf-component:      '_components/';
+
+// element、component的namespace名（变量尚未使用）
+$conf-nsp-ele:        'ui-';
+
+// 皮肤名称（变量尚未使用）
+$conf-theme:          '_default';
+
+// 引入的component
+$conf-layout: 		      true; //布局
+$conf-grid: 		        true; //栅格系统

@@ -5,37 +5,19 @@
  * Repository - https://github.com/cecipeng/ceci.css
  * Website - 
  * Author - CeciPeng <1047328479@qq.com>
- * Version - v1.0.0
+ * Version - v1.1.0
  */
 
 
 //--------------------- base ---------------------//
 // conf
-@import "_base/_conf";
+@import '../../../common/styles/_base/_components'; // init components variable
+@import "_conf"; // custorm components want to import
+@import "../../../common/styles/_common"; // base style (include mixin,variable,breakpoint)
 
-// theme and mixins
-@import "_base/_mixin";
-@import "_theme/_default"; //皮肤在此修改，默认使用default
-@import "_base/_breakpoint";
-
-// reset
-@import "_base/_reset-mobile";
-@import "_base/_reset";	// default
-@if $conf-mobile {
-	@include import-reset-mobile;
-} 
-@else {
-	@include import-reset;
-}
+// components
+@import '../../../common/_components/_components';
 
 
-//--------------------- core ---------------------//
+//--------------------- pages private style ---------------------//
 
-// animation,default:false
-@import "_base/_animate";
-@if $conf-animation {
-	@include import-animate;
-}
-
-//--------------------- components ---------------------//
-@import "../_components/_components";

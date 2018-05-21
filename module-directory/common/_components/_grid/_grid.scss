@@ -1,0 +1,140 @@
+// ------------------------------------------
+// grid
+// ------------------------------------------
+
+
+@mixin import-ui-grid {
+
+//--------------------- 定义 ---------------------//
+
+//定义grid相关变量
+$grid-cls: 			#{$conf-nsp-ele}grid; //通用类名
+$grid-columns:      24;
+$grid-gutter-s:     unit(8); //栅格间隔，建议取值：8/16/24/32...
+$grid-gutter:       unit(16);
+$grid-gutter-l:     unit(24);
+
+//定义列
+@mixin create-col($name:'') {
+    @for $index from 1 through $grid-columns {
+        .#{$grid-cls}__col-#{$name}#{$index} {
+            float: left;
+            width: ($index / $grid-columns) * 100 + %;
+        }
+    }
+}
+
+//定义偏移量
+@mixin create-offset() {
+    @for $index from 1 through $grid-columns {
+        .#{$grid-cls}__offset-#{$index} {
+            margin-left: ($index / $grid-columns) * 100 + %;
+        }
+    }
+}
+
+//--------------------- 通用样式（固定样式） ---------------------//
+//行
+.#{$grid-cls}__row {
+    position: relative;
+    @extend %cf;
+
+    //间隔
+    &-gutter-s {
+        margin-left: $grid-gutter-s / -2;
+        margin-right: $grid-gutter-s / -2;
+        [class^="ui-grid__col-"] {
+            padding-left: $grid-gutter-s / 2;
+            padding-right: $grid-gutter-s / 2;
+        }
+    }
+    &-gutter {
+        margin-left: $grid-gutter / -2;
+        margin-right: $grid-gutter / -2;
+        [class^="ui-grid__col-"] {
+            padding-left: $grid-gutter / 2;
+            padding-right: $grid-gutter / 2;
+        }
+    }
+    &-gutter-l {
+        margin-left: $grid-gutter-l / -2;
+        margin-right: $grid-gutter-l / -2;
+        [class^="ui-grid__col-"] {
+            padding-left: $grid-gutter-l / 2;
+            padding-right: $grid-gutter-l / 2;
+        }
+    }
+}
+//列（默认下）
+@include create-col()
+
+//偏移量
+@include create-offset()
+
+
+//--------------------- flex布局 ---------------------//
+.#{$grid-cls}__flex {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &:after {
+        display: flex;
+    }
+    ///////////////////水平方向对齐方式
+    //左对齐
+    &-start {
+        justify-content: flex-start;
+    }
+    //居中对齐
+    &-center {
+        justify-content: center;
+    }
+    //右对齐
+    &-end {
+        justify-content: flex-end;
+    }
+
+    ///////////////////垂直方向对齐方式
+    //顶部对齐
+    &-top {
+        align-items: flex-start;
+    }
+    //居中对齐
+    &-middle {
+        align-items: center;
+    }
+    //底部对齐
+    &-bottom {
+        align-items: flex-end;
+    }
+
+    ///////////////////分布方式：水平方向均分
+    //左右边缘不留间隔
+    &-between {
+        justify-content: space-between;
+    }
+    //左右边缘留间隔
+    &-around {
+        justify-content: space-around;
+    }
+}
+
+//--------------------- 响应式 ---------------------//
+@include breakpoint($screen-xs) {
+    @include create-col(xs-)
+}
+@include breakpoint($screen-s) {
+    @include create-col(s-)
+}
+@include breakpoint($screen-m) {
+    @include create-col(m-)
+}
+@include breakpoint($screen-l) {
+    @include create-col(l-)
+}
+@include breakpoint($screen-xl) {
+    @include create-col(xl-)
+}
+
+}

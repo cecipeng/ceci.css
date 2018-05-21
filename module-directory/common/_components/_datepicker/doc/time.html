@@ -1,0 +1,24 @@
+<h2 id="-">选择日期和时间</h2>
+<pre><code>$(&#39;#demo2 .ui-datepicker__selection&#39;).daterangepicker({
+    timePicker: true,
+    timePickerIncrement: 30,
+    locale: {
+        format: &#39;MM/DD/YYYY h:mm A&#39;,
+        applyLabel: &#39;确认&#39;,
+        cancelLabel: &#39;取消&#39;,
+        firstDay : 1,
+        daysOfWeek: [
+            &quot;天&quot;,
+            &quot;一&quot;,
+            &quot;二&quot;,
+            &quot;三&quot;,
+            &quot;四&quot;,
+            &quot;五&quot;,
+            &quot;六&quot;
+        ],
+    },
+    buttonClasses: &#39;ui-button ui-button&#39;,
+    applyClass: &#39;ui-button__main&#39;,
+    cancelClass: &#39;ui-button__default&#39;
+})
+</code></pre>

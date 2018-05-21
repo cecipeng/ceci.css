@@ -1,0 +1,230 @@
+<h2 id="api">API</h2>
+<p>datepicker组件直接使用第三方插件<code>daterangerpicker</code>，该组件仅提供样式修改，无其他特殊设置，以下api为该插件的option，供参考</p>
+<p>option参数如下（不完全）：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startDate</td>
+<td>起始时间</td>
+<td>Date object, moment object or string</td>
+<td>startDate: &#39;2013-01-01&#39;</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>结束时间</td>
+<td>Date object, moment object or string</td>
+<td>endDate: &#39;2013-01-01&#39;</td>
+</tr>
+<tr>
+<td>minDate</td>
+<td>可选最早时间</td>
+<td>Date object, moment object or string</td>
+<td>minDate: &#39;2013-01-01&#39;</td>
+</tr>
+<tr>
+<td>maxDate</td>
+<td>可选最迟时间</td>
+<td>Date object, moment object or string</td>
+<td>maxDate: &#39;2013-01-01&#39;</td>
+</tr>
+<tr>
+<td>timePicker</td>
+<td>是否显示time选择器</td>
+<td>boolean</td>
+<td>timePicker: true</td>
+</tr>
+<tr>
+<td>timePickerIncrement</td>
+<td>time选择递增数</td>
+<td>number</td>
+<td>timePickerIncrement: 2</td>
+</tr>
+<tr>
+<td>timePicker12Hour</td>
+<td>是否12小时制</td>
+<td>boolean</td>
+<td>timePicker12Hour: false</td>
+</tr>
+<tr>
+<td>opens</td>
+<td>显示在元素左边还是右边</td>
+<td>string[&#39;left&#39;/&#39;right&#39;]</td>
+<td>opens: &#39;right&#39;</td>
+</tr>
+<tr>
+<td>singleDatePicker</td>
+<td>是否是单个时间选择器</td>
+<td>boolean</td>
+<td>singleDatePicker: false</td>
+</tr>
+<tr>
+<td>showDropdowns</td>
+<td>年月是否可以通过dropdown快速选择</td>
+<td>boolean</td>
+<td>showDropdowns: true</td>
+</tr>
+<tr>
+<td>parentEl</td>
+<td>将控件放到哪个元素内，默认body</td>
+<td>string</td>
+<td>parentEl: &#39;#mydiv&#39;</td>
+</tr>
+<tr>
+<td>applyClass</td>
+<td>定义apply button样式类名</td>
+<td>string</td>
+<td>applyClass : &#39;submitbtn&#39;</td>
+</tr>
+<tr>
+<td>cancelClass</td>
+<td>定义cancel button样式类名</td>
+<td>string</td>
+<td>cancelClass : &#39;cancelbtn&#39;</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>定义button和label，日期格式，一周从那天开始</td>
+<td>object</td>
+<td>locale : { &quot;firstDay&quot;: 1 }</td>
+</tr>
+</tbody>
+</table>
+<p>locale参数如下（不完全）：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format</td>
+<td>date/time格式</td>
+<td>string</td>
+<td>format: &#39;YYYY-MM-DD&#39;</td>
+</tr>
+<tr>
+<td>separator</td>
+<td>分隔符</td>
+<td>string</td>
+<td>separator : &#39; to &#39;</td>
+</tr>
+<tr>
+<td>applyLabel</td>
+<td>apply按钮文字内容</td>
+<td>string</td>
+<td>applyLabel : &#39;确认&#39;</td>
+</tr>
+<tr>
+<td>cancelLabel</td>
+<td>cancel按钮文字内容</td>
+<td>string</td>
+<td>cancelLabel : &#39;取消&#39;</td>
+</tr>
+<tr>
+<td>fromLabel</td>
+<td>从标签文字内容</td>
+<td>string</td>
+<td>fromLabel : &#39;从&#39;</td>
+</tr>
+<tr>
+<td>toLabel</td>
+<td>到标签文字内容</td>
+<td>string</td>
+<td>toLabel : &#39;到&#39;</td>
+</tr>
+<tr>
+<td>firstDay</td>
+<td>一周从哪一天开始，0（星期日）到6（星期六），默认值0</td>
+<td>number</td>
+<td>firstDay : 1</td>
+</tr>
+<tr>
+<td>daysOfWeek</td>
+<td>星期显示文字</td>
+<td>array</td>
+<td>daysOfWeek : [&#39;Su&#39;,&#39;Mo&#39;]</td>
+</tr>
+<tr>
+<td>monthNames</td>
+<td>月份显示文字</td>
+<td>array</td>
+<td>daysOfWeek : [&#39;January&#39;,&#39;February&#39;]</td>
+</tr>
+</tbody>
+</table>
+<p>函数方法如下：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setStartDate(Date/moment/string)</td>
+<td>设置起始时间</td>
+<td>$(&#39;#daterange&#39;).data(&#39;daterangepicker&#39;).setStartDate(&#39;2014-03-01&#39;);</td>
+</tr>
+<tr>
+<td>setEndDate(Date/moment/string)</td>
+<td>设置结束时间</td>
+<td>$(&#39;#daterange&#39;).data(&#39;daterangepicker&#39;).setEndDate(&#39;2014-03-31&#39;);</td>
+</tr>
+</tbody>
+</table>
+<p>事件如下：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show.daterangepicker</td>
+<td>当显示日期控件时</td>
+<td>$(&#39;#daterange&#39;).on(&#39;cancel.daterangepicker&#39;, function(ev, picker) {})</td>
+</tr>
+<tr>
+<td>hide.daterangepicker</td>
+<td>当隐藏日期控件时</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>showCalendar.daterangepicker</td>
+<td>当显示日历控件时</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>hideCalendar.daterangepicker</td>
+<td>当隐藏日历控件时</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>apply.daterangepicker</td>
+<td>当点击apply按钮时</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>cancel.daterangepicker</td>
+<td>当点击cancel按钮时</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>

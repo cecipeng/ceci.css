@@ -1,0 +1,270 @@
+// ------------------------------------------
+// nav
+// ------------------------------------------
+
+
+@mixin import-ui-nav {
+
+//--------------------- 定义 ---------------------//
+
+//定义nav相关变量
+$nav-cls:				#{$conf-nsp-ele}nav; //通用类名
+
+////////////////// 水平菜单设置 horizontal
+//菜单项
+$nav-hor-item-height:       unit(40); //高度
+$nav-hor-item-fz:           $fz; //字体大小
+$nav-hor-item-color:        $color; //字体颜色
+
+//子菜单项
+$nav-hor-submenu-width:     100%; //宽度
+$nav-hor-submenu-radius:    $radius; //圆角
+$nav-hor-subitem-height:    unit(36); //菜单项高度
+$nav-hor-subitem-fz:        $fz; //字体大小
+$nav-hor-subitem-color:     $color; //字体颜色
+
+////////////////// 垂直菜单设置 vertical
+//菜单项
+$nav-ver-menu-width:        $side-w; //宽度
+$nav-ver-item-height:       unit(30); //高度
+$nav-ver-item-fz:           $fz-s; //字体大小
+$nav-ver-item-color:        $color; //字体颜色
+
+//子菜单项
+$nav-ver-submenu-width:     $side-w; //宽度
+$nav-ver-submenu-radius:    $radius; //圆角
+$nav-ver-subitem-height:    unit(30); //菜单项高度
+$nav-ver-subitem-fz:        $fz-s; //字体大小
+$nav-ver-subitem-color:     $color; //字体颜色
+
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$nav-cls} {
+	
+    //菜单项
+    &__item,
+    &__subitem {
+        transition: transition(all);
+        & > a {
+            display: block;
+            padding: 0 unit(20); /////////////////
+        }
+    }
+
+
+    //--------------------- 水平布局 ---------------------//
+	&--horizontal {
+        @extend %cf;
+        //菜单项
+        .#{$nav-cls}__item {
+            position: relative;
+            float: left;
+            white-space: nowrap;
+            line-height: $nav-hor-item-height;
+            font-size: $nav-hor-item-fz;
+            color: $nav-hor-item-color;
+            border-bottom: unit(2) solid transparent; //////////////
+            &--active { //选中状态
+                color: $main; /////////////////////
+                border-bottom-color: $main; /////////////////////
+            }
+
+            @if $conf-mobile { //hover
+                &#{$conf-press} {
+                    color: $main; /////////////////////
+                }
+            }
+            @else {
+                &:hover {
+                    color: $main; /////////////////////
+                }
+            }
+
+            &:hover {
+                .#{$nav-cls}__submenu {
+                    display: block;
+                }
+            }
+        }
+
+        //子菜单
+        .#{$nav-cls}__submenu {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            min-width: 100%;
+            width: $nav-hor-submenu-width;
+            background-color: #fff; ///////////////
+            box-shadow: $shadow; //////////////
+            border-radius: $nav-hor-submenu-radius;
+            z-index: $zi-dd;
+            @if $conf-css3 {
+                transform: translateX(-50%);
+            }
+            @else {
+                margin-left: -($nav-hor-submenu-width / 2);
+            }
+        }
+        //子菜单项
+        .#{$nav-cls}__subitem {
+            line-height: $nav-hor-subitem-height;
+            font-size: $nav-hor-subitem-fz;
+            color: $nav-hor-subitem-color;
+            &--active { //选中状态
+                color: $main; /////////////////////
+            }
+
+            @if $conf-mobile { //hover
+                &#{$conf-press} {
+                    color: $main; /////////////////////
+                }
+            }
+            @else {
+                &:hover {
+                    color: $main; /////////////////////
+                }
+                &:active {
+                    color: $main-d; /////////////////////
+                }
+            }
+        }
+    }
+
+    //--------------------- 垂直布局（子菜单浮层） ---------------------//
+	&--vertical {
+        width: $nav-ver-menu-width;
+        //菜单项
+        .#{$nav-cls}__item {
+            position: relative;
+            line-height: $nav-ver-item-height;
+            font-size: $nav-ver-item-fz;
+            color: $nav-ver-item-color;
+            border-right: unit(2) solid transparent; //////////////
+            &--active { //选中状态
+                color: $main; /////////////////////
+                border-right-color: $main; /////////////////////
+            }
+
+            @if $conf-mobile { //hover
+                &#{$conf-press} {
+                    color: $main; /////////////////////
+                }
+            }
+            @else {
+                &:hover {
+                    color: $main; /////////////////////
+                }
+            }
+
+            &:hover {
+                .#{$nav-cls}__submenu {
+                    display: block;
+                }
+            }
+        }
+
+        //子菜单
+        .#{$nav-cls}__submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: $nav-ver-submenu-width;
+            background-color: #fff; ///////////////
+            box-shadow: $shadow; //////////////
+            border-radius: $nav-ver-submenu-radius;
+            z-index: $zi-dd;
+            //子菜单项
+            .#{$nav-cls}__subitem {
+                line-height: $nav-ver-subitem-height;
+                font-size: $nav-ver-subitem-fz;
+                color: $nav-ver-subitem-color;
+                &--active { //选中状态
+                    color: $main; /////////////////////
+                }
+
+                @if $conf-mobile { //hover
+                    &#{$conf-press} {
+                        color: $main; /////////////////////
+                    }
+                }
+                @else {
+                    &:hover {
+                        color: $main; /////////////////////
+                    }
+                    &:active {
+                        color: $main-d; /////////////////////
+                    }
+                }
+            }
+        }
+    }
+
+    //--------------------- 垂直布局（子菜单内嵌） ---------------------//
+	&--inline {
+        width: $nav-ver-menu-width;
+        //菜单项
+        .#{$nav-cls}__item {
+            position: relative;
+            line-height: $nav-ver-item-height;
+            font-size: $nav-ver-item-fz;
+            color: $nav-ver-item-color;
+            @if $conf-mobile { //hover
+                &#{$conf-press} {
+                    color: $main; /////////////////////
+                }
+            }
+            @else {
+                &:hover {
+                    color: $main; /////////////////////
+                }
+            }
+
+            &--active { //选中状态
+                color: $main; /////////////////////
+            }
+
+            .#{$nav-cls}__subtitle {
+
+            }
+
+            &--open { //打开状态
+                color: $main; /////////////////////
+                .#{$nav-cls}__submenu {
+                    display: block;
+                }
+            }
+        }
+
+        //子菜单
+        .#{$nav-cls}__submenu {
+            display: none;
+            background-color: $bg-l;
+            //子菜单项
+            .#{$nav-cls}__item {
+                line-height: $nav-ver-subitem-height;
+                font-size: $nav-ver-subitem-fz;
+                color: $nav-ver-subitem-color;
+                
+                @if $conf-mobile { //hover
+                    &#{$conf-press} {
+                        color: $main; /////////////////////
+                    }
+                }
+                @else {
+                    &:hover {
+                        color: $main; /////////////////////
+                    }
+                    &:active {
+                        color: $main-d; /////////////////////
+                    }
+                }
+            }
+        }
+            
+
+    }
+}
+
+}

@@ -1,0 +1,37 @@
+//select展开收起
+$(".ui-select__selection:not(.ui-select__selection--disabled)").on("click",function(e){
+    const _this = $(this);
+    
+    //设置位置
+    _this.next(".ui-select").toggleClass("ui-select--active");
+
+    //箭头改变方向
+    _this.toggleClass("ui-select__selection--active");
+
+    $(document).one("click", function(){
+        _this.next(".ui-select").removeClass("ui-select--active");
+        _this.removeClass("ui-select__selection--active");
+    });
+
+    e.stopPropagation();
+})
+$(".ui-select").on("click", function(e){
+    e.stopPropagation();
+});
+
+//select选择菜单项
+$(".ui-select__item").on("click",function(){
+    const _root = $(this).closest(".ui-select__wrap");
+    const _select = _root.find(".ui-select");
+    const _selection = _root.find(".ui-select__selection");
+    const _text = $(this).text();
+    //收起菜单
+    _select.removeClass("ui-select--active");
+    _selection.removeClass("ui-select__selection--active");
+
+    //替换已选文字
+    _selection.find(".ui-select__text").html(_text);
+    _selection.find(".ui-select__field").val(_text);
+    
+    $(this).addClass("ui-select__item--selected").siblings().removeClass("ui-select__item--selected");
+})

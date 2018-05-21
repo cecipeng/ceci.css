@@ -1,0 +1,131 @@
+// ------------------------------------------
+// input
+// ------------------------------------------
+
+
+@mixin import-ui-input {
+
+//--------------------- 定义 ---------------------//
+
+//定义input相关变量
+$input-cls:				#{$conf-nsp-ele}input; //通用类名
+$input-padding-s:			unit(6);	//padding
+$input-padding:				unit(10);	
+$input-padding-l:			unit(16);	
+$input-width-s:				unit(100);	//width
+$input-width:				unit(150);	
+$input-width-l:				unit(200);	
+$input-height-s:			$com-height-s;	//height
+$input-height:				$com-height;
+$input-height-l:			$com-height-l;
+$input-border:				$border;
+
+//定义尺寸
+@mixin input-size($padding,$fz,$radius,$w,$h) {
+	width: $w;
+	height: $h;
+	line-height: $h - unit(2);
+	padding: 0 $padding;
+	font-size: $fz;
+	border-radius: $radius;
+}
+
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$input-cls} {
+	position: relative;
+	display: inline-block;
+	@include input-size($input-padding,$fz,$radius,$input-width,$input-height);
+	color: $color;
+	background-color: #fff;
+	border: 1px solid $input-border;
+	transition: transition(all);
+	@if $conf-mobile {
+		&#{$conf-press} {
+			border-color: $main;
+			box-shadow: 0 0 0 unit(2) $main-lr;
+		}
+	}
+	@else {
+		&:focus {
+			border-color: $main;
+			box-shadow: 0 0 0 unit(2) $main-lr;
+		}
+	}
+
+	//尺寸
+	&--s {
+		@include input-size($input-padding-s,$fz-s,$radius-s,$input-width-s,$input-height-s);
+	}
+	&--l {
+		@include input-size($input-padding-l,$fz-l,$radius-l,$input-width-l,$input-height-l);
+	}
+
+	//不可点击态
+	&--disabled {
+		color: $disabled-color;
+		background-color: $disabled-bg;
+		border-color: $disabled-border;
+		cursor: default;
+		pointer-events: none;
+	}
+	
+	//--------------------- 组合 ---------------------//
+	//最外层
+	&__group {
+		display: table;
+		> * {
+			vertical-align: middle;
+		}
+		
+		.ui-select__wrap .ui-select__selection,
+		.ui-input {
+			//focus时边线显示完整
+			&:focus,
+			&.ui-select__selection--active {
+				position: relative;
+				z-index: 1;
+			}
+			//中间元素无圆角
+			border-radius: 0;
+			
+		}
+		////////圆角设置
+		>:first-child {
+			border-radius: $radius 0 0 $radius;
+			.ui-select__selection {
+				border-radius: $radius 0 0 $radius;
+			}
+		}
+		>:last-child {
+			border-radius: 0 $radius $radius 0;
+			.ui-select__selection {
+				border-radius: 0 $radius $radius 0;
+			}
+		}
+		//除最后一个外，右侧边线为零
+		>:not(:first-child) {
+			margin-left: -1px;
+		}
+	}
+
+	//--------------------- 搜索框 ---------------------//
+	//最外层
+	&__search {
+		display: inline-block;
+		position: relative;
+	}
+	&__search & {
+		padding-right: unit(40);
+	}
+	&__searchbtn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: $input-height-l;
+		min-width: 0;
+	}
+}
+
+}

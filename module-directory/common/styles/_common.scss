@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+//--------------------- base ---------------------//
+// conf
+@import "_base/_conf";
+
+// theme and mixins
+@import "_base/_mixin";
+@import "_theme/_default"; //皮肤在此修改，默认使用default
+@import "_base/_breakpoint";
+
+// reset
+@import "_base/_reset-mobile";
+@import "_base/_reset";	// default
+@if $conf-mobile {
+	@include import-reset-mobile;
+} 
+@else {
+	@include import-reset;
+}
+
+
+//--------------------- core ---------------------//
+
+// animation,default:false
+@import "_base/_animate";
+@if $conf-animation {
+	@include import-animate;
+}

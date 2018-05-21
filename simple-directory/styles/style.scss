@@ -5,13 +5,14 @@
  * Repository - https://github.com/cecipeng/ceci.css
  * Website - 
  * Author - CeciPeng <1047328479@qq.com>
- * Version - v1.0.0
+ * Version - v1.1.0
  */
 
 
 //--------------------- base ---------------------//
 // conf
-@import "_base/_conf";
+@import '_base/_components'; // init components variable
+@import "_conf";
 
 // theme and mixins
 @import "_base/_mixin";
@@ -37,5 +38,8 @@
 	@include import-animate;
 }
 
-//--------------------- components ---------------------//
-@import "../_components/_components";
+// components
+@import '../_components/_components';
+
+
+//--------------------- pages private style ---------------------//
