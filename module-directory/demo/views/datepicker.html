@@ -1,0 +1,154 @@
+@@include('_include/_meta.html')	
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <title>项目组件demo</title>
+</head>
+
+<body class="demo-content">
+	<!-- 介绍 -->
+	<section class="demo-content__header">
+		<div class="demo-content__subject">
+			@@include('../../_components/_datepicker/doc/intro.html')
+		</div>
+	</section>
+	<!-- /介绍 -->
+
+	<!-- 预览演示 -->
+	<section class="demo-content__body">
+
+        <!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_datepicker/doc/basic.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_datepicker/_basic.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_datepicker/_basic.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+		
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_datepicker/doc/single.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_datepicker/_single.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_datepicker/_single.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+	  
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_datepicker/doc/time.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_datepicker/_time.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_datepicker/_time.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+
+	</section>
+	<!-- /预览演示 -->
+
+	<!-- api -->
+	<section class="demo__markdown">
+		@@include('../../_components/_datepicker/doc/api.html')
+	</section>
+	<!-- /api -->
+
+
+@@include('_include/_script.html')	
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script>
+	$('#demo1 .ui-datepicker__selection').daterangepicker({
+		buttonClasses: 'ui-button ui-button',
+		applyClass: 'ui-button__main',
+		cancelClass: 'ui-button__default'
+	})
+
+	$('#demo2 .ui-datepicker__selection').daterangepicker({
+		timePicker: true,
+		timePickerIncrement: 30,
+		locale: {
+			format: 'MM/DD/YYYY h:mm A',
+			applyLabel: '确认',
+			cancelLabel: '取消',
+			firstDay : 1,
+			daysOfWeek: [
+				"天",
+				"一",
+				"二",
+				"三",
+				"四",
+				"五",
+				"六"
+			],
+		},
+		buttonClasses: 'ui-button ui-button',
+		applyClass: 'ui-button__main',
+		cancelClass: 'ui-button__default'
+	})
+
+	$('#demo3 .ui-datepicker__selection').daterangepicker({
+		singleDatePicker: true,
+		showDropdowns: true,
+		buttonClasses: 'ui-button ui-button--s',
+		applyClass: 'ui-button__main',
+		cancelClass: 'ui-button__default'
+	})
+</script>
+</body>
+</html>

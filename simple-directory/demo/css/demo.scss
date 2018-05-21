@@ -264,36 +264,93 @@ $padding:               24px;
 }
 
 /////////////////////////////////////////
-// fish样式重置
+// 组件展示页面 - 补充
 ////////////////////////////////////////
-
-//modal
-.edui-modal {
-    position: relative;
-    padding: 20px 0;
+.demo-content__subject {
+    background-color: #f5f5f5;
+    padding: 10px 20px 30px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: 30px;
+    h1 {
+        padding: 20px 0;
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+    }
+    h2 {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 18px;
+    }
+    p {
+        margin: 20px;
+        font-size: 14px;
+        color: #666;
+    }
 }
-.ant-modal-mask {
-    position: absolute;
+.demo-content__leveltitle {
+    h2 {
+        font-size: 18px;
+        color: $main;
+        border-left: 3px solid $main;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    p {
+        line-height: 20px;
+        font-size: 14px;
+        color: #999;
+        margin-bottom: 20px;
+    }
+    code {
+        border: 1px solid #ddd;
+        background-color: #f5f5f5;
+        padding: 2px 6px;
+        border-radius: 3px;
+        color: #666;
+    }
 }
-.ant-modal-wrap {
-    position: relative;
-}
-.edui-modal .ant-modal {
-    position: relative;
-    top: 20px;
-    left: 20px;
-    margin: 0;
-}
-.demo-grid__col-s-24 {
-    position: relative;
-}
-
-//layout
-.edui-layout {
-    height: 300px;
-}
-
-//input
-.demo-input__width {
-    width: 300px;
+.demo__markdown {
+    margin-top: 50px;
+    h2 {
+        display: inline-block;
+        font-size: 18px;
+        color: #fff;
+        background-color: $main;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+    p {
+        padding-top: 50px;
+        line-height: 20px;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        tr {
+            &:hover {
+                background-color: #f5f5f5;
+            }
+        }
+        th {
+            line-height: 24px;
+            font-size: 16px;
+            color: #999;
+            background-color: #f1f1f1;
+            text-align: left;
+            padding: 5px 10px;
+        }
+        td {
+            line-height: 24px;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            padding: 5px 10px;
+        }
+    }
 }

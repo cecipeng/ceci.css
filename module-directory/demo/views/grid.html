@@ -5,29 +5,32 @@
 <body class="demo-content">
 	<!-- 介绍 -->
 	<section class="demo-content__header">
-		<h3 class="demo-content__title">grid 栅格系统</h3>
+		<div class="demo-content__subject">
+			@@include('../../_components/_grid/doc/intro.html')
+		</div>
 	</section>
 	<!-- /介绍 -->
 
 	<!-- 预览演示 -->
 	<section class="demo-content__body">
 
-        <!-- 类型 -->
+        <!-- 分类 -->
 		<div class="demo-content__mdbox">
 			<!--title-->
-			<p class="demo-content__subtitle">类型1</p>
-			<p class="demo-content__subintro">类型1说明</p>
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_grid/doc/basic.html')
+			</div>
 			<!--/title-->
 			
 			<!--预览、代码-->
 			<div class="demo-grid__row">
 				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
-					@@include('../../common/_components/_grid/_grid.html')
+					@@include('../../_components/_grid/_basic.html')
 				</div>
 				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
 					<pre>
 						<code class="html">	
-@@include('../../common/_components/_grid/_grid.html')
+@@include('../../_components/_grid/_basic.html')
 						</code>
 					</pre>
 					<p class="demo__codetrl">
@@ -37,14 +40,126 @@
 			</div>
 			<!--/预览、代码-->
 		</div>
-        <!-- 类型 -->
-      
+        <!-- 分类 -->
+	  
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_grid/doc/gutter.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_grid/_gutter.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_grid/_gutter.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_grid/doc/offset.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_grid/_offset.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_grid/_offset.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_grid/doc/response.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_grid/_response.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_grid/_response.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_grid/doc/flex.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_grid/_flex.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_grid/_flex.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
 
 	</section>
 	<!-- /预览演示 -->
 
 	<!-- api -->
 	<section class="demo__markdown">
+		@@include('../../_components/_grid/doc/api.html')
 	</section>
 	<!-- /api -->
 
