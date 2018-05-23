@@ -79,11 +79,11 @@ $carousel-vertical-height:  100%;
         }
     }
     &__prev {
-        @extend %#{$icon-cls}-left;
+        @extend %#{$icon-cls}-font--left;
         left: unit(20); ///////////////
     }
     &__next {
-        @extend %#{$icon-cls}-right;
+        @extend %#{$icon-cls}-font--right;
         right: unit(20); ///////////////
     }
 

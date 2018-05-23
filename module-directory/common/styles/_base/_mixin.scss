@@ -93,6 +93,16 @@
     -webkit-box-orient: vertical;
 }
 
+//二态改变不透明度
+@mixin opacity2($hover:0.85,$active:0.7){
+    &:hover {
+        opacity: $hover;
+    }
+    &:active {
+        opacity: $active;
+    }
+}
+
 // 小三角
 @mixin arrow($d:top,$color:#ddd,$xsize:10px,$ysize:10px) {
     width: 0;

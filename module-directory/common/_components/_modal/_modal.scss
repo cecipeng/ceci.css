@@ -5,129 +5,129 @@
 
 @mixin import-ui-modal {
 
-//--------------------- 定义 ---------------------//
-
-//定义modal相关变量
-$modal-cls:				#{$conf-nsp-ele}modal; //通用类名
-
-//基础
-$modal-mask-color:				#000; //遮罩层颜色
-$modal-mask-opacity:			.8; //遮罩层透明度
-$modal-box-size-s:			    unit(300); //小尺寸宽度
-$modal-box-size-base:			unit(500); //默认尺寸宽度
-$modal-box-size-l:			    unit(800); //大尺寸宽度
-$modal-box-bg:			        #fff; //背景色
-$modal-box-radius:			    unit(6); //圆角
-
-//头部
-$modal-head-height:             unit(50); //高度
-
-//底部
-$modal-foot-height:             unit(50); //高度
-
-//--------------------- 通用样式（固定样式） ---------------------//
-.#{$modal-cls} {
-	
-    //--------------------- 基本元素 ---------------------//
-
-    //容器
-    position: fixed 0;
-    @extend %vm;
-    text-align: center;
+    //--------------------- 定义 ---------------------//
     
-    z-index: $zi-modal;
-
-    //遮罩，默认显示
-    @if $conf-css3 {
-        background-color: rgba($modal-mask-color,$modal-mask-opacity);
-        &__mask {
-            display: none;
-        }
-    } 
-    @else {
-        &__mask {
-            background-color: $modal-mask-color;
-            opacity: $modal-mask-opacity;
-        }
-    }
-    &__mask {
-        position: absolute 0;
-    }
-    //不显示遮罩
-    &--nomask {
-        background: none;
-    }
-    &--nomask &__mask {
-        display: none;
-    }
-
-    //弹窗容器
-    &__box {
-        display: inline-block;
-        vertical-align: middle;
-        max-width: 98%;
-        width: $modal-box-size-base;
-        box-shadow: $shadow;
-        border-radius: $modal-box-radius;
-        background: $modal-box-bg;
-        // 小尺寸
-        &--s {
-            width: $modal-box-size-s;
-        }
-        // 大尺寸
-        &--l {
-            width: $modal-box-size-l;
-        }
-    }
-
-    //关闭按钮
-    &__closebtn {
-        position: absolute;
-        top: unit(10); ////////////
-        right: unit(10); ////////////
-        width: unit(20); ////////////
-        height: unit(20); ////////////
-        line-height: unit(20); ////////////
-        @extend %ui-icon;
-        @extend %ui-icon-delete;
-        font-size: unit(12); ///////////
-        color: $color;
-        @include hover(color,$color-l,$color-d);
-    }
-
+    //定义modal相关变量
+    $modal-cls:				#{$conf-nsp-ele}modal; //通用类名
+    
+    //基础
+    $modal-mask-color:				#000; //遮罩层颜色
+    $modal-mask-opacity:			.8; //遮罩层透明度
+    $modal-box-size-s:			    unit(300); //小尺寸宽度
+    $modal-box-size-base:			unit(500); //默认尺寸宽度
+    $modal-box-size-l:			    unit(800); //大尺寸宽度
+    $modal-box-bg:			        #fff; //背景色
+    $modal-box-radius:			    unit(6); //圆角
+    
     //头部
-    &__head {
-        position: relative;
-        height: $modal-head-height;
-        line-height: $modal-head-height;
-        border-bottom: 1px solid $border; /////////////////
-        color: $color; ////////////
-        font-size: $fz-l; /////////// 
-        border-radius: $modal-box-radius $modal-box-radius 0 0;
-    }
-
+    $modal-head-height:             unit(50); //高度
+    
     //底部
-    &__foot {
-        position: relative;
-        height: $modal-foot-height;
-        border-top: 1px solid $border; /////////////////
-        border-radius: 0 0 $modal-box-radius $modal-box-radius;
+    $modal-foot-height:             unit(50); //高度
+    
+    //--------------------- 通用样式（固定样式） ---------------------//
+    .#{$modal-cls} {
+        
+        //--------------------- 基本元素 ---------------------//
+    
+        //容器
+        position: fixed 0;
         @extend %vm;
         text-align: center;
-    }
-    &__btn {
-        margin: 0 unit(10); /////////////
-    }
-
-    //--------------------- 通用提示文字 ---------------------//
-    &__tip {
-        min-height: unit(100); ////////////////
-        padding: unit(20) unit(30); ////////////////
-        &icon {
-            
+        
+        z-index: $zi-modal;
+    
+        //遮罩，默认显示
+        @if $conf-css3 {
+            background-color: rgba($modal-mask-color,$modal-mask-opacity);
+            &__mask {
+                display: none;
+            }
+        } 
+        @else {
+            &__mask {
+                background-color: $modal-mask-color;
+                opacity: $modal-mask-opacity;
+            }
         }
+        &__mask {
+            position: absolute 0;
+        }
+        //不显示遮罩
+        &--nomask {
+            background: none;
+        }
+        &--nomask &__mask {
+            display: none;
+        }
+    
+        //弹窗容器
+        &__box {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 98%;
+            width: $modal-box-size-base;
+            box-shadow: $shadow;
+            border-radius: $modal-box-radius;
+            background: $modal-box-bg;
+            // 小尺寸
+            &--s {
+                width: $modal-box-size-s;
+            }
+            // 大尺寸
+            &--l {
+                width: $modal-box-size-l;
+            }
+        }
+    
+        //关闭按钮
+        &__closebtn {
+            position: absolute;
+            top: unit(10); ////////////
+            right: unit(10); ////////////
+            width: unit(20); ////////////
+            height: unit(20); ////////////
+            line-height: unit(20); ////////////
+            @extend %ui-icon;
+            // @extend %ui-icon-font--delete;
+            font-size: unit(12); ///////////
+            color: $color;
+            @include hover(color,$color-l,$color-d);
+        }
+    
+        //头部
+        &__head {
+            position: relative;
+            height: $modal-head-height;
+            line-height: $modal-head-height;
+            border-bottom: 1px solid $border; /////////////////
+            color: $color; ////////////
+            font-size: $fz-l; /////////// 
+            border-radius: $modal-box-radius $modal-box-radius 0 0;
+        }
+    
+        //底部
+        &__foot {
+            position: relative;
+            height: $modal-foot-height;
+            border-top: 1px solid $border; /////////////////
+            border-radius: 0 0 $modal-box-radius $modal-box-radius;
+            @extend %vm;
+            text-align: center;
+        }
+        &__btn {
+            margin: 0 unit(10); /////////////
+        }
+    
+        //--------------------- 通用提示文字 ---------------------//
+        &__tip {
+            min-height: unit(100); ////////////////
+            padding: unit(20) unit(30); ////////////////
+            &icon {
+                
+            }
+        }
+    
     }
-
-}
-
-}
+    
+    }

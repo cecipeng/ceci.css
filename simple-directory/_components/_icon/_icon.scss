@@ -3,7 +3,14 @@
 // ------------------------------------------
 
 //定义icon相关变量
-$icon-cls:				#{$conf-nsp-ele}icon; //通用类名
+$icon-cls:					#{$conf-nsp-ele}icon; //base64图标通用类名
+$icon-font-cls:				#{$conf-nsp-ele}icon-font; //字体图标通用类名
+
+// 基础样式
+$icon-url:					#{$conf-imgurl}/_base64; //图片路径，在conf中配置的变量
+$icon-size:					unit(30); //默认尺寸
+$icon-large-size:			unit(40); //大尺寸
+$icon-small-size:			unit(20); //小尺寸
 
 @mixin import-ui-icon {
 
@@ -26,39 +33,49 @@ $icon-cls:				#{$conf-nsp-ele}icon; //通用类名
 }
 
 //--------------------- 通用样式（固定样式） ---------------------//
+//字体图标
+.#{$icon-font-cls},
+%#{$icon-font-cls} {
+	display: inline-block;
+	vertical-align: baseline;
+	width: $icon-size;
+	height: $icon-size;
+	@extend %iconfont;
+	width: $icon-size;
+	height: $icon-size;
+	font-size: $icon-size;
+
+	//尺寸
+	&--large {
+		width: $icon-large-size;
+		height: $icon-large-size;
+		font-size: $icon-large-size;
+	}
+	&--small {
+		width: $icon-small-size;
+		height: $icon-small-size;
+		font-size: $icon-small-size;
+	}
+
+	// 支持的图标列表
+	&--left:before { content: "\e654"; }
+	&--right:before { content: "\e654"; }
+}
+
+//base64图标
 .#{$icon-cls},
 %#{$icon-cls} {
 	display: inline-block;
-	vertical-align: baseline;
-	@extend %iconfont;
+	vertical-align: middle;
+	background-size: 100% auto;
 
-	&-down:before { content: "\e654"; }
-
-	&-plus:before { content: "\e61e"; }
-	
-	&-minus:before { content: "\e6fe"; }
-	
-	&-delete:before { content: "\e86e"; }
-	
-	&-search:before { content: "\e870"; }
-	
-	&-ok:before { content: "\e8c5"; }
-	
-	&-up:before { content: "\e8c6"; }
-	
-	&-right:before { content: "\e8c7"; }
-	
-	&-left:before { content: "\e8c8"; }
-
-	&-refresh:before { content: "\e6aa"; }
-	&-filter:before { content: "\e6f1"; }
-	&-user:before { content: "\e726"; }
-	&-lock:before { content: "\e669"; }
-	&-home:before { content: "\e6cb"; }
-	&-share:before { content: "\e871"; }
-	&-koubacktopling:before { content: "\e892"; }
-	&-trash:before { content: "\e8c1"; }
-	&-password:before { content: "\e8e0"; }
+	// 支持的图标列表
+	&--exit {
+		width: unit(20); //////////////////
+		height: unit(20); //////////////////
+		background: url(#{$icon-url}/header-exit.png) no-repeat center center;
+		
+	}
 }
 
 }
