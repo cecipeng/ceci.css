@@ -47,21 +47,11 @@ $header-border-bottom:		1px solid $border; //下边线，可设置为none
 
     //title
     &__title {
-        font-size: unit(20);
-        color: #fff;
+        ////////////////
     }
 
     &__ctrlbtn {
-        line-height: unit(24);
-        font-size: unit(18);
-        color: #fff;
-        cursor: pointer;
-        @include opacity2();
-        margin-left: unit(30);
-        .ui-icon {
-            margin-right: unit(6);
-            margin-top: unit(-4);
-        }
+        ////////////////
     }   
 }
 
