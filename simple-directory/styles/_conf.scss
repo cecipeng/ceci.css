@@ -7,7 +7,7 @@ $conf-mobile: 		    false;
 $conf-press:		      '.s-pressed'; //结合hightlight插件，按钮按下时添加的类名（变量尚未使用）
 
 // 兼容CSS3，默认：支持（变量尚未使用）
-$conf-css3: 		      true;
+$conf-css3: 		      false;
 
 // 公用style路径（变量尚未使用）
 $conf-common:         '../../../common/styles';

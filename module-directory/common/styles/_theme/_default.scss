@@ -102,10 +102,10 @@ $dur-h:                 2s;
 $header-h:              unit(64);       // header height  
 $nav-h:                 unit(0);        // mainnav height  
 $footer-h:              unit(64);       // footer height 
-$wrapper-w:				      100%;           // 正文 width
-$min-w:				          unit(0);        // 正文 width,1024还需加上滚动条宽度
-$side-w:				        unit(200);      // 侧栏 width
-$padding:  				      unit(20);
+$centerwrap-w:			unit(1200);     // 类型：居中内容宽度
+$wrap-min-w:			unit(1024);        //类型：全屏内容最小宽度，小于该值应该出现横向滚动条
+$side-w:				unit(200);      // 侧栏 width
+$padding:  				unit(20);
 $com-height:            unit(30);       // 标准高度
 $com-height-l:          unit(36);
 $com-height-s:          unit(20);

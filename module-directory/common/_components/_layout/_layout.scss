@@ -10,129 +10,264 @@
 //定义layout相关变量
 $layout-cls: 			#{$conf-nsp-ele}layout; //通用类名
 
+//头部
+$layout-header-h: 		$header-h; //头部高度
+$layout-header-bg: 		#fff; //头部背景色
+
+//底部
+$layout-footer-h: 		$footer-h; //底部高度
+$layout-footer-bg: 		#fff; //底部背景色
+
+//侧栏
+$layout-side-w: 		unit(100); //侧栏标准宽度
+
+$layout-bg: 			#fff; //页面背景色
+
+//宽度
+$layout-centerwrap-w: 	$centerwrap-w; //类型：居中内容
+$layout-wrap-w: 		$wrap-min-w; //类型：全屏内容
+
+
+$layout-padding: unit(30); //容器通用内边距
+$layout-border: 1px solid $border; //容器边线，可设置为none
+$layout-margin: $padding; //容器外边距
+
+$layout-panel-radius: $radius; //容器圆角
+
 //--------------------- 通用样式（固定样式） ---------------------//
 .#{$layout-cls} {
 	height: 100%;
+	background-color: $layout-bg;
 
-	//滚动，可用于任何layout__xxx
+	&__header {
+		height: $layout-header-h;
+		background-color: $layout-header-bg
+		
+	}
+	&__footer {
+		height: $layout-footer-h;
+		background-color: $layout-footer-bg
+	}
+	&__container {
+		position: relative;
+		height: 100%;
+	}
+	&__body {
+	}
+	&__sider {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: $layout-side-w;
+		overflow: auto;
+		&--left {
+			left: 0;
+			//sider后的body添加边距
+			& + .ui-layout__body {
+				margin-left: $layout-side-w;
+			}
+		}
+		&--right {
+			right: 0;
+			//sider后的body添加边距
+			& + .ui-layout__body {
+				margin-right: $layout-side-w;
+			}
+		}
+		
+	}
+
+	// 顶部固定
+	&--fixheader {
+		@if $conf-css3 {
+			display: flex;
+			flex-direction: column;
+			.ui-layout__container {
+				flex: 1;
+			}
+		}
+		@else {
+			position: relative;
+			padding-top: $layout-header-h;
+			.ui-layout__header {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				min-width: $layout-wrap-w; ////////////////////////
+			}
+		}
+	}
+	// 底部固定
+	&--fixfooter {
+		@if $conf-css3 {
+			display: flex;
+			flex-direction: column;
+			.ui-layout__container {
+				flex: 1;
+			}
+		}
+		@else {
+			position: relative;
+			padding-bottom: $layout-footer-h;
+			.ui-layout__footer {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				min-width: $layout-wrap-w; ////////////////////////
+			}
+		}
+	}
+
+
+	
+	//--------------------- 额外定制 ---------------------//
+	//滚动，可用于任何layout__xxx，或单独使用
 	&__scroll {
 		height: 100%;
 		overflow-y: auto !important;
 	}
-
-	//头部
-	&__header {
-		height: $header-h;
-		&--fix { //固定头部
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-		}
+	//内容宽度固定，并水平居中，可用于任何layout__xxx，或单独使用
+	&__centerwrap {
+		position: relative;
+		width: $layout-centerwrap-w;
+		margin: 0 auto;
+	}
+	//超出隐藏
+	&__oh {
+		overflow: hidden;
 	}
 
-	//底部
-	&__footer {
-		height: $footer-h;
-		&--fix { //固定底部
+	
+
+	//--------------------- 基本上中下布局：底部跟随滚动，内容少时固定在底部 ---------------------//
+	&__hasfooter {
+		position: relative;
+		min-height: 100%;
+		padding-bottom: $layout-footer-h + 20px;  ////////////////////// 与底部留20px间距
+		> .ui-layout__footer {
 			position: absolute;
 			left: 0;
 			bottom: 0;
 			right: 0;
+			min-width: $layout-wrap-w; ////////////////////////
 		}
 	}
-	&__body {
 
-	}
+	// //头部
+	// &__header {
+	// 	height: $header-h;
+	// 	&--fix { //固定头部
+	// 		position: absolute;
+	// 		left: 0;
+	// 		top: 0;
+	// 		right: 0;
+	// 	}
+	// }
 
-	//居中容器
-	&__wrapper {
-		width: $wrapper-w;
-		margin: 0 auto;
-	}
+	// //底部
+	// &__footer {
+	// 	height: $footer-h;
+	// 	&--fix { //固定底部
+	// 		position: absolute;
+	// 		left: 0;
+	// 		bottom: 0;
+	// 		right: 0;
+	// 	}
+	// }
+	// &__body {
 
-	//侧栏
-	&__sider {
-		position: absolute; //默认在左侧
-		left: 0;
-		top: 0;
-		bottom: 0;
-		width: $side-w;
-		overflow: auto;
-		&--fix { //固定侧栏
-			position: fixed;
-			left: 50%;
-			top: $header-h; ////////////////////////
-			margin-left: -($wrapper-w / 2);
-			overflow: auto;
-			z-index: $zi-fix;
-			@include breakpoint(max-width $screen-l) { //屏幕过窄时不固定
-				position: absolute;
-				left: 0;
-				margin-left: 0;
-			}
-		}
-		&--right { //右侧
-			left: auto !important;
-			right: 0;
-			&.#{$layout-cls}__sider--fix {
-				right: 50%;
-				margin-left: 0;
-				margin-right: -($wrapper-w / 2);
-				@include breakpoint(max-width $screen-l) { //屏幕过窄时不固定
-					position: absolute;
-					right: 0;
-					margin-right: 0;
-				}
-			}
-		}
-	}
-	// 与侧栏配合使用
-	&__content {
+	// }
+
+	// //居中容器
+	// &__wrapper {
+	// 	width: $wrapper-w;
+	// 	margin: 0 auto;
+	// }
+
+	// //侧栏
+	// &__sider {
+	// 	position: absolute; //默认在左侧
+	// 	left: 0;
+	// 	top: 0;
+	// 	bottom: 0;
+	// 	width: $side-w;
+	// 	overflow: auto;
+	// 	&--fix { //固定侧栏
+	// 		position: fixed;
+	// 		left: 50%;
+	// 		top: $header-h; ////////////////////////
+	// 		margin-left: -($wrapper-w / 2);
+	// 		overflow: auto;
+	// 		z-index: $zi-fix;
+	// 		@include breakpoint(max-width $screen-l) { //屏幕过窄时不固定
+	// 			position: absolute;
+	// 			left: 0;
+	// 			margin-left: 0;
+	// 		}
+	// 	}
+	// 	&--right { //右侧
+	// 		left: auto !important;
+	// 		right: 0;
+	// 		&.#{$layout-cls}__sider--fix {
+	// 			right: 50%;
+	// 			margin-left: 0;
+	// 			margin-right: -($wrapper-w / 2);
+	// 			@include breakpoint(max-width $screen-l) { //屏幕过窄时不固定
+	// 				position: absolute;
+	// 				right: 0;
+	// 				margin-right: 0;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// // 与侧栏配合使用
+	// &__content {
 		
-	}
+	// }
 
-	//固定
-	&__fix {
-		&--top {	//固定头部
-			position: relative;
-			padding-top: $header-h;
-			// .#{$layout-cls}__body {
-			// 	height: 100%;
-			// }
-			// .ui-layout__body {
-			// 	height: 100%;
-			// 	overflow: auto;
-			// }
-		}
-		&--bottom { //固定底部
-			position: relative;
-			padding-bottom: $footer-h;
-			// .ui-layout__body {
-			// 	height: 100%;
-			// 	overflow: auto;
-			// }
-		}
-		&--left { //固定侧栏（左）
-			position: relative;
-			padding-left: $side-w;
-			height: 100%;
-		}
-		&--right { //固定侧栏（右）
-			position: relative;
-			padding-right: $side-w;
-			height: 100%;
-		}
-	}
+	// //固定
+	// &__fix {
+	// 	&--top {	//固定头部
+	// 		position: relative;
+	// 		padding-top: $header-h;
+	// 		// .#{$layout-cls}__body {
+	// 		// 	height: 100%;
+	// 		// }
+	// 		// .ui-layout__body {
+	// 		// 	height: 100%;
+	// 		// 	overflow: auto;
+	// 		// }
+	// 	}
+	// 	&--bottom { //固定底部
+	// 		position: relative;
+	// 		padding-bottom: $footer-h;
+	// 		// .ui-layout__body {
+	// 		// 	height: 100%;
+	// 		// 	overflow: auto;
+	// 		// }
+	// 	}
+	// 	&--left { //固定侧栏（左）
+	// 		position: relative;
+	// 		padding-left: $side-w;
+	// 		height: 100%;
+	// 	}
+	// 	&--right { //固定侧栏（右）
+	// 		position: relative;
+	// 		padding-right: $side-w;
+	// 		height: 100%;
+	// 	}
+	// }
 
-	// 固定悬浮在居中内容右下角外侧的容器
-	&__floatbar {
-		position: fixed;
-		left: 50%;
-		bottom: unit(200); ///////////////
-		width: unit(100); ///////////////
-		margin-left: ($wrapper-w / 2); ///////////////
-	}
+	// // 固定悬浮在居中内容右下角外侧的容器
+	// &__floatbar {
+	// 	position: fixed;
+	// 	left: 50%;
+	// 	bottom: unit(200); ///////////////
+	// 	width: unit(100); ///////////////
+	// 	margin-left: ($wrapper-w / 2); ///////////////
+	// }
 }
 
 }
