@@ -1,0 +1,87 @@
+// ------------------------------------------
+// avatar
+// ------------------------------------------
+
+
+@mixin import-ui-avatar {
+
+//--------------------- 定义 ---------------------//
+
+//定义avatar相关变量
+$avatar-cls:				#{$conf-nsp-ele}avatar; //通用类名
+
+//基础样式
+$avatar-border:				1px solid $border; //描边，可设置为none
+$avatar-radius:				unit(6); //圆角，设置ui-avatar--square后生效
+$avatar-color:				$color; //文字颜色
+
+//默认尺寸
+$avatar-size:				unit(40); //头像尺寸（宽高相等）
+$avatar-fz:			        unit(14); //文字大小
+$avatar-margin: 	        unit(4); //文字与头像间距（需扣除4px）
+
+//大号
+$avatar-large-size:			unit(60); //头像尺寸
+$avatar-large-fz:			unit(16); //文字大小
+$avatar-large-margin:		unit(6); //文字与头像间距（需扣除4px）
+
+//小号
+$avatar-small-size:			unit(30); //头像尺寸
+$avatar-small-fz:			unit(12); //文字大小
+$avatar-small-margin:		unit(2); //文字与头像间距（需扣除4px）
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$avatar-cls} {
+    &__img {
+        display: inline-block;
+        vertical-align: middle;
+        width: $avatar-size;
+        height: $avatar-size;
+        border: $avatar-border;
+        overflow: hidden;
+        border-radius: 50%;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__text {
+        display: inline-block;
+        vertical-align: middle;
+        color: $avatar-color;
+        font-size: $avatar-fz;
+        margin-left: $avatar-margin;
+    }
+
+    //--------------------- 定制 ---------------------//
+    // 矩形样式
+    &--square {
+        .ui-avatar__img {
+            border-radius: $avatar-radius;
+        }
+    }
+
+    //尺寸
+    &--large {
+        .ui-avatar__img {
+            width: $avatar-large-size;
+            height: $avatar-large-size;
+        }
+        .ui-avatar__text {
+            margin-left: $avatar-large-margin;
+            font-size: $avatar-large-fz;
+        }
+    }
+    &--small {
+        .ui-avatar__img {
+            width: $avatar-small-size;
+            height: $avatar-small-size;
+        }
+        .ui-avatar__text {
+            margin-left: $avatar-small-margin;
+            font-size: $avatar-small-fz;
+        }
+    }
+}
+
+}

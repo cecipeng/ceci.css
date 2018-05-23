@@ -3,20 +3,22 @@
 // ------------------------------------------
 
 // 初始化引入的component
-$conf-layout: 		      false; //布局
-$conf-grid: 		        false; //栅格系统
-$conf-button: 		      false; //按钮
-$conf-icon: 		        false; //图标
-$conf-input: 		        false; //输入框
-$conf-radio: 		        false; //单选
-$conf-checkbox: 	      false; //多选
-$conf-nav: 	            false; //导航
-$conf-tab:              false; //tab标签切换
-$conf-dropdown: 	      false; //下拉列表
-$conf-select: 	        false; //选择器
-$conf-crumb: 	          false; //面包屑
-$conf-backtop: 	        false; //返回顶部
-$conf-page: 	          false; //分页
-$conf-datepicker: 	    false; //日期选择器
-$conf-carousel: 	      false; //走马灯
-$conf-modal: 		        false; //弹窗
+$conf-layout: 		            false; //布局
+$conf-grid: 		            false; //栅格系统
+$conf-button: 		            false; //按钮
+$conf-icon: 		            false; //图标
+$conf-input: 		            false; //输入框
+$conf-radio: 		            false; //单选
+$conf-checkbox: 	            false; //多选
+$conf-nav: 	                    false; //导航
+$conf-tab:                      false; //tab标签切换
+$conf-dropdown: 	            false; //下拉列表
+$conf-select: 	                false; //选择器
+$conf-crumb: 	                false; //面包屑
+$conf-backtop: 	                false; //返回顶部
+$conf-page: 	                false; //分页
+$conf-datepicker: 	            false; //日期选择器
+$conf-carousel: 	            false; //走马灯
+$conf-modal: 		            false; //弹窗
+$conf-header: 		            false; //头部
+$conf-avatar: 		            false; //头像

@@ -105,3 +105,15 @@
 @if $conf-modal { 
     @include import-ui-modal; 
 } 
+
+// header
+@import "_header/header";
+@if $conf-header { 
+    @include import-ui-header; 
+} 
+
+// avatar
+@import "_avatar/avatar";
+@if $conf-avatar { 
+    @include import-ui-avatar; 
+} 

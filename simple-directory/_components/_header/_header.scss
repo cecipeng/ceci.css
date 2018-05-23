@@ -1,0 +1,54 @@
+// ------------------------------------------
+// header
+// ------------------------------------------
+
+
+@mixin import-ui-header {
+
+//--------------------- 定义 ---------------------//
+
+//定义header相关变量
+$header-cls:				#{$conf-nsp-ele}header; //通用类名
+
+$header-padding:			$padding; //内边距
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$header-cls} {
+    height: $header-h;
+    padding: 0 $header-padding;
+
+    // 布局
+    //注：需联合ui-layout-bfc布局使用
+    .ui-layout-bfc__fl,
+    .ui-layout-bfc__fr {
+        @extend %vm;
+        height: 100%;
+    }
+    &__logo,
+    &__title,
+    &__user,
+    &__ctrlbtn,
+    &__nav {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .ui-layout__centerwrap {
+        height: 100%;
+    }
+
+    //logo
+    &__logo {
+        ////////////////
+    }
+
+    //title
+    &__title {
+        ////////////////
+    }
+
+    &__user {
+        
+    }
+}
+
+}

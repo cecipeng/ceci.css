@@ -3,50 +3,52 @@
 // ------------------------------------------
 
 // 是否是移动端项目，默认：支持pc端项目
-$conf-mobile: 		    false;
-$conf-press:		      '.s-pressed'; //结合hightlight插件，按钮按下时添加的类名（变量尚未使用）
+$conf-mobile: 		            false;
+$conf-press:		            '.s-pressed'; //结合hightlight插件，按钮按下时添加的类名（变量尚未使用）
 
 // 兼容CSS3，默认：支持（变量尚未使用）
-$conf-css3: 		      false;
+$conf-css3: 		            true;
 
 // 公用style路径（变量尚未使用）
-$conf-common:         '../../../common/styles';
+$conf-common:                   '../../../common/styles';
 
 // 是否需要引入animation.css，默认：不引入
-$conf-animation: 	    false; 
+$conf-animation: 	            false; 
 
 // 引用图片相对于style.scss的相对路径（变量尚未使用）
-$conf-imgurl:		      '../images/';
-$conf-comimgurl:      '../../../_common/_images/'; //公用图片
+$conf-imgurl:		            '../images/';
+$conf-comimgurl:                '../../../_common/_images/'; //公用图片
 
 // 是否使用rem单位，默认：不引入
-$conf-rem:			      false;
-$conf-remsize:		    100;
+$conf-rem:			            false;
+$conf-remsize:		            100;
 
 // 组件相对于style.scss的相对路径（变量尚未使用）
-$conf-component:      '_components/';
+$conf-component:                '_components/';
 
 // element、component的namespace名（变量尚未使用）
-$conf-nsp-ele:        'ui-';
+$conf-nsp-ele:                  'ui-';
 
 // 皮肤名称（变量尚未使用）
-$conf-theme:          '_default';
+$conf-theme:                    '_default';
 
 // 引入的component
-$conf-layout: 		      true; //布局
-$conf-grid: 		        true; //栅格系统
-$conf-button: 		      true; //按钮
-$conf-icon: 		        true; //图标
-$conf-input: 		        true; //输入框
-$conf-radio: 		        true; //单选
-$conf-checkbox: 	      true; //多选
-$conf-nav: 	            true; //导航
-$conf-tab:              true; //tab标签切换
-$conf-dropdown: 	      true; //下拉列表
-$conf-select: 	        true; //选择器
-$conf-crumb: 	          true; //面包屑
-$conf-backtop: 	        true; //返回顶部
-$conf-page: 	          true; //分页
-$conf-datepicker: 	    true; //日期选择器
-$conf-carousel: 	      true; //走马灯
-$conf-modal: 		        true; //弹窗
+$conf-layout: 		            true; //布局
+$conf-grid: 		            true; //栅格系统
+$conf-button: 		            true; //按钮
+$conf-icon: 		            true; //图标
+$conf-input: 		            true; //输入框
+$conf-radio: 		            true; //单选
+$conf-checkbox: 	            true; //多选
+$conf-nav: 	                    true; //导航
+$conf-tab:                      true; //tab标签切换
+$conf-dropdown: 	            true; //下拉列表
+$conf-select: 	                true; //选择器
+$conf-crumb: 	                true; //面包屑
+$conf-backtop: 	                true; //返回顶部
+$conf-page: 	                true; //分页
+$conf-datepicker: 	            true; //日期选择器
+$conf-carousel: 	            true; //走马灯
+$conf-modal: 		            true; //弹窗
+$conf-header: 		            true; //头部
+$conf-avatar: 		            true; //头像
