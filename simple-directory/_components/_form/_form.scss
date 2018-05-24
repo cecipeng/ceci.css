@@ -1,0 +1,158 @@
+// ------------------------------------------
+// form
+// ------------------------------------------
+
+
+@mixin import-ui-form {
+
+//--------------------- 定义 ---------------------//
+
+//定义form相关变量
+$form-cls:				#{$conf-nsp-ele}form; //通用类名
+
+//基础样式
+$form-row-margin:               unit(20); //行间距
+$form-item-h:                   unit(40); //行高（标准高度）
+$form-item-margin:              unit(65); //item右边距
+
+//label
+$form-label-width:			    unit(120); //固定宽度
+$form-label-lh:			        $form-item-h/2; //文字lh，通常为$form-item-h的一半（因为可支持两行）
+$form-label-color:			    $color; //文字颜色
+$form-label-fz:			        unit(14); //文字大小
+$form-label-margin: 	        unit(10); //文字边距（右边距）
+
+//content
+$form-ele-w:                    unit(200); // 表单元素宽度，常用于input，select等需要设置宽度
+
+//表单验证
+$form-verify-error:             red; //错误态颜色
+$form-verify-right:             green; //正确态颜色
+$form-verify-warn:             orange; //警告态颜色
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$form-cls} {
+    &__row {
+        margin-bottom: $form-row-margin;
+    }
+    &__item {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        min-height: $form-item-h;
+        padding-left: $form-label-width;
+        & + & {
+            margin-left: $form-item-margin;
+        }
+        //一个item占一行
+        &--full {
+            display: block;
+            .#{$conf-nsp-ele}form__ele-w {
+                width: 100%;
+            }
+        }
+    }
+    &__label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: $form-label-width;
+        height: $form-item-h;
+        @extend %vm;
+        font-size: 0;
+        text-align: right;
+        &--require {
+            .label {
+                // 必填项*
+                &:before {
+                    position: absolute;
+                    left: 0; //////////////////////
+                    top: 50%;
+                    line-height: $form-label-lh;
+                    margin-top: $form-label-lh / -2;
+                    content: '*';
+                    font-size: unit(12);  /////////////////
+                    color: red;  /////////////////
+                }
+            }
+        }
+        .label {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 100%;
+            line-height: $form-label-lh;
+            margin-right: $form-label-margin;
+            max-height: $form-item-h;
+            padding-left: unit(12); //预留*的位置
+            font-size: $form-label-fz;
+            color: $form-label-color;
+            overflow: hidden;
+        }
+    }
+    &__content {
+        
+    }
+    &__ele-w {
+        width: $form-ele-w;
+    }
+    &__tip { // tip的样式根据实际情况定义，以下简单示例放在下方的情况
+        position: absolute;
+        top: 100%; ///////////////////
+        right: 0;
+        left: $form-label-width;
+        line-height: unit(20); //////////////
+        font-size: unit(12); ///////////////
+        color: #999; /////////////////
+        @extend %tof;
+    }
+
+
+    //--------------------- 表单验证 ---------------------//
+    &__item--error {
+        //各种表单元素的状态，陆续添加
+        .#{$conf-nsp-ele}input {
+            border-color: $form-verify-error;
+        }
+        .#{$conf-nsp-ele}form__tip {
+            color: $form-verify-error;
+        }
+    }
+    &__item--right {
+        //各种表单元素的状态，陆续添加
+        .#{$conf-nsp-ele}input {
+            border-color: $form-verify-right;
+        }
+        .#{$conf-nsp-ele}form__tip {
+            color: $form-verify-right;
+        }
+    }
+    &__item--warn {
+        //各种表单元素的状态，陆续添加
+        .#{$conf-nsp-ele}input {
+            border-color: $form-verify-warn;
+        }
+        .#{$conf-nsp-ele}form__tip {
+            color: $form-verify-warn;
+        }
+    }
+
+    //--------------------- 栅格模式下 ---------------------//
+    .#{$conf-nsp-ele}grid__row {
+        &.#{$conf-nsp-ele}form__item {
+            display: block;
+            padding-left: 0;
+        }
+        .#{$conf-nsp-ele}form__label {
+            position: relative;
+            left: auto;
+            top: auto;
+            width: 100%;
+        }
+        .#{$conf-nsp-ele}input {
+            width: 100%;
+        }
+    }
+}
+
+}

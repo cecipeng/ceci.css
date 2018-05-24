@@ -1,0 +1,111 @@
+@@include('_include/_meta.html')	
+    <title>项目组件demo</title>
+</head>
+
+<body class="demo-content">
+	<!-- 介绍 -->
+	<section class="demo-content__header">
+		<div class="demo-content__subject">
+			@@include('../../_components/_form/doc/intro.html')
+		</div>
+	</section>
+	<!-- /介绍 -->
+
+	<!-- 预览演示 -->
+	<section class="demo-content__body">
+
+        <!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_form/doc/basic.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_form/_basic.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_form/_basic.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+    	<!-- 分类 -->
+	  
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_form/doc/full.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_form/_full.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_form/_full.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+	
+		<!-- 分类 -->
+	<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../_components/_form/doc/grid.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../_components/_form/_grid.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_form/_grid.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+	</section>
+	<!-- /预览演示 -->
+
+	<!-- api -->
+	<section class="demo__markdown">
+	</section>
+	<!-- /api -->
+
+
+@@include('_include/_script.html')	
+</body>
+</html>

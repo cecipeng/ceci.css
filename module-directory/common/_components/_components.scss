@@ -117,3 +117,9 @@
 @if $conf-avatar { 
     @include import-ui-avatar; 
 } 
+
+// form
+@import "_form/form";
+@if $conf-form { 
+    @include import-ui-form; 
+} 

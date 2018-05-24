@@ -299,7 +299,7 @@ $padding:               24px;
         margin-bottom: 10px;
     }
     p {
-        line-height: 20px;
+        line-height: 24px;
         font-size: 14px;
         color: #999;
         margin-bottom: 20px;
@@ -433,5 +433,11 @@ $padding:               24px;
     .ui-layout-bfc__fl,
     .ui-layout-bfc__fr {
         background-color: transparent;
+    }
+}
+.ui-grid__row {
+    .demo {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
     }
 }
