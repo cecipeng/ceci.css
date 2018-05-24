@@ -16,7 +16,7 @@ $conf-common:                   '../../../common/styles';
 $conf-animation: 	            false; 
 
 // 引用图片相对于style.scss的相对路径（变量尚未使用）
-$conf-imgurl:		            '../images/';
+$conf-imgurl:		            '../../images/';
 $conf-comimgurl:                '../../../_common/_images/'; //公用图片
 
 // 是否使用rem单位，默认：不引入
@@ -53,3 +53,4 @@ $conf-modal: 		            true; //弹窗
 $conf-header: 		            true; //头部
 $conf-avatar: 		            true; //头像
 $conf-form: 		            true; //表单
+$conf-table: 		            true; //表格

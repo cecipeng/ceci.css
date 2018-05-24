@@ -1,0 +1,64 @@
+// ------------------------------------------
+// table
+// ------------------------------------------
+
+
+@mixin import-ui-table {
+
+//--------------------- 定义 ---------------------//
+
+//定义table相关变量
+$table-cls:				#{$conf-nsp-ele}table; //通用类名
+$table-align:               left; //默认对齐方式
+
+//标题
+$table-th-h:				unit(72); //高度
+$table-th-bg:			    transparent; //背景色
+$table-th-fz:			    unit(18); //文字大小
+$table-th-color:			$color-d; //文字颜色
+$table-th-border:		    1px solid $border; //边线，可设置为none
+$table-th-padding:		    unit(40); //内边距
+
+//内容
+$table-td-h:				unit(72); //高度
+$table-td-bg:			    transparent; //背景色
+$table-td-fz:			    unit(16); //文字大小
+$table-td-color:			$color; //文字颜色
+$table-td-border:		    none; //边线，可设置为none
+$table-td-padding:		    unit(40); //内边距
+$table-td-rowbg:		    #f8f8f8; //隔行换色颜色
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$table-cls} {
+    table {
+        width: 100%;
+    }
+    thead th {
+        height: $table-th-h;
+        padding-left: $table-th-padding;
+        border-bottom: $table-th-border;
+        background-color: $table-th-bg;
+        font-size: $table-th-fz;
+        color: $table-th-color;
+        text-align: $table-align;
+        font-weight: bold; ////////////////////
+    }
+    tbody td {
+        height: $table-td-h;
+        padding-left: $table-td-padding;
+        border-bottom: $table-td-border;
+        background-color: $table-td-bg;
+        font-size: $table-td-fz;
+        color: $table-td-color;
+        text-align: $table-align;
+    }
+
+    //--------------------- 隔行换色 ---------------------//
+    &--rowbg {
+        tbody tr:nth-child(even) {
+            background-color: $table-td-rowbg;
+        }
+    }
+}
+
+}

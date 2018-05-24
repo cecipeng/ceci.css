@@ -123,3 +123,9 @@
 @if $conf-form { 
     @include import-ui-form; 
 } 
+
+// table
+@import "_table/table";
+@if $conf-table { 
+    @include import-ui-table; 
+} 
