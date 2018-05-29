@@ -441,3 +441,12 @@ $padding:               24px;
         border: 1px solid #ddd;
     }
 }
+.ui-modal {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    padding: 20px;
+    overflow: auto;
+}
