@@ -50,11 +50,26 @@ $tree-item-h:						unit(32); //行高
 	}
 	li {
 		margin-bottom: unit(4);
+		//展开
+		&.is-open {
+			> .ui-tree__subtree {
+				display: block;
+			}
+			> .ui-tree__item {
+				> .ui-tree__switcher {
+					margin-top: unit(6);
+					margin-left: unit(-26);
+					margin-right: unit(11);
+					@include arrow(top,#999,unit(6),unit(5));
+				}
+			}
+		}
 	}
 	&__item {
 		height: $tree-item-h;
 		padding-left: $tree-padding-level1;
 		cursor: pointer;
+		//选中
 		&.is-check {
 			background-color: $main-bg;
 		}
@@ -87,6 +102,7 @@ $tree-item-h:						unit(32); //行高
 		font-weight: bold;
 	}
 	&__subtree {
+		display: none;
 		margin-top: unit(6);
 	}
 }
