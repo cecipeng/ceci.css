@@ -129,3 +129,9 @@
 @if $conf-table { 
     @include import-ui-table; 
 } 
+
+// tree
+@import "_tree/tree";
+@if $conf-tree { 
+    @include import-ui-tree; 
+} 

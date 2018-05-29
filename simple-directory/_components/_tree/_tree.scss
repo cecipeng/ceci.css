@@ -1,0 +1,94 @@
+// ------------------------------------------
+// tree
+// ------------------------------------------
+
+
+@mixin import-ui-tree {
+
+//--------------------- 定义 ---------------------//
+
+//定义tree相关变量
+$tree-cls:							#{$conf-nsp-ele}tree; //通用类名
+$tree-padding-level1:				unit(62); //一级结构的缩进
+$tree-padding-level2:				unit(62 + 28); //二级结构的缩进
+$tree-padding-level3:				unit(62 + 28 + 28); //三级结构的缩进
+$tree-padding-level4:				unit(62 + 28 + 28 + 28); //四级结构的缩进
+$tree-item-h:						unit(32); //行高
+
+//--------------------- 通用样式（固定样式） ---------------------//
+.#{$tree-cls} {
+	//层级缩进
+	> li {
+		//一级
+		> .#{$tree-cls}__item {
+			padding-left: $tree-padding-level1;
+		}
+		> .#{$tree-cls}__subtree {
+			> li {
+				//二级
+				> .#{$tree-cls}__item {
+					padding-left: $tree-padding-level2;
+				}
+				> .#{$tree-cls}__subtree {
+					> li {
+						//三级
+						> .#{$tree-cls}__item {
+							padding-left: $tree-padding-level3;
+						}
+						> .#{$tree-cls}__subtree {
+							> li {
+								//四级
+								> .#{$tree-cls}__item {
+									padding-left: $tree-padding-level4;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	li {
+		margin-bottom: unit(4);
+	}
+	&__item {
+		height: $tree-item-h;
+		padding-left: $tree-padding-level1;
+		cursor: pointer;
+		&.is-check {
+			background-color: $main-bg;
+		}
+	}
+	&__switcher {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: unit(-22); ///////////////////////
+		margin-right: unit(5);
+		@include arrow(left,#999,unit(5),unit(6));
+	}
+	&__checkbox {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: unit(9);
+	}
+	&__text {
+		display: inline-block;
+		vertical-align: middle;
+		max-width: 80%;
+		line-height: $tree-item-h;
+		font-size: unit(16);
+		color: #666;
+		@extend %tof;
+	}
+	&__switcher + * + &__text,
+	&__switcher + &__text {
+		font-size: unit(16);
+		color: #333;
+		font-weight: bold;
+	}
+	&__subtree {
+		margin-top: unit(6);
+	}
+}
+
+}
