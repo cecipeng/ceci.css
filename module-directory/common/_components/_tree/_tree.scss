@@ -14,6 +14,7 @@ $tree-padding-level2:				unit(62 + 28); //二级结构的缩进
 $tree-padding-level3:				unit(62 + 28 + 28); //三级结构的缩进
 $tree-padding-level4:				unit(62 + 28 + 28 + 28); //四级结构的缩进
 $tree-item-h:						unit(32); //行高
+$tree-active-bg:					#ddd; //选中项背景色
 
 //--------------------- 通用样式（固定样式） ---------------------//
 .#{$tree-cls} {
@@ -71,7 +72,7 @@ $tree-item-h:						unit(32); //行高
 		cursor: pointer;
 		//选中
 		&.is-check {
-			background-color: $main-bg;
+			background-color: $tree-active-bg;
 		}
 	}
 	&__switcher {

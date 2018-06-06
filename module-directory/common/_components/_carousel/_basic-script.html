@@ -1,27 +1,37 @@
 /**
- * 
- * 
- * @param {any} sliderOpt 
+ * @name ：			走马灯
+ * @version ：		v1.0.0
+ * @information ： 	未使用任何插件
+ * @param ：		{object} sliderOpt {
+ * 						ele :  ".ui-carousel" //最外层类名or ID名
+ * 						isCSS3 :  true //是否支持css3
+ * 						isturn :  true //是否有左右翻页
+ * 						isnav :  true //是否有导航点切换
+ * 						autoPlay :  0 //是否自动翻页，大于0的值表示自动翻页时间间隔（单位ms）
+ * 						horizontal :  true //垂直方向，默认水平，值默认false，可设置为true表示垂直方向显示
+ *  				}
  */
 
 function Slider(sliderOpt){
 
 	//传入的参数
 	var wrapname = sliderOpt.ele || ".ui-carousel";	//默认顶级id为sliderWrap
-	this.isCSS3 = sliderOpt.iscss3 == undefined ? true : sliderOpt.iscss3;	//默认支持css3
+	this.isCSS3 = sliderOpt.isCSS3 == undefined ? true : sliderOpt.isCSS3;	//默认支持css3
 	this.isturn = sliderOpt.isturn == undefined ? true : sliderOpt.isturn; //默认有左右翻页
 	this.isnav = sliderOpt.isnav == undefined ? true : sliderOpt.isnav; //默认有导航点切换
 	this.autoPlay = sliderOpt.autoPlay || 0; //默认不自动翻页，大于0的值表示自动翻页时间间隔（单位ms）
+	this.horizontal = sliderOpt.horizontal || false; //垂直方向，默认水平，值默认false，可设置为true表示垂直方向显示
 
 	//内部节点
-	this.sliderLi = $(wrapname).find(".sliderbody > li") || undefined;	//内容
-	this.sliderNav = $(wrapname).find(".slidernav .navbody") || undefined;	//导航点
-	this.sliderBtnPrev = $(wrapname).find(".slider-prev") || undefined;	//左切换按钮
-	this.sliderBtnNext = $(wrapname).find(".slider-next") || undefined;	//右切换按钮
+	this.sliderWrap = $(wrapname).find(".ui-carousel__list") || undefined;	//移动的容器
+	this.sliderLi = $(wrapname).find(".ui-carousel__list > .ui-carousel__slide") || undefined;	//内容
+	this.sliderNav = $(wrapname).find(".ui-carousel__dots") || undefined;	//导航点
+	this.sliderBtnPrev = $(wrapname).find(".ui-carousel__prev") || undefined;	//左切换按钮
+	this.sliderBtnNext = $(wrapname).find(".ui-carousel__next") || undefined;	//右切换按钮
 
-	this.activeName = this.isCSS3 ? ["prevCSS3","activeCSS3","nextCSS3"] : ["prev","active","next"];
+	this.activeName = this.isCSS3 ? ["is-prevCSS3","is-activeCSS3","is-nextCSS3"] : ["is-prev","is-active","is-next"];
 
-	this.init();
+    this.init();
 }
 
 Slider.prototype.init = function(){
@@ -30,20 +40,35 @@ Slider.prototype.init = function(){
 
 	//导航点个数初始化
 	if(_this.isnav) {
-		_this.sliderNav.empty();
+        _this.sliderNav.empty();
 		for(var i=0; i<num; i++){
-			_this.sliderNav.append('<span class="navdot"></span>');
+			_this.sliderNav.append('<li></li>');
 		}
 	}
 
 	//默认显示第一张
 	if(_this.isnav) {
-		_this.sliderNav.find(".navdot:eq(0)").addClass('on');	//第一个导航点加on
+		_this.sliderNav.find("li:eq(0)").addClass('is-active');	//第一个导航点加on
 	}
 	if(_this.isturn) {
 		_this.judgeTurnBtn(0);	//左切换按钮消失
 	}
 	_this.sliderLi.attr("data-status",_this.activeName[2]).eq(0).attr("data-status",_this.activeName[1]); //第一个Li添加active标记，其他添加next标记
+	
+	//内容移动
+	if(_this.isCSS3) {
+		_this.sliderWrap.css("transform","translate3d(0, 0px, 0px)");
+		
+	}
+	else {
+		if(_this.horizontal) {
+			_this.sliderWrap.animate({"position":"absolute", "top":0},300);
+		}
+		else {
+			_this.sliderWrap.animate({"position":"absolute", "left":0},300);
+		}
+	}
+
 
 	//有翻页按钮则绑定相关事件
 	if(_this.isturn) {
@@ -85,9 +110,9 @@ Slider.prototype.nextBtn = function(){
 	var _this = this;
 	var indexOld = 0;
 	var $btnNext = _this.sliderBtnNext;
-
+   
 	$btnNext.on("click",function(){
-		indexOld = _this.getIndex();
+		indexOld = _this.getIndex(); 
 		_this.slider(indexOld,indexOld+1);
 	});
 }
@@ -96,7 +121,7 @@ Slider.prototype.nextBtn = function(){
 Slider.prototype.navBtn = function(){
 	var _this = this;
 	var indexOld = 0, indexNew = 0;
-	var $btnNav = _this.sliderNav.find(".navdot");
+	var $btnNav = _this.sliderNav.find("li");
 	
 	$btnNav.on("click",function(){
 		indexOld = _this.getIndex();
@@ -109,6 +134,8 @@ Slider.prototype.navBtn = function(){
 Slider.prototype.slider = function(oldone,newone){
 	var _this = this;
 	var diff = newone - oldone;
+	var moveDistance = newone * -100;
+	moveDistance = moveDistance +"%";
 
 	//切换后的节点添加active标记
 	_this.sliderLi.eq(newone).attr("data-status",_this.activeName[1]);
@@ -128,6 +155,7 @@ Slider.prototype.slider = function(oldone,newone){
 			// }
 			_this.sliderLi.eq(i).attr("data-status",_this.activeName[0]);
 		}
+		
 	}
 	//往前翻其他节点添加next标记
 	if(diff < 0){
@@ -148,8 +176,28 @@ Slider.prototype.slider = function(oldone,newone){
 
 	//导航点切换
 	if(_this.isnav) {
-		_this.sliderNav.find(".navdot").removeClass('on').eq(newone).addClass('on');
+		_this.sliderNav.find("li").removeClass('is-active').eq(newone).addClass('is-active');
 	}
+
+	//内容移动
+	if(_this.isCSS3) {
+		if(_this.horizontal) {
+			_this.sliderWrap.css("transform","translate3d(0px, "+ moveDistance +", 0px)");
+		}
+		else {
+			_this.sliderWrap.css("transform","translate3d(0px, "+ moveDistance +", 0px)");
+		}
+		
+	}
+	else {
+		if(_this.horizontal) {
+			_this.sliderWrap.animate({"position":"absolute", "top":moveDistance},300);
+		}
+		else {
+			_this.sliderWrap.animate({"position":"absolute", "left":moveDistance},300);
+		}
+	}
+	
 
 	//左右按钮判断是否要隐藏
 	if(_this.isturn) {

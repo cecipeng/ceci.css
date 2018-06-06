@@ -8,9 +8,32 @@ $carousel-cls:				#{$conf-nsp-ele}carousel; //通用类名
 @mixin import-ui-carousel {
 
 //--------------------- 定义 ---------------------//
-$carousel-height:           unit(200); //高度
-$carousel-turn-size:        unit(40); //左右切换按钮尺寸
+// 整体
+$carousel-height:           unit(373); //高度
 $carousel-vertical-height:  100%;
+
+// 导航点
+$carousel-nav-bottom:       unit(20); //距离底部距离
+$carousel-nav-center:       false; //是否居中
+$carousel-nav-left:         -1; //左对齐，默认-1表示不是左对齐，设置值表示左对齐，且距离左侧边距
+$carousel-nav-right:        unit(100); //右对齐，同上
+$carousel-nav-w:            unit(10); //宽
+$carousel-nav-h:            unit(10); //高
+$carousel-nav-margin:       unit(4); //间距
+$carousel-nav-bg:           #fff; //背景色
+$carousel-nav-opacity:        0.7; //透明度
+$carousel-nav-radius:        50%; //圆角
+
+// 左右切换
+$carousel-turn-w:        unit(40); //宽度
+$carousel-turn-h:        unit(40); //高度
+$carousel-turn-color:    #fff; //颜色
+$carousel-turn-margin:    unit(20); //边距
+
+// 垂直布局下
+$carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距离右边距离
+
+
 //--------------------- 通用样式（固定样式） ---------------------//
 .#{$carousel-cls} {
     position: relative;
@@ -23,38 +46,63 @@ $carousel-vertical-height:  100%;
         
     }
     &__list {
-        white-space: nowrap;
+        @if $conf-css3 {}
+        @else {
+            position: absolute;
+            top: 0;
+        }
+        width: 100%;
         height: 100%;
+        white-space: nowrap;
         font-size: 0;
+        transition: transition(transform);
     }
     &__slide {
         display: inline-block;
+        vertical-align: top;
         width: 100%;
         height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        
+        @if $conf-css3 {
+            background-size: cover;
+        }
     }
 
     //切换导航点
     &__dots {
         position: absolute;
-        left: 0;
-        bottom: unit(10); /////////////////
-        right: 0;
+        @if $carousel-nav-center {
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        @if $carousel-nav-right != -1 {
+            right: $carousel-nav-right;
+        }
+        @if $carousel-nav-left != -1 {
+            left: $carousel-nav-left;
+        }
+        bottom: $carousel-nav-bottom;
         text-align: center;
         > li {
             display: inline-block;
             vertical-align: middle;
-            width: unit(16); ////////////////////
-            height: unit(3); ////////////////////
-            background: #fff; /////////////////////////
-            opacity: .6; /////////////////
+            width: $carousel-nav-w;
+            height: $carousel-nav-h;
+            margin: 0 $carousel-nav-margin;
+            background: $carousel-nav-bg;
+            opacity: $carousel-nav-opacity;
             cursor: pointer;
             transition: transition(all);
+            border-radius: $carousel-nav-radius;
             &:hover {
-                opacity: .8;
+                opacity: 1;  ////////////
             }
-            &.active {
-                width: unit(24); ////////////////////
-                opacity: 1;
+            &.is-active {
+                background-color: $main; ////////////////
+                opacity: 1;  ///////////////
             }
         }
     }
@@ -63,12 +111,12 @@ $carousel-vertical-height:  100%;
     &__turn {
         position: absolute;
         top: 50%;
-        width: $carousel-turn-size;
-        height: $carousel-turn-size;
-        margin-top: -($carousel-turn-size / 2);
+        width: $carousel-turn-w;
+        height: $carousel-turn-h;
+        margin-top: $carousel-turn-h / -2;
         @extend %iconfont;
-        font-size: unit(40);
-        color: #fff; //////////////////////
+        font-size: $carousel-turn-h;
+        color: $carousel-turn-color;
         cursor: pointer;
         transition: transition(opacity);
         &:hover {
@@ -80,11 +128,11 @@ $carousel-vertical-height:  100%;
     }
     &__prev {
         @extend %#{$icon-cls}-font--left;
-        left: unit(20); ///////////////
+        left: $carousel-turn-margin;
     }
     &__next {
         @extend %#{$icon-cls}-font--right;
-        right: unit(20); ///////////////
+        right: $carousel-turn-margin;
     }
 
 
@@ -104,7 +152,7 @@ $carousel-vertical-height:  100%;
 
     &--vertical &__dots {
         bottom: auto;
-        right: unit(10); ////////////
+        right: $carousel-vertical-nav-right;
         left: auto;
         @if $conf-css3 {
             top: 50%;
@@ -115,12 +163,10 @@ $carousel-vertical-height:  100%;
         }
         > li {
             display: block;
-            width: unit(3); ////////////////
-            height: unit(16);
-            margin-bottom: unit(4); ///////////
-            &.active {
-                width: unit(3); ////////////////////
-                height: unit(24); /////////////////////
+            width: $carousel-nav-w;
+            height: $carousel-nav-h;
+            margin-bottom: $carousel-nav-margin;
+            &.is-active {
                 opacity: 1;
             }
         }

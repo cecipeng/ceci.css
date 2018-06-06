@@ -37,6 +37,16 @@
 						<a class="demo__showcode">查看代码</a>
 					</p>
 				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-24">
+					<pre>
+						<code class="html">	
+@@include('../../_components/_carousel/_basic-script.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看脚本</a>
+					</p>
+				</div>
 			</div>
 			<!--/预览、代码-->
 		</div>
@@ -45,34 +55,6 @@
 		<!-- 分类 -->
 		<div class="demo-content__mdbox">
 			<!--title-->
-			<div class="demo-content__leveltitle">
-				@@include('../../_components/_carousel/doc/script.html')
-			</div>
-			<!--/title-->
-			
-			<!--预览、代码-->
-			<div class="demo-grid__row">
-				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
-					@@include('../../_components/_carousel/_script.html')
-				</div>
-				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
-					<pre>
-						<code class="html">	
-@@include('../../_components/_carousel/_script.html')
-						</code>
-					</pre>
-					<p class="demo__codetrl">
-						<a class="demo__showcode">查看代码</a>
-					</p>
-				</div>
-			</div>
-			<!--/预览、代码-->
-		</div>
-		<!-- 分类 -->
-
-		<!-- 分类 -->
-		<div class="demo-content__mdbox">
-				<!--title-->
 			<div class="demo-content__leveltitle">
 				@@include('../../_components/_carousel/doc/vertical.html')
 			</div>
@@ -93,6 +75,16 @@
 						<a class="demo__showcode">查看代码</a>
 					</p>
 				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-24">
+					<pre>
+						<code class="html">	
+同上
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看脚本</a>
+					</p>
+				</div>
 			</div>
 			<!--/预览、代码-->
 		</div>
@@ -109,5 +101,24 @@
 
 
 @@include('_include/_script.html')	
+<script>
+	@@include('../../_components/_carousel/_basic-script.html')
+	var slider1 = new Slider({
+		ele : "#carousel1",
+		isCSS3: false,
+		isturn: true,
+		nsnav: true,
+		autoPlay: false
+	});
+
+	var slider2 = new Slider({
+		ele : "#carousel2",
+		isCSS3: true,
+		isturn: true,
+		nsnav: true,
+		autoPlay: false,
+		horizontal: true
+	});
+</script>
 </body>
 </html>
