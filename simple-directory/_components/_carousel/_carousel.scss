@@ -184,7 +184,7 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
             height: $carousel-height;
         }
         //导航点
-        .swiper-pagination {
+        .swiper-container-horizontal .swiper-pagination-bullets {
             bottom: $carousel-nav-bottom;
             @if $carousel-nav-center {
                 left: 0;
@@ -192,9 +192,13 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
                 text-align: center;
             }
             @if $carousel-nav-right != -1 {
+                width: auto;
+                left: auto;
                 right: $carousel-nav-right;
             }
             @if $carousel-nav-left != -1 {
+                width: auto;
+                right: auto;
                 left: $carousel-nav-left;
             }
         }
@@ -210,12 +214,33 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
                 opacity: $carousel-nav-active-opacity;
             }
         }
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: $carousel-turn-w;
+            height: $carousel-turn-h;
+            margin-top: $carousel-turn-w / -2;
+            color: $carousel-turn-color;
+        }
+        .swiper-button-prev {
+            left: $carousel-turn-margin;
+        }
+        .swiper-button-next {
+            right: $carousel-turn-margin;
+        }
+        .swiper-slide {
+            background-repeat: no-repeat;
+            background-position: center center;
+            @if $conf-css3 {
+                background-size: cover;
+            }
+        }
 
         /////////////////// 垂直布局下
         .swiper-container-vertical {
             //导航点
             .swiper-pagination {
                 right: $carousel-vertical-nav-right;
+                bottom: auto;
                 @if $conf-css3 {}
                 @else {
                     top: 30%;
@@ -233,14 +258,20 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
             .swiper-button-next {
                 width: $carousel-turn-w;
                 height: $carousel-turn-h;
-                margin-top: $carousel-turn-w / -2;
+                margin-left: $carousel-turn-w / -2;
                 color: $carousel-turn-color;
             }
             .swiper-button-prev {
-                left: $carousel-turn-margin;
+                top: $carousel-turn-margin;
+                left: 50%;
+                margin-top: 0;
             }
             .swiper-button-next {
-                right: $carousel-turn-margin;
+                bottom: $carousel-turn-margin;
+                left: 50%;
+                right: auto;
+                top: auto;
+                margin-top: 0;
             }
         }
     }

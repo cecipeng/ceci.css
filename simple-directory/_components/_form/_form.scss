@@ -11,24 +11,24 @@
 $form-cls:				#{$conf-nsp-ele}form; //通用类名
 
 //基础样式
-$form-row-margin:               unit(20); //行间距
+$form-row-margin:               unit(32); //行间距
 $form-item-h:                   unit(40); //行高（标准高度）
 $form-item-margin:              unit(65); //item右边距
 
 //label
 $form-label-width:			    unit(120); //固定宽度
 $form-label-lh:			        $form-item-h/2; //文字lh，通常为$form-item-h的一半（因为可支持两行）
-$form-label-color:			    $color; //文字颜色
-$form-label-fz:			        unit(14); //文字大小
+$form-label-color:			    $color-d; //文字颜色
+$form-label-fz:			        unit(16); //文字大小
 $form-label-margin: 	        unit(10); //文字边距（右边距）
 
 //content
-$form-ele-w:                    unit(200); // 表单元素宽度，常用于input，select等需要设置宽度
+$form-ele-w:                    unit(217); // 表单元素宽度，常用于input，select等需要设置宽度
 
 //表单验证
-$form-verify-error:             red; //错误态颜色
-$form-verify-right:             green; //正确态颜色
-$form-verify-warn:             orange; //警告态颜色
+$form-verify-error:             $red; //错误态颜色
+$form-verify-right:             $green; //正确态颜色
+$form-verify-warn:              orange; //警告态颜色
 
 //--------------------- 通用样式（固定样式） ---------------------//
 .#{$form-cls} {
@@ -50,7 +50,18 @@ $form-verify-warn:             orange; //警告态颜色
             .#{$conf-nsp-ele}form__ele-w {
                 width: 100%;
             }
+            & + & {
+                margin-left: 0;
+            }
         }
+    }
+    // 纯文本
+    &__text {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $form-item-h;
+        font-size: unit(16);
+        color: #666666;
     }
     &__label {
         position: absolute;
@@ -72,7 +83,7 @@ $form-verify-warn:             orange; //警告态颜色
                     margin-top: $form-label-lh / -2;
                     content: '*';
                     font-size: unit(12);  /////////////////
-                    color: red;  /////////////////
+                    color: $red;  /////////////////
                 }
             }
         }
@@ -91,7 +102,9 @@ $form-verify-warn:             orange; //警告态颜色
         }
     }
     &__content {
-        
+        * + * {
+            // margin-left: unit(15);
+        }
     }
     &__ele-w {
         width: $form-ele-w;
