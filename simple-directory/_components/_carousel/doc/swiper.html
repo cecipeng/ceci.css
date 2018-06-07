@@ -1,0 +1,28 @@
+<h2 id="-swiper-">使用swiper插件</h2>
+<p>基于swiper插件</p>
+<p><strong>使用方式：</strong><br>1.引入样式     </p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;../../scripts/swiper/swiper-4.1.6.min.css&quot;&gt;
+</code></pre><p>2.引入脚本    </p>
+<pre><code>&lt;script src=&quot;../../scripts/swiper/swiper-4.1.6.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>3.初始化swiper       </p>
+<pre><code>var mySwiper = new Swiper (&#39;#carousel3 .swiper-container&#39;, {
+    direction: &#39;vertical&#39;,
+    loop: true,
+
+    // 如果需要分页器
+    pagination: {
+      el: &#39;.swiper-pagination&#39;,
+    },
+
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: &#39;.swiper-button-next&#39;,
+      prevEl: &#39;.swiper-button-prev&#39;,
+    },
+
+    // 如果需要滚动条
+    scrollbar: {
+      el: &#39;.swiper-scrollbar&#39;,
+    },
+})   
+</code></pre><p>4.DOM结构<br>参考下方代码即可</p>

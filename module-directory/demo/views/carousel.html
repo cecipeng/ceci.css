@@ -1,4 +1,5 @@
 @@include('_include/_meta.html')	
+	<link rel="stylesheet" href="../../common/scripts/swiper/swiper-4.1.6.min.css">
     <title>项目组件demo</title>
 </head>
 
@@ -6,7 +7,7 @@
 	<!-- 介绍 -->
 	<section class="demo-content__header">
 		<div class="demo-content__subject">
-			@@include('../../_components/_carousel/doc/intro.html')
+			@@include('../../common/_components/_carousel/doc/intro.html')
 		</div>
 	</section>
 	<!-- /介绍 -->
@@ -18,19 +19,19 @@
 		<div class="demo-content__mdbox">
 			<!--title-->
 			<div class="demo-content__leveltitle">
-				@@include('../../_components/_carousel/doc/basic.html')
+				@@include('../../common/_components/_carousel/doc/basic.html')
 			</div>
 			<!--/title-->
 			
 			<!--预览、代码-->
 			<div class="demo-grid__row">
 				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
-					@@include('../../_components/_carousel/_basic.html')
+					@@include('../../common/_components/_carousel/_basic.html')
 				</div>
 				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
 					<pre>
 						<code class="html">	
-@@include('../../_components/_carousel/_basic.html')
+@@include('../../common/_components/_carousel/_basic.html')
 						</code>
 					</pre>
 					<p class="demo__codetrl">
@@ -40,7 +41,7 @@
 				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-24">
 					<pre>
 						<code class="html">	
-@@include('../../_components/_carousel/_basic-script.html')
+@@include('../../common/_components/_carousel/_basic-script.html')
 						</code>
 					</pre>
 					<p class="demo__codetrl">
@@ -56,7 +57,7 @@
 		<div class="demo-content__mdbox">
 			<!--title-->
 			<div class="demo-content__leveltitle">
-				@@include('../../_components/_carousel/doc/vertical.html')
+				@@include('../../common/_components/_carousel/doc/vertical.html')
 			</div>
 			<!--/title-->
 			
@@ -68,7 +69,7 @@
 				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
 					<pre>
 						<code class="html">	
-@@include('../../_components/_carousel/_vertical.html')
+@@include('../../common/_components/_carousel/_vertical.html')
 						</code>
 					</pre>
 					<p class="demo__codetrl">
@@ -90,19 +91,48 @@
 		</div>
 		<!-- 分类 -->
 
+		<!-- 分类 -->
+		<div class="demo-content__mdbox">
+			<!--title-->
+			<div class="demo-content__leveltitle">
+				@@include('../../common/_components/_carousel/doc/swiper.html')
+			</div>
+			<!--/title-->
+			
+			<!--预览、代码-->
+			<div class="demo-grid__row">
+				<div class="demo-grid__col-s-24 demo-grid__col-m-12">
+					@@include('../../common/_components/_carousel/_swiper.html')
+				</div>
+				<div class="demo__codebox demo-grid__col-s-24 demo-grid__col-m-12">
+					<pre>
+						<code class="html">	
+@@include('../../common/_components/_carousel/_swiper.html')
+						</code>
+					</pre>
+					<p class="demo__codetrl">
+						<a class="demo__showcode">查看代码</a>
+					</p>
+				</div>
+			</div>
+			<!--/预览、代码-->
+		</div>
+		<!-- 分类 -->
+
 	</section>
 	<!-- /预览演示 -->
 
 	<!-- api -->
 	<section class="demo__markdown">
-		@@include('../../_components/_carousel/doc/api.html')
+		@@include('../../common/_components/_carousel/doc/api.html')
 	</section>
 	<!-- /api -->
 
 
-@@include('_include/_script.html')	
+@@include('_include/_script.html')
+<script src="../../common/scripts/swiper/swiper-4.1.6.min.js"></script>	
 <script>
-	@@include('../../_components/_carousel/_basic-script.html')
+	@@include('../../common/_components/_carousel/_basic-script.html')
 	var slider1 = new Slider({
 		ele : "#carousel1",
 		isCSS3: false,
@@ -119,6 +149,30 @@
 		autoPlay: false,
 		horizontal: true
 	});
+
+	
+</script>
+
+<script>        
+	var mySwiper = new Swiper ('#carousel3 .swiper-container', {
+	  direction: 'vertical',
+	  
+	  // 如果需要分页器
+	  pagination: {
+		el: '.swiper-pagination',
+	  },
+	  
+	  // 如果需要前进后退按钮
+	  navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	  },
+	  
+	  // 如果需要滚动条
+	  scrollbar: {
+		el: '.swiper-scrollbar',
+	  },
+	})        
 </script>
 </body>
 </html>

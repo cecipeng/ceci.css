@@ -23,6 +23,8 @@ $carousel-nav-margin:       unit(4); //间距
 $carousel-nav-bg:           #fff; //背景色
 $carousel-nav-opacity:        0.7; //透明度
 $carousel-nav-radius:        50%; //圆角
+$carousel-nav-active-bg:        $main; //激活态背景色
+$carousel-nav-active-opacity:         1; //激活态透明度
 
 // 左右切换
 $carousel-turn-w:        unit(40); //宽度
@@ -30,7 +32,7 @@ $carousel-turn-h:        unit(40); //高度
 $carousel-turn-color:    #fff; //颜色
 $carousel-turn-margin:    unit(20); //边距
 
-// 垂直布局下
+/////////////// 垂直布局下
 $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距离右边距离
 
 
@@ -101,8 +103,8 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
                 opacity: 1;  ////////////
             }
             &.is-active {
-                background-color: $main; ////////////////
-                opacity: 1;  ///////////////
+                background-color: $carousel-nav-active-bg;
+                opacity: $carousel-nav-active-opacity;
             }
         }
     }
@@ -167,7 +169,8 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
             height: $carousel-nav-h;
             margin-bottom: $carousel-nav-margin;
             &.is-active {
-                opacity: 1;
+                background: $carousel-nav-active-bg;
+                opacity: $carousel-nav-active-opacity;
             }
         }
     }
@@ -175,9 +178,71 @@ $carousel-vertical-nav-right:      unit(10);  //导航点默认在右侧，距�
         display: none;
     }
 
-    //--------------------- 渐显效果 ---------------------//
-    &--fade {
-        
+    //--------------------- 使用swiper插件 ---------------------//
+    &--swiper {
+        .swiper-container {
+            height: $carousel-height;
+        }
+        //导航点
+        .swiper-pagination {
+            bottom: $carousel-nav-bottom;
+            @if $carousel-nav-center {
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+            @if $carousel-nav-right != -1 {
+                right: $carousel-nav-right;
+            }
+            @if $carousel-nav-left != -1 {
+                left: $carousel-nav-left;
+            }
+        }
+        .swiper-container-horizontal .swiper-pagination-bullets .swiper-pagination-bullet {
+            width: $carousel-nav-w;
+            height: $carousel-nav-h;
+            margin: 0 $carousel-nav-margin;
+            background: $carousel-nav-bg;
+            opacity: $carousel-nav-opacity;
+            border-radius: $carousel-nav-radius;
+            &.swiper-pagination-bullet-active {
+                background: $carousel-nav-active-bg;
+                opacity: $carousel-nav-active-opacity;
+            }
+        }
+
+        /////////////////// 垂直布局下
+        .swiper-container-vertical {
+            //导航点
+            .swiper-pagination {
+                right: $carousel-vertical-nav-right;
+                @if $conf-css3 {}
+                @else {
+                    top: 30%;
+                }
+            }
+            > .swiper-pagination-bullets .swiper-pagination-bullet {
+                width: $carousel-nav-w;
+                height: $carousel-nav-h;
+                margin: $carousel-nav-margin 0;
+                background: $carousel-nav-bg;
+                opacity: $carousel-nav-opacity;
+                border-radius: $carousel-nav-radius;
+            }
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: $carousel-turn-w;
+                height: $carousel-turn-h;
+                margin-top: $carousel-turn-w / -2;
+                color: $carousel-turn-color;
+            }
+            .swiper-button-prev {
+                left: $carousel-turn-margin;
+            }
+            .swiper-button-next {
+                right: $carousel-turn-margin;
+            }
+        }
     }
 }
 

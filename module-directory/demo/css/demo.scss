@@ -451,7 +451,8 @@ $padding:               24px;
     overflow: auto;
 }
 
-.ui-carousel__slide {
+.ui-carousel__slide,
+.swiper-container .swiper-slide {
     background-color: #ddd;
 }
 .ui-carousel--vertical {
