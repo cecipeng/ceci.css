@@ -1,0 +1,50 @@
+{
+  "name": "gulp-tool",
+  "version": "1.0.0",
+  "description": "cecipeng's first gulp tool for testing",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sTeam",
+    "gulp",
+    "gulp4"
+  ],
+  "author": "ceci <1047328479@qq.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.2.2",
+    "browser-sync": "^2.13.0",
+    "cssnano": "^3.10.0",
+    "del": "^2.2.1",
+    "doiuse": "^4.0.0",
+    "fs": "latest",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-file-include": "^0.13.7",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-markdown": "^2.0.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-tinypng-nokey": "^1.1.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-useref": "^3.1.0",
+    "gulp-util": "latest",
+    "gulp4": "^4.0.2",
+    "imagemin-jpegoptim": "^5.0.0",
+    "imagemin-pngquant": "^5.0.0",
+    "minimatch": "latest",
+    "path": "latest",
+    "postcss-color-rgba-fallback": "^3.0.0",
+    "postcss-opacity": "^5.0.0",
+    "postcss-px-to-viewport": "^0.0.3",
+    "postcss-sprites": "^4.2.1",
+    "postcss-url": "^7.3.0",
+    "rucksack-css": "^1.0.2",
+    "through2": "^2.0.3",
+    "uniqs": "^2.0.0",
+    "vinyl-fs": "^2.4.3"
+  }
+}

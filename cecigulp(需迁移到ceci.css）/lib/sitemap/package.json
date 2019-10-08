@@ -1,0 +1,25 @@
+{
+  "name": "sitemap",
+  "version": "0.1.0",
+  "description": "sitemap is export all file path",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a044161/sTeam-sitemap.git"
+  },
+  "keywords": [
+    "sitemap"
+  ],
+  "author": "sTeam",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "through2": "^2.0.3"
+  }
+}
